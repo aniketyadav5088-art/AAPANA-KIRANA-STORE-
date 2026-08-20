@@ -1,935 +1,1191 @@
-   <!DOCTYPE html>
-<html lang="hi">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Apna Kirana Store</title>
 
 <style>
+
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial,sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
 }
 
 body{
-  background:#f5f6f7;
-  color:#222;
+    background:#f1f3f6;
+    color:#212121;
 }
 
-/* HEADER */
+/* ================= HEADER ================= */
+
 header{
-  background:#08783d;
-  color:white;
-  padding:15px 5%;
-  display:flex;
-  align-items:center;
-  gap:20px;
-  position:sticky;
-  top:0;
-  z-index:100;
+    background:#2874f0;
+    min-height:65px;
+    padding:10px 5%;
+    display:flex;
+    align-items:center;
+    gap:18px;
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 
 .logo{
-  font-size:25px;
-  font-weight:bold;
-  white-space:nowrap;
+    color:white;
+    font-size:22px;
+    font-weight:bold;
+    min-width:180px;
 }
 
 .logo span{
-  color:#ffd21c;
+    color:#ffe500;
 }
 
 .search{
-  flex:1;
-  max-width:650px;
-  display:flex;
+    flex:1;
+    max-width:650px;
+    display:flex;
+    height:42px;
 }
 
 .search input{
-  width:100%;
-  padding:13px 16px;
-  border:0;
-  outline:none;
-  font-size:16px;
+    width:100%;
+    border:none;
+    outline:none;
+    padding:0 18px;
+    font-size:15px;
 }
 
 .search button{
-  width:55px;
-  border:0;
-  background:#ffd21c;
-  font-size:20px;
-  cursor:pointer;
+    width:52px;
+    border:none;
+    background:white;
+    color:#2874f0;
+    font-size:20px;
+    cursor:pointer;
 }
 
-.headerBtn{
-  border:0;
-  padding:12px 17px;
-  background:white;
-  color:#08783d;
-  border-radius:6px;
-  font-weight:bold;
-  cursor:pointer;
+.login{
+    background:white;
+    color:#2874f0;
+    border:none;
+    padding:11px 28px;
+    font-weight:bold;
+    cursor:pointer;
 }
 
-/* CATEGORY */
-.categories{
-  background:white;
-  padding:13px 5%;
-  display:flex;
-  gap:12px;
-  overflow-x:auto;
-  box-shadow:0 2px 5px #ddd;
+.cart{
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+    white-space:nowrap;
 }
 
-.categories button{
-  background:white;
-  border:1px solid #08783d;
-  color:#08783d;
-  padding:10px 18px;
-  border-radius:22px;
-  white-space:nowrap;
-  cursor:pointer;
+/* ================= CATEGORY BAR ================= */
+
+.category-bar{
+    background:white;
+    display:flex;
+    justify-content:center;
+    gap:35px;
+    padding:14px 5%;
+    box-shadow:0 1px 3px #ddd;
+    overflow-x:auto;
 }
 
-.categories button:hover{
-  background:#08783d;
-  color:white;
+.category{
+    min-width:90px;
+    text-align:center;
+    cursor:pointer;
+    font-size:14px;
+    font-weight:bold;
 }
 
-/* BANNER */
-.banner{
-  margin:25px 5%;
-  padding:35px;
-  border-radius:15px;
-  background:linear-gradient(110deg,#dff8e9,#fff3bd);
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+.category-icon{
+    width:60px;
+    height:60px;
+    margin:auto;
+    border-radius:50%;
+    background:#f1f3f6;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    margin-bottom:7px;
 }
 
-.banner h1{
-  color:#08783d;
-  font-size:36px;
-  margin-bottom:10px;
+.category-icon img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
 }
 
-.banner p{
-  font-size:18px;
+/* ================= HERO ================= */
+
+.hero{
+    margin:15px 5%;
+    min-height:260px;
+    background:linear-gradient(100deg,#2874f0,#6fa0ff);
+    color:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:40px 6%;
+    overflow:hidden;
 }
 
-.bannerRight{
-  font-size:80px;
+.hero-text h1{
+    font-size:40px;
+    margin-bottom:12px;
 }
 
-/* PRODUCTS */
-.container{
-  padding:0 5% 50px;
+.hero-text p{
+    font-size:18px;
+    margin-bottom:20px;
 }
 
-.heading{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin:25px 0;
+.shop-now{
+    background:#ff9f00;
+    color:white;
+    border:none;
+    padding:13px 30px;
+    font-weight:bold;
+    cursor:pointer;
 }
 
-.heading h2{
-  font-size:27px;
+.hero-image{
+    font-size:120px;
 }
+
+/* ================= SECTION ================= */
+
+.section{
+    margin:15px 5%;
+    background:white;
+}
+
+.section-header{
+    padding:18px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid #eee;
+}
+
+.section-header h2{
+    font-size:22px;
+}
+
+.view-all{
+    background:#2874f0;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    cursor:pointer;
+}
+
+/* ================= PRODUCTS ================= */
 
 .products{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(210px,1fr));
-  gap:20px;
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:1px;
+    background:#eee;
 }
 
 .product{
-  background:white;
-  border-radius:12px;
-  padding:12px;
-  box-shadow:0 2px 10px rgba(0,0,0,.09);
-  transition:.2s;
+    background:white;
+    padding:15px;
+    min-width:0;
+    cursor:pointer;
+    transition:.2s;
 }
 
 .product:hover{
-  transform:translateY(-4px);
-  box-shadow:0 6px 18px rgba(0,0,0,.15);
+    box-shadow:0 3px 12px rgba(0,0,0,.15);
+    transform:translateY(-2px);
+    position:relative;
+    z-index:2;
 }
 
-.productImage{
-  width:100%;
-  height:200px;
-  background:#fafafa;
-  border-radius:10px;
-  overflow:hidden;
-  display:flex;
-  justify-content:center;
-  align-items:center;
+.product-image{
+    height:190px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:white;
+    margin-bottom:12px;
 }
 
-.productImage img{
-  width:100%;
-  height:100%;
-  object-fit:contain;
+.product-image img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
 }
 
-.product h3{
-  margin-top:12px;
-  font-size:17px;
+.product-name{
+    font-size:16px;
+    font-weight:500;
+    margin-bottom:7px;
 }
 
-.weight{
-  color:#777;
-  font-size:13px;
-  margin-top:5px;
+.rating{
+    display:inline-block;
+    background:#388e3c;
+    color:white;
+    font-size:12px;
+    padding:4px 7px;
+    border-radius:3px;
+    margin-bottom:8px;
+}
+
+.rating span{
+    color:white;
 }
 
 .price{
-  color:#08783d;
-  font-size:20px;
-  font-weight:bold;
-  margin:10px 0;
+    font-size:19px;
+    font-weight:bold;
+    margin-bottom:5px;
 }
 
 .mrp{
-  color:#999;
-  text-decoration:line-through;
-  font-size:13px;
-  margin-left:5px;
+    font-size:13px;
+    color:#878787;
+    text-decoration:line-through;
+    margin-left:7px;
 }
 
-.addBtn{
-  width:100%;
-  padding:11px;
-  border:0;
-  border-radius:7px;
-  background:#08783d;
-  color:white;
-  font-weight:bold;
-  cursor:pointer;
+.discount{
+    color:#388e3c;
+    font-size:13px;
+    margin-bottom:10px;
 }
 
-.addBtn:hover{
-  background:#075d30;
+.add-cart{
+    width:100%;
+    background:#ff9f00;
+    color:white;
+    border:none;
+    padding:10px;
+    font-weight:bold;
+    cursor:pointer;
 }
 
-/* CART */
-.cartBox{
-  display:none;
-  position:fixed;
-  right:20px;
-  top:75px;
-  width:350px;
-  max-width:90%;
-  background:white;
-  padding:20px;
-  border-radius:12px;
-  box-shadow:0 5px 30px #777;
-  z-index:200;
+.add-cart:hover{
+    background:#fb8c00;
 }
 
-.cartBox h2{
-  margin-bottom:15px;
+/* ================= CART ================= */
+
+.cart-panel{
+    position:fixed;
+    right:-420px;
+    top:0;
+    width:400px;
+    max-width:95%;
+    height:100vh;
+    background:white;
+    z-index:2000;
+    box-shadow:-4px 0 15px rgba(0,0,0,.3);
+    transition:.3s;
+    padding:20px;
 }
 
-.cartItems{
-  max-height:300px;
-  overflow:auto;
+.cart-panel.active{
+    right:0;
 }
 
-.cartItem{
-  display:flex;
-  justify-content:space-between;
-  padding:10px 0;
-  border-bottom:1px solid #ddd;
+.cart-title{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid #ddd;
+    padding-bottom:15px;
 }
 
-.orderBtn{
-  width:100%;
-  padding:13px;
-  margin-top:15px;
-  border:0;
-  border-radius:7px;
-  background:#ffb900;
-  font-weight:bold;
-  cursor:pointer;
+.close-cart{
+    border:none;
+    background:none;
+    font-size:25px;
+    cursor:pointer;
 }
 
-.closeBtn{
-  width:100%;
-  padding:10px;
-  margin-top:8px;
-  border:1px solid #aaa;
-  background:white;
-  border-radius:7px;
+.cart-items{
+    height:65vh;
+    overflow:auto;
+    padding-top:10px;
 }
 
-/* FOOTER */
+.cart-item{
+    display:flex;
+    justify-content:space-between;
+    padding:13px 0;
+    border-bottom:1px solid #eee;
+}
+
+.remove{
+    color:#2874f0;
+    border:none;
+    background:none;
+    cursor:pointer;
+}
+
+.cart-total{
+    border-top:1px solid #ddd;
+    padding-top:15px;
+}
+
+.checkout{
+    width:100%;
+    margin-top:15px;
+    padding:14px;
+    background:#fb641b;
+    color:white;
+    border:none;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* ================= FOOTER ================= */
+
 footer{
-  background:#202020;
-  color:white;
-  text-align:center;
-  padding:30px;
+    background:#172337;
+    color:white;
+    margin-top:30px;
+    padding:40px 5%;
 }
 
-footer h2{
-  color:#ffd21c;
-  margin-bottom:10px;
+.footer-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:30px;
 }
 
-/* MOBILE */
-@media(max-width:700px){
-
-  header{
-    flex-wrap:wrap;
-    padding:12px;
-  }
-
-  .logo{
-    width:100%;
-    text-align:center;
-  }
-
-  .search{
-    width:100%;
-    order:2;
-  }
-
-  .headerBtn{
-    flex:1;
-    order:3;
-  }
-
-  .banner{
-    margin:15px;
-    padding:25px 18px;
-  }
-
-  .banner h1{
-    font-size:26px;
-  }
-
-  .bannerRight{
-    font-size:50px;
-  }
-
-  .container{
-    padding:0 15px 40px;
-  }
-
-  .products{
-    grid-template-columns:repeat(2,1fr);
-    gap:12px;
-  }
-
-  .productImage{
-    height:145px;
-  }
-
-  .product h3{
-    font-size:15px;
-  }
+footer h3{
+    color:#878787;
+    font-size:14px;
+    margin-bottom:15px;
 }
+
+footer p{
+    font-size:13px;
+    margin:8px 0;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:900px){
+
+    .products{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .category-bar{
+        justify-content:flex-start;
+    }
+
+    .hero{
+        margin:10px;
+    }
+
+}
+
+@media(max-width:600px){
+
+    header{
+        flex-wrap:wrap;
+        padding:10px;
+        gap:10px;
+    }
+
+    .logo{
+        width:100%;
+        text-align:center;
+    }
+
+    .search{
+        width:100%;
+        order:2;
+    }
+
+    .login{
+        order:3;
+        flex:1;
+    }
+
+    .cart{
+        order:3;
+        padding:10px;
+    }
+
+    .category-bar{
+        gap:18px;
+        padding:10px;
+    }
+
+    .category-icon{
+        width:50px;
+        height:50px;
+    }
+
+    .hero{
+        min-height:190px;
+        padding:25px;
+    }
+
+    .hero-text h1{
+        font-size:25px;
+    }
+
+    .hero-text p{
+        font-size:14px;
+    }
+
+    .hero-image{
+        font-size:60px;
+    }
+
+    .section{
+        margin:10px 0;
+    }
+
+    .products{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .product-image{
+        height:140px;
+    }
+
+    .product{
+        padding:10px;
+    }
+
+    .footer-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
 </style>
 </head>
 
+
 <body>
+
+
+<!-- ================= HEADER ================= -->
 
 <header>
 
-  <div class="logo">
-    🛒 APNA <span>KIRANA STORE</span>
-  </div>
+    <div class="logo">
+        APNA <span>KIRANA STORE</span>
+    </div>
 
-  <div class="search">
-    <input
-      type="text"
-      id="searchBox"
-      placeholder="सामान खोजें..."
-      onkeyup="searchProduct()"
-    >
-    <button onclick="searchProduct()">🔍</button>
-  </div>
+    <div class="search">
 
-  <button class="headerBtn">
-    Login
-  </button>
+        <input
+            id="searchInput"
+            type="text"
+            placeholder="Search for products, brands and more"
+            onkeyup="searchProducts()"
+        >
 
-  <button class="headerBtn" onclick="openCart()">
-    🛒 Cart (<span id="cartCount">0</span>)
-  </button>
+        <button onclick="searchProducts()">
+            🔍
+        </button>
+
+    </div>
+
+    <button class="login">
+        Login
+    </button>
+
+    <div class="cart" onclick="openCart()">
+        🛒 Cart (<span id="cartCount">0</span>)
+    </div>
 
 </header>
 
 
-<!-- CATEGORIES -->
+<!-- ================= CATEGORIES ================= -->
 
-<div class="categories">
+<div class="category-bar">
 
-  <button onclick="filterProducts('all')">
-    सभी
-  </button>
+    <div class="category" onclick="filterProducts('all')">
 
-  <button onclick="filterProducts('food')">
-    खाने का सामान
-  </button>
+        <div class="category-icon">
+            🛍️
+        </div>
 
-  <button onclick="filterProducts('oil')">
-    तेल
-  </button>
+        All
 
-  <button onclick="filterProducts('grocery')">
-    किराना
-  </button>
+    </div>
 
-  <button onclick="filterProducts('personal')">
-    Personal Care
-  </button>
 
-  <button onclick="filterProducts('cleaning')">
-    Cleaning
-  </button>
+    <div class="category" onclick="filterProducts('food')">
 
-  <button onclick="filterProducts('protection')">
-    Protection
-  </button>
+        <div class="category-icon">
+            🍚
+        </div>
+
+        Food & Grocery
+
+    </div>
+
+
+    <div class="category" onclick="filterProducts('oil')">
+
+        <div class="category-icon">
+            🛢️
+        </div>
+
+        Cooking Oil
+
+    </div>
+
+
+    <div class="category" onclick="filterProducts('personal')">
+
+        <div class="category-icon">
+            🧴
+        </div>
+
+        Personal Care
+
+    </div>
+
+
+    <div class="category" onclick="filterProducts('cleaning')">
+
+        <div class="category-icon">
+            🧹
+        </div>
+
+        Cleaning
+
+    </div>
+
+
+    <div class="category" onclick="filterProducts('protection')">
+
+        <div class="category-icon">
+            🛡️
+        </div>
+
+        Protection
+
+    </div>
 
 </div>
 
 
-<!-- BANNER -->
+<!-- ================= HERO ================= -->
 
-<section class="banner">
+<section class="hero">
 
-  <div>
-    <h1>घर का पूरा सामान</h1>
+    <div class="hero-text">
 
-    <p>
-      Apna Kirana Store पर रोज़मर्रा की जरूरत का सामान
-    </p>
-  </div>
+        <h1>
+            Grocery Shopping Made Easy
+        </h1>
 
-  <div class="bannerRight">
-    🛒
-  </div>
+        <p>
+            Daily essentials at great prices.
+        </p>
+
+        <button
+            class="shop-now"
+            onclick="scrollToProducts()"
+        >
+            SHOP NOW
+        </button>
+
+    </div>
+
+    <div class="hero-image">
+        🛒
+    </div>
 
 </section>
 
 
-<!-- PRODUCTS -->
+<!-- ================= PRODUCTS ================= -->
 
-<div class="container">
+<section class="section" id="productSection">
 
-  <div class="heading">
-    <h2>🔥 Popular Products</h2>
-    <span>Best Deals</span>
-  </div>
+    <div class="section-header">
 
+        <h2>
+            Best Deals
+        </h2>
 
-  <div class="products" id="products">
-
-
-    <!-- RICE -->
-
-    <div class="product"
-         data-category="food"
-         data-name="rice chawal">
-
-      <div class="productImage">
-
-        <img
-          src="https://www.dhanam.store/images/products/BULLET%20GTS%20RAW%20RICE%201%20KG.jpg"
-          alt="Rice"
+        <button
+            class="view-all"
+            onclick="filterProducts('all')"
         >
-
-      </div>
-
-      <h3>चावल</h3>
-
-      <div class="weight">
-        1 Kg
-      </div>
-
-      <div class="price">
-        ₹85
-        <span class="mrp">₹100</span>
-      </div>
-
-      <button class="addBtn"
-        onclick="addCart('चावल',85)">
-        Add to Cart
-      </button>
+            VIEW ALL
+        </button>
 
     </div>
 
 
-    <!-- SHAMPOO -->
+    <div class="products">
 
-    <div class="product"
-         data-category="personal"
-         data-name="shampoo">
 
-      <div class="productImage">
+        <!-- PRODUCT 1 -->
 
-        <img
-          src="https://khadiindia.gov.in/images/products/11692.jpg"
-          alt="Shampoo"
+        <div
+            class="product"
+            data-category="food"
+            data-name="rice basmati rice"
         >
 
-      </div>
+            <div class="product-image">
 
-      <h3>Rice Water Shampoo</h3>
+                <img
+                    src="https://www.dhanam.store/images/products/BULLET%20GTS%20RAW%20RICE%201%20KG.jpg"
+                    alt="Basmati Rice"
+                >
 
-      <div class="weight">
-        210 ml
-      </div>
+            </div>
 
-      <div class="price">
-        ₹188
-        <span class="mrp">₹220</span>
-      </div>
+            <div class="product-name">
+                Basmati Rice
+            </div>
 
-      <button class="addBtn"
-        onclick="addCart('Rice Water Shampoo',188)">
-        Add to Cart
-      </button>
+            <div class="rating">
+                4.4 ★
+            </div>
+
+            <div class="price">
+                ₹85
+                <span class="mrp">₹100</span>
+            </div>
+
+            <div class="discount">
+                15% off
+            </div>
+
+            <button
+                class="add-cart"
+                onclick="addToCart('Basmati Rice',85)"
+            >
+                ADD TO CART
+            </button>
+
+        </div>
+
+
+        <!-- PRODUCT 2 -->
+
+        <div
+            class="product"
+            data-category="food"
+            data-name="dal toor dal"
+        >
+
+            <div class="product-image">
+
+                <img
+                    src="https://www.dhanam.store/images/products/Dhanam-Toor-Dal.jpg"
+                    alt="Toor Dal"
+                >
+
+            </div>
+
+            <div class="product-name">
+                Toor Dal
+            </div>
+
+            <div class="rating">
+                4.3 ★
+            </div>
+
+            <div class="price">
+                ₹150
+                <span class="mrp">₹170</span>
+            </div>
+
+            <div class="discount">
+                12% off
+            </div>
+
+            <button
+                class="add-cart"
+                onclick="addToCart('Toor Dal',150)"
+            >
+                ADD TO CART
+            </button>
+
+        </div>
+
+
+        <!-- PRODUCT 3 -->
+
+        <div
+            class="product"
+            data-category="oil"
+            data-name="cooking oil edible oil"
+        >
+
+            <div class="product-image">
+
+                <img
+                    src="https://dxnindia.in/images/products/rice-bran-oil.jpg"
+                    alt="Cooking Oil"
+                >
+
+            </div>
+
+            <div class="product-name">
+                Cooking Oil
+            </div>
+
+            <div class="rating">
+                4.5 ★
+            </div>
+
+            <div class="price">
+                ₹145
+                <span class="mrp">₹165</span>
+            </div>
+
+            <div class="discount">
+                12% off
+            </div>
+
+            <button
+                class="add-cart"
+                onclick="addToCart('Cooking Oil',145)"
+            >
+                ADD TO CART
+            </button>
+
+        </div>
+
+
+        <!-- PRODUCT 4 -->
+
+        <div
+            class="product"
+            data-category="personal"
+            data-name="hair oil"
+        >
+
+            <div class="product-image">
+
+                <img
+                    src="https://www.nammmakadai.in/images/products/VEENA-HAIR-OIL-100ML.jpg"
+                    alt="Hair Oil"
+                >
+
+            </div>
+
+            <div class="product-name">
+                Hair Oil
+            </div>
+
+            <div class="rating">
+                4.2 ★
+            </div>
+
+            <div class="price">
+                ₹100
+                <span class="mrp">₹120</span>
+            </div>
+
+            <div class="discount">
+                16% off
+            </div>
+
+            <button
+                class="add-cart"
+                onclick="addToCart('Hair Oil',100)"
+            >
+                ADD TO CART
+            </button>
+
+        </div>
+
+
+        <!-- PRODUCT 5 -->
+
+        <div
+            class="product"
+            data-category="personal"
+            data-name="soap neem soap"
+        >
+
+            <div class="product-image">
+
+                <img
+                    src="https://www.nammmakadai.in/images/products/VARNA-NEEM-SOAP-100GM.jpg"
+                    alt="Neem Soap"
+                >
+
+            </div>
+
+            <div class="product-name">
+                Neem Bath Soap
+            </div>
+
+            <div class="rating">
+                4.1 ★
+            </div>
+
+            <div class="price">
+                ₹50
+                <span class="mrp">₹60</span>
+            </div>
+
+            <div class="discount">
+                16% off
+            </div>
+
+            <button
+                class="add-cart"
+                onclick="addToCart('Neem Bath Soap',50)"
+            >
+                ADD TO CART
+            </button>
+
+        </div>
+
+
+        <!-- PRODUCT 6 -->
+
+        <div
+            class="product"
+            data-category="personal"
+            data-name="shampoo"
+        >
+
+            <div class="product-image">
+
+                <img
+                    src="https://khadiindia.gov.in/images/products/11692.jpg"
+                    alt="Shampoo"
+                >
+
+            </div>
+
+            <div class="product-name">
+                Rice Water Shampoo
+            </div>
+
+            <div class="rating">
+                4.4 ★
+            </div>
+
+            <div class="price">
+                ₹188
+                <span class="mrp">₹220</span>
+            </div>
+
+            <div class="discount">
+                14% off
+            </div>
+
+            <button
+                class="add-cart"
+                onclick="addToCart('Rice Water Shampoo',188)"
+            >
+                ADD TO CART
+            </button>
+
+        </div>
+
+
+        <!-- PRODUCT 7 -->
+
+        <div
+            class="product"
+            data-category="food"
+            data-name="sugar chini"
+        >
+
+            <div class="product-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1581268497084-9e0b6f0a0a5c?auto=format&fit=crop&w=600&q=80"
+                    alt="Sugar"
+                >
+
+            </div>
+
+            <div class="product-name">
+                Sugar
+            </div>
+
+            <div class="rating">
+                4.3 ★
+            </div>
+
+            <div class="price">
+                ₹50
+                <span class="mrp">₹55</span>
+            </div>
+
+            <div class="discount">
+                9% off
+            </div>
+
+            <button
+                class="add-cart"
+                onclick="addToCart('Sugar',50)"
+            >
+                ADD TO CART
+            </button>
+
+        </div>
+
+
+        <!-- PRODUCT 8 -->
+
+        <div
+            class="product"
+            data-category="cleaning"
+            data-name="detergent washing powder"
+        >
+
+            <div class="product-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1583947215259-38e31be8751f?auto=format&fit=crop&w=600&q=80"
+                    alt="Detergent"
+                >
+
+            </div>
+
+            <div class="product-name">
+                Detergent Powder
+            </div>
+
+            <div class="rating">
+                4.2 ★
+            </div>
+
+            <div class="price">
+                ₹95
+                <span class="mrp">₹110</span>
+            </div>
+
+            <div class="discount">
+                13% off
+            </div>
+
+            <button
+                class="add-cart"
+                onclick="addToCart('Detergent Powder',95)"
+            >
+                ADD TO CART
+            </button>
+
+        </div>
+
+
+        <!-- PRODUCT 9 -->
+
+        <div
+            class="product"
+            data-category="protection"
+            data-name="protection"
+        >
+
+            <div class="product-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1584982751601-97dcc096659c?auto=format&fit=crop&w=600&q=80"
+                    alt="Protection"
+                >
+
+            </div>
+
+            <div class="product-name">
+                Protection Pack
+            </div>
+
+            <div class="rating">
+                4.5 ★
+            </div>
+
+            <div class="price">
+                ₹120
+                <span class="mrp">₹140</span>
+            </div>
+
+            <div class="discount">
+                14% off
+            </div>
+
+            <button
+                class="add-cart"
+                onclick="addToCart('Protection Pack',120)"
+            >
+                ADD TO CART
+            </button>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- ================= CART PANEL ================= -->
+
+<div
+    class="cart-panel"
+    id="cartPanel"
+>
+
+    <div class="cart-title">
+
+        <h2>
+            My Cart
+        </h2>
+
+        <button
+            class="close-cart"
+            onclick="closeCart()"
+        >
+            ×
+        </button>
 
     </div>
 
 
-    <!-- HAIR OIL -->
-
-    <div class="product"
-         data-category="personal"
-         data-name="hair oil तेल">
-
-      <div class="productImage">
-
-        <img
-          src="https://www.nammmakadai.in/images/products/VEENA-HAIR-OIL-100ML.jpg"
-          alt="Hair Oil"
-        >
-
-      </div>
-
-      <h3>Hair Oil</h3>
-
-      <div class="weight">
-        100 ml
-      </div>
-
-      <div class="price">
-        ₹100
-      </div>
-
-      <button class="addBtn"
-        onclick="addCart('Hair Oil',100)">
-        Add to Cart
-      </button>
-
+    <div
+        class="cart-items"
+        id="cartItems"
+    >
     </div>
 
 
-    <!-- SOAP -->
+    <div class="cart-total">
 
-    <div class="product"
-         data-category="personal"
-         data-name="soap साबुन">
+        <h3>
+            Total Amount:
+            ₹<span id="totalAmount">0</span>
+        </h3>
 
-      <div class="productImage">
-
-        <img
-          src="https://www.nammmakadai.in/images/products/VARNA-NEEM-SOAP-100GM.jpg"
-          alt="Soap"
+        <button
+            class="checkout"
+            onclick="checkout()"
         >
-
-      </div>
-
-      <h3>Neem Soap</h3>
-
-      <div class="weight">
-        100 g
-      </div>
-
-      <div class="price">
-        ₹50
-      </div>
-
-      <button class="addBtn"
-        onclick="addCart('Neem Soap',50)">
-        Add to Cart
-      </button>
+            PLACE ORDER
+        </button>
 
     </div>
-
-
-    <!-- DAL -->
-
-    <div class="product"
-         data-category="food"
-         data-name="dal अरहर दाल">
-
-      <div class="productImage">
-
-        <img
-          src="https://www.dhanam.store/images/products/Dhanam-Toor-Dal.jpg"
-          alt="Dal"
-        >
-
-      </div>
-
-      <h3>अरहर दाल</h3>
-
-      <div class="weight">
-        1 Kg
-      </div>
-
-      <div class="price">
-        ₹150
-      </div>
-
-      <button class="addBtn"
-        onclick="addCart('अरहर दाल',150)">
-        Add to Cart
-      </button>
-
-    </div>
-
-
-    <!-- OIL -->
-
-    <div class="product"
-         data-category="oil"
-         data-name="oil cooking तेल">
-
-      <div class="productImage">
-
-        <img
-          src="https://dxnindia.in/images/products/rice-bran-oil.jpg"
-          alt="Cooking Oil"
-        >
-
-      </div>
-
-      <h3>Cooking Oil</h3>
-
-      <div class="weight">
-        1 Litre
-      </div>
-
-      <div class="price">
-        ₹145
-        <span class="mrp">₹165</span>
-      </div>
-
-      <button class="addBtn"
-        onclick="addCart('Cooking Oil',145)">
-        Add to Cart
-      </button>
-
-    </div>
-
-
-    <!-- SUGAR -->
-
-    <div class="product"
-         data-category="grocery"
-         data-name="sugar shakkar चीनी">
-
-      <div class="productImage">
-
-        <img
-          src="https://images.unsplash.com/photo-1581268497084-9e0b6f0a0a5c?auto=format&fit=crop&w=600&q=80"
-          alt="Sugar"
-        >
-
-      </div>
-
-      <h3>शक्कर</h3>
-
-      <div class="weight">
-        1 Kg
-      </div>
-
-      <div class="price">
-        ₹50
-      </div>
-
-      <button class="addBtn"
-        onclick="addCart('शक्कर',50)">
-        Add to Cart
-      </button>
-
-    </div>
-
-
-    <!-- DETERGENT -->
-
-    <div class="product"
-         data-category="cleaning"
-         data-name="detergent washing powder">
-
-      <div class="productImage">
-
-        <img
-          src="https://images.unsplash.com/photo-1583947215259-38e31be8751f?auto=format&fit=crop&w=600&q=80"
-          alt="Detergent"
-        >
-
-      </div>
-
-      <h3>Detergent Powder</h3>
-
-      <div class="weight">
-        1 Kg
-      </div>
-
-      <div class="price">
-        ₹95
-      </div>
-
-      <button class="addBtn"
-        onclick="addCart('Detergent Powder',95)">
-        Add to Cart
-      </button>
-
-    </div>
-
-
-    <!-- PROTECTION -->
-
-    <div class="product"
-         data-category="protection"
-         data-name="protection">
-
-      <div class="productImage">
-
-        <img
-          src="https://images.unsplash.com/photo-1584982751601-97dcc096659c?auto=format&fit=crop&w=600&q=80"
-          alt="Protection"
-        >
-
-      </div>
-
-      <h3>Protection Pack</h3>
-
-      <div class="weight">
-        Pack
-      </div>
-
-      <div class="price">
-        ₹120
-      </div>
-
-      <button class="addBtn"
-        onclick="addCart('Protection Pack',120)">
-        Add to Cart
-      </button>
-
-    </div>
-
-  </div>
 
 </div>
 
 
-<!-- CART -->
-
-<div class="cartBox" id="cartBox">
-
-  <h2>🛒 आपका Cart</h2>
-
-  <div class="cartItems" id="cartItems">
-  </div>
-
-  <h3>
-    Total: ₹<span id="total">0</span>
-  </h3>
-
-  <button class="orderBtn" onclick="orderNow()">
-    Order Now
-  </button>
-
-  <button class="closeBtn" onclick="closeCart()">
-    Close
-  </button>
-
-</div>
-
-
-<!-- FOOTER -->
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
-  <h2>
-    APNA KIRANA STORE
-  </h2>
+    <div class="footer-grid">
 
-  <p>
-    आपका अपना ऑनलाइन किराना स्टोर
-  </p>
+        <div>
 
-  <br>
+            <h3>
+                ABOUT
+            </h3>
 
-  <p>
-    © 2026 Apna Kirana Store
-  </p>
+            <p>
+                About Us
+            </p>
+
+            <p>
+                Contact Us
+            </p>
+
+            <p>
+                Careers
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                CUSTOMER SERVICE
+            </h3>
+
+            <p>
+                Help Center
+            </p>
+
+            <p>
+                Returns
+            </p>
+
+            <p>
+                Shipping
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                POLICY
+            </h3>
+
+            <p>
+                Privacy Policy
+            </p>
+
+            <p>
+                Terms & Conditions
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                APNA KIRANA STORE
+            </h3>
+
+            <p>
+                Your trusted online grocery store.
+            </p>
+
+            <p>
+                © 2026 Apna Kirana Store
+            </p>
+
+        </div>
+
+    </div>
 
 </footer>
 
 
 <script>
 
-let cart=[];
-let total=0;
+let cart = [];
 
 
-/* ADD CART */
+/* ADD TO CART */
 
-function addCart(name,price){
+function addToCart(name,price){
 
-  cart.push({
-    name:name,
-    price:price
-  });
-
-  total += price;
-
-  document.getElementById("cartCount").innerText=cart.length;
-
-  alert("✅ "+name+" Cart में जोड़ दिया गया!");
-
-}
-
-
-/* OPEN CART */
-
-function openCart(){
-
-  document.getElementById("cartBox").style.display="block";
-
-  let html="";
-
-  if(cart.length===0){
-
-    html="<p>Cart अभी खाली है।</p>";
-
-  }else{
-
-    cart.forEach(function(item,index){
-
-      html += `
-      <div class="cartItem">
-
-        <span>
-          ${index+1}. ${item.name}
-        </span>
-
-        <b>
-          ₹${item.price}
-        </b>
-
-      </div>
-      `;
-
+    cart.push({
+        name:name,
+        price:price
     });
 
-  }
-
-  document.getElementById("cartItems").innerHTML=html;
-
-  document.getElementById("total").innerText=total;
-
-}
-
-
-/* CLOSE CART */
-
-function closeCart(){
-
-  document.getElementById("cartBox").style.display="none";
-
-}
-
-
-/* SEARCH */
-
-function searchProduct(){
-
-  let search=
-    document.getElementById("searchBox")
-    .value
-    .toLowerCase();
-
-  document.querySelectorAll(".product")
-  .forEach(function(product){
-
-    let name=
-      product.dataset.name.toLowerCase();
-
-    if(name.includes(search)){
-
-      product.style.display="block";
-
-    }else{
-
-      product.style.display="none";
-
-    }
-
-  });
-
-}
-
-
-/* CATEGORY */
-
-function filterProducts(category){
-
-  document.querySelectorAll(".product")
-  .forEach(function(product){
-
-    if(
-      category==="all" ||
-      product.dataset.category===category
-    ){
-
-      product.style.display="block";
-
-    }else{
-
-      product.style.display="none";
-
-    }
-
-  });
-
-}
-
-
-/* ORDER */
-
-function orderNow(){
-
-  if(cart.length===0){
-
-    alert("पहले सामान Cart में डालें!");
-
-    return;
-
-  }
-
-  alert(
-    "🎉 आपका Order तैयार है!\n\n"+
-    "Total Amount: ₹"+total+
-    "\n\nबाद में इसमें WhatsApp Order और Online Payment भी जोड़ सकते हैं।"
-  );
-
-}
-
-</script>
-
-</body>
-     </html>
+    document.getElementById("cartCount").innerText = cart.lengt
