@@ -602,17 +602,17 @@ footer{
     <p>© 2026 अपना किराना स्टोर</p>
     <p>धन्यवाद 🙏</p>
 </footer>
+<script>
+let cart = [];
 
+function addToCart(name, price) {
+    cart.push({ name: name, price: price });
+    alert(name + " Cart में add हो गया 🛒");
+}
+
+function buyNow(name, price) {
+    alert("आपने " + name + " खरीदा है। कीमत: ₹" + price);
+}
+</script>
 </body>
-<!-- CONTACT US -->
-<section class="contact" id="contact">
-    <h2>📞 Contact Us</h2>
-    <p>अपना किराना सामान ऑर्डर करने या जानकारी के लिए हमसे संपर्क करें।</p>
-
-    <div class="contact-box">
-        <p>📱 <strong>मोबाइल:</strong> 9301272240</p>
-        <p>📧 <strong>Email:</strong> apnakiranastore@gmail.com</p>
-        <p>📍 <strong>पता:</strong> अपना किराना स्टोर, मध्य प्रदेश</p>
-    </div>
-</section>
 </html>
