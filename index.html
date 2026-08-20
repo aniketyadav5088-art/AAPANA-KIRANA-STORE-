@@ -3,801 +3,408 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>अपना किराना स्टोर</title>
+<title>Apna Kirana Store</title>
 
 <style>
 *{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-    font-family:Arial,sans-serif;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
 }
 
 body{
-    background:#f1f3f6;
-    color:#222;
+  background:#f5f5f5;
+  color:#222;
 }
 
 /* HEADER */
 header{
-    background:#2874f0;
-    padding:12px 5%;
-    display:flex;
-    align-items:center;
-    gap:20px;
-    color:white;
+  background:#0b7a3b;
+  color:white;
+  padding:15px 5%;
+  display:flex;
+  align-items:center;
+  gap:20px;
+  flex-wrap:wrap;
 }
 
 .logo{
-    font-size:22px;
-    font-weight:bold;
-    white-space:nowrap;
+  font-size:24px;
+  font-weight:bold;
+  white-space:nowrap;
 }
 
 .logo span{
-    color:#ffe500;
+  color:#ffd600;
 }
 
 .search{
-    flex:1;
-    display:flex;
-    max-width:650px;
+  flex:1;
+  display:flex;
+  min-width:250px;
 }
 
 .search input{
-    width:100%;
-    padding:13px;
-    border:none;
-    outline:none;
-    font-size:15px;
+  width:100%;
+  padding:12px;
+  border:none;
+  outline:none;
+  font-size:16px;
 }
 
 .search button{
-    width:55px;
-    border:none;
-    background:white;
-    cursor:pointer;
-    font-size:18px;
+  width:50px;
+  border:none;
+  background:#ffd600;
+  cursor:pointer;
+  font-size:20px;
 }
 
-.login{
-    background:white;
-    color:#2874f0;
-    padding:10px 20px;
-    border:none;
-    font-weight:bold;
-    cursor:pointer;
-    border-radius:3px;
-}
-
-.cart{
-    font-weight:bold;
-    white-space:nowrap;
+.login,.cart{
+  border:none;
+  padding:11px 18px;
+  background:white;
+  color:#0b7a3b;
+  border-radius:5px;
+  cursor:pointer;
+  font-weight:bold;
 }
 
 /* CATEGORIES */
 .categories{
-    background:white;
-    display:flex;
-    justify-content:center;
-    gap:35px;
-    padding:18px 10px;
-    overflow-x:auto;
+  background:white;
+  padding:15px 5%;
+  display:flex;
+  gap:12px;
+  overflow-x:auto;
+  border-bottom:1px solid #ddd;
 }
 
-.category{
-    text-align:center;
-    min-width:80px;
-    cursor:pointer;
-    font-weight:bold;
+.categories button{
+  padding:10px 18px;
+  border:1px solid #0b7a3b;
+  background:white;
+  color:#0b7a3b;
+  border-radius:20px;
+  cursor:pointer;
+  white-space:nowrap;
 }
 
-.category .icon{
-    font-size:30px;
-    margin-bottom:5px;
+.categories button:hover{
+  background:#0b7a3b;
+  color:white;
 }
 
 /* BANNER */
 .banner{
-    margin:15px auto;
-    width:90%;
-    min-height:190px;
-    background:linear-gradient(120deg,#2874f0,#00a6ff);
-    color:white;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    padding:30px;
-    border-radius:8px;
+  margin:20px 5%;
+  padding:35px;
+  background:#dff7e8;
+  border-radius:12px;
+  text-align:center;
 }
 
 .banner h1{
-    font-size:34px;
-    margin-bottom:10px;
+  color:#0b7a3b;
+  margin-bottom:10px;
 }
 
 .banner p{
-    font-size:18px;
-    margin-bottom:18px;
-}
-
-.shop-btn{
-    width:150px;
-    padding:12px;
-    background:#ffcc00;
-    border:none;
-    font-weight:bold;
-    cursor:pointer;
-    border-radius:5px;
-}
-
-/* SECTION */
-.section{
-    width:90%;
-    margin:20px auto;
-    background:white;
-    padding:20px;
-    border-radius:8px;
-}
-
-.section h2{
-    margin-bottom:20px;
-}
-
-/* SERVICES */
-.features{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:15px;
-}
-
-.feature{
-    border:1px solid #ddd;
-    padding:20px;
-    text-align:center;
-    border-radius:8px;
-}
-
-.big-icon{
-    font-size:35px;
-    margin-bottom:10px;
-}
-
-.feature h3{
-    margin-bottom:7px;
+  font-size:18px;
 }
 
 /* PRODUCTS */
+.container{
+  padding:0 5% 40px;
+}
+
+.container h2{
+  margin:20px 0;
+}
+
 .products{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:15px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:18px;
 }
 
 .product{
-    border:1px solid #ddd;
-    padding:20px;
-    text-align:center;
-    border-radius:8px;
-    background:white;
+  background:white;
+  padding:15px;
+  border-radius:10px;
+  box-shadow:0 2px 8px rgba(0,0,0,.1);
+  text-align:center;
 }
 
-.product-icon{
-    font-size:45px;
-    margin-bottom:10px;
+.product .emoji{
+  font-size:60px;
+  margin-bottom:10px;
 }
 
 .product h3{
-    margin-bottom:8px;
+  margin-bottom:8px;
 }
 
-.product-price{
-    color:#198754;
-    font-size:18px;
-    font-weight:bold;
-    margin-bottom:12px;
+.price{
+  color:#0b7a3b;
+  font-weight:bold;
+  font-size:18px;
+  margin-bottom:10px;
 }
 
-/* BUTTONS */
 .product button{
-    display:block;
-    width:100%;
-    padding:10px;
-    margin-top:8px;
-    border:none;
-    border-radius:5px;
-    cursor:pointer;
-    font-weight:bold;
+  width:100%;
+  padding:10px;
+  border:none;
+  background:#0b7a3b;
+  color:white;
+  border-radius:5px;
+  cursor:pointer;
+  font-weight:bold;
 }
 
-.add-btn{
-    background:#2874f0;
-    color:white;
-}
-
-.buy-btn{
-    background:#ffcc00;
-    color:#222;
-}
-
-/* CONTACT */
-.contact{
-    width:90%;
-    margin:20px auto;
-    background:white;
-    padding:25px;
-    text-align:center;
-    border-radius:8px;
-}
-
-.contact h2{
-    color:#2874f0;
-    margin-bottom:15px;
-}
-
-.contact p{
-    margin:8px 0;
+.product button:hover{
+  background:#075d2d;
 }
 
 /* FOOTER */
 footer{
-    background:#172337;
-    color:white;
-    padding:35px 5%;
-    margin-top:30px;
+  background:#222;
+  color:white;
+  text-align:center;
+  padding:25px;
 }
 
-.footer-content{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:30px;
-}
+@media(max-width:600px){
+  header{
+    padding:12px;
+  }
 
-footer h3{
-    margin-bottom:12px;
-    color:#ffe500;
-}
+  .logo{
+    width:100%;
+    text-align:center;
+  }
 
-footer p{
-    margin:8px 0;
-    color:#ddd;
-}
+  .search{
+    width:100%;
+  }
 
-/* MOBILE */
-@media(max-width:700px){
+  .login,.cart{
+    flex:1;
+  }
 
-    header{
-        flex-wrap:wrap;
-        gap:10px;
-    }
+  .banner{
+    margin:15px;
+    padding:25px 15px;
+  }
 
-    .logo{
-        width:100%;
-    }
-
-    .search{
-        order:2;
-        width:100%;
-    }
-
-    .login{
-        order:3;
-    }
-
-    .cart{
-        order:4;
-    }
-
-    .categories{
-        justify-content:flex-start;
-    }
-
-    .banner h1{
-        font-size:25px;
-    }
-
-    .features{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .products{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .footer-content{
-        grid-template-columns:repeat(2,1fr);
-    }
-}
-
-@media(max-width:400px){
-
-    .products{
-        grid-template-columns:1fr;
-    }
-
-    .features{
-        grid-template-columns:1fr;
-    }
+  .container{
+    padding:0 15px 30px;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
 <header>
+  <div class="logo">
+    🛒 APNA <span>KIRANA STORE</span>
+  </div>
 
-    <div class="logo">
-        🛒 APNA <span>KIRANA STORE</span>
-    </div>
+  <div class="search">
+    <input type="text" id="searchBox"
+    placeholder="Search for products, brands and more">
+    <button onclick="searchProduct()">🔍</button>
+  </div>
 
-    <div class="search">
-        <input type="text" placeholder="Search for products, brands and more">
-        <button onclick="searchProduct()">🔍</button>
-    </div>
-
-    <button class="login" onclick="loginUser()">
-        Login
-    </button>
-
-    <div class="cart" onclick="showCart()">
-        🛒 Cart (<span id="cartCount">0</span>)
-    </div>
-
+  <button class="login" onclick="loginUser()">Login</button>
+  <button class="cart" onclick="showCart()">🛒 Cart (<span id="cartCount">0</span>)</button>
 </header>
 
-
-<!-- CATEGORIES -->
 <div class="categories">
-
-    <div class="category">
-        <div class="icon">🥫</div>
-        Grocery
-    </div>
-
-    <div class="category">
-        <div class="icon">🍪</div>
-        Snacks
-    </div>
-
-    <div class="category">
-        <div class="icon">🧃</div>
-        Drinks
-    </div>
-
-    <div class="category">
-        <div class="icon">🧼</div>
-        Home Care
-    </div>
-
-    <div class="category">
-        <div class="icon">🍚</div>
-        Rice
-    </div>
-
-    <div class="category">
-        <div class="icon">🌾</div>
-        Flour
-    </div>
-
-    <div class="category">
-        <div class="icon">🛢️</div>
-        Oil
-    </div>
-
+  <button onclick="filterProducts('all')">All</button>
+  <button onclick="filterProducts('food')">🍚 खाने का सामान</button>
+  <button onclick="filterProducts('oil')">🛢️ तेल</button>
+  <button onclick="filterProducts('grocery')">🛒 किराना</button>
+  <button onclick="filterProducts('personal')">🧴 Personal Care</button>
+  <button onclick="filterProducts('protection')">🛡️ Protection</button>
+  <button onclick="filterProducts('cleaning')">🧹 Cleaning</button>
 </div>
 
-
-<!-- BANNER -->
 <section class="banner">
-
-    <h1>Apna Kirana Store</h1>
-
-    <p>
-        घर बैठे अपनी जरूरत का सामान आसानी से ऑर्डर करें।
-    </p>
-
-    <button class="shop-btn"
-            onclick="document.getElementById('products').scrollIntoView()">
-        Shop Now
-    </button>
-
+  <h1>🛍️ Apna Kirana Store</h1>
+  <p>आपके घर का पूरा सामान, एक ही जगह!</p>
 </section>
 
+<div class="container">
+  <h2>Popular Products</h2>
 
-<!-- SERVICES -->
-<section class="section">
+  <div class="products" id="products">
 
-    <h2>हमारी सुविधाएँ</h2>
-
-    <div class="features">
-
-        <div class="feature">
-            <div class="big-icon">🚚</div>
-            <h3>Home Delivery</h3>
-            <p>घर तक सामान की डिलीवरी</p>
-        </div>
-
-        <div class="feature">
-            <div class="big-icon">💵</div>
-            <h3>Cash on Delivery</h3>
-            <p>सामान मिलने पर भुगतान करें</p>
-        </div>
-
-        <div class="feature">
-            <div class="big-icon">💳</div>
-            <h3>Online Payment</h3>
-            <p>Online payment की सुविधा</p>
-        </div>
-
-        <div class="feature">
-            <div class="big-icon">📞</div>
-            <h3>Customer Care</h3>
-            <p>हमसे संपर्क करें</p>
-        </div>
-
+    <div class="product" data-category="food">
+      <div class="emoji">🍚</div>
+      <h3>चावल</h3>
+      <div class="price">₹60 / kg</div>
+      <button onclick="addToCart('चावल',60)">Add to Cart</button>
     </div>
 
-</section>
-
-
-<!-- PRODUCTS -->
-<section class="section" id="products">
-
-    <h2>🛍️ हमारे सामान</h2>
-
-    <div class="products">
-
-        <!-- RICE -->
-        <div class="product">
-
-            <div class="product-icon">🍚</div>
-
-            <h3>चावल</h3>
-
-            <p class="product-price">
-                ₹60 / किलो
-            </p>
-
-            <button class="add-btn"
-                    onclick="addToCart('चावल',60)">
-                🛒 Add to Cart
-            </button>
-
-            <button class="buy-btn"
-                    onclick="buyNow('चावल',60)">
-                ⚡ Buy Now
-            </button>
-
-        </div>
-
-
-        <!-- FLOUR -->
-        <div class="product">
-
-            <div class="product-icon">🌾</div>
-
-            <h3>आटा</h3>
-
-            <p class="product-price">
-                ₹45 / किलो
-            </p>
-
-            <button class="add-btn"
-                    onclick="addToCart('आटा',45)">
-                🛒 Add to Cart
-            </button>
-
-            <button class="buy-btn"
-                    onclick="buyNow('आटा',45)">
-                ⚡ Buy Now
-            </button>
-
-        </div>
-
-
-        <!-- DAL -->
-        <div class="product">
-
-            <div class="product-icon">🫘</div>
-
-            <h3>दाल</h3>
-
-            <p class="product-price">
-                ₹100 / किलो
-            </p>
-
-            <button class="add-btn"
-                    onclick="addToCart('दाल',100)">
-                🛒 Add to Cart
-            </button>
-
-            <button class="buy-btn"
-                    onclick="buyNow('दाल',100)">
-                ⚡ Buy Now
-            </button>
-
-        </div>
-
-
-        <!-- SUGAR -->
-        <div class="product">
-
-            <div class="product-icon">🍬</div>
-
-            <h3>चीनी</h3>
-
-            <p class="product-price">
-                ₹45 / किलो
-            </p>
-
-            <button class="add-btn"
-                    onclick="addToCart('चीनी',45)">
-                🛒 Add to Cart
-            </button>
-
-            <button class="buy-btn"
-                    onclick="buyNow('चीनी',45)">
-                ⚡ Buy Now
-            </button>
-
-        </div>
-
-
-        <!-- OIL -->
-        <div class="product">
-
-            <div class="product-icon">🫗</div>
-
-            <h3>तेल</h3>
-
-            <p class="product-price">
-                ₹130 / लीटर
-            </p>
-
-            <button class="add-btn"
-                    onclick="addToCart('तेल',130)">
-                🛒 Add to Cart
-            </button>
-
-            <button class="buy-btn"
-                    onclick="buyNow('तेल',130)">
-                ⚡ Buy Now
-            </button>
-
-        </div>
-
-
-        <!-- SALT -->
-        <div class="product">
-
-            <div class="product-icon">🧂</div>
-
-            <h3>नमक</h3>
-
-            <p class="product-price">
-                ₹25 / किलो
-            </p>
-
-            <button class="add-btn"
-                    onclick="addToCart('नमक',25)">
-                🛒 Add to Cart
-            </button>
-
-            <button class="buy-btn"
-                    onclick="buyNow('नमक',25)">
-                ⚡ Buy Now
-            </button>
-
-        </div>
-
-
-        <!-- BISCUIT -->
-        <div class="product">
-
-            <div class="product-icon">🍪</div>
-
-            <h3>बिस्किट</h3>
-
-            <p class="product-price">
-                ₹30
-            </p>
-
-            <button class="add-btn"
-                    onclick="addToCart('बिस्किट',30)">
-                🛒 Add to Cart
-            </button>
-
-            <button class="buy-btn"
-                    onclick="buyNow('बिस्किट',30)">
-                ⚡ Buy Now
-            </button>
-
-        </div>
-
-
-        <!-- DRINK -->
-        <div class="product">
-
-            <div class="product-icon">🧃</div>
-
-            <h3>ड्रिंक</h3>
-
-            <p class="product-price">
-                ₹40
-            </p>
-
-            <button class="add-btn"
-                    onclick="addToCart('ड्रिंक',40)">
-                🛒 Add to Cart
-            </button>
-
-            <button class="buy-btn"
-                    onclick="buyNow('ड्रिंक',40)">
-                ⚡ Buy Now
-            </button>
-
-        </div>
-
+    <div class="product" data-category="food">
+      <div class="emoji">🌾</div>
+      <h3>गेहूं आटा</h3>
+      <div class="price">₹45 / kg</div>
+      <button onclick="addToCart('गेहूं आटा',45)">Add to Cart</button>
     </div>
 
-</section>
+    <div class="product" data-category="grocery">
+      <div class="emoji">🍬</div>
+      <h3>शक्कर</h3>
+      <div class="price">₹50 / kg</div>
+      <button onclick="addToCart('शक्कर',50)">Add to Cart</button>
+    </div>
 
+    <div class="product" data-category="oil">
+      <div class="emoji">🛢️</div>
+      <h3>खाने का तेल</h3>
+      <div class="price">₹140 / L</div>
+      <button onclick="addToCart('खाने का तेल',140)">Add to Cart</button>
+    </div>
 
-<!-- CONTACT -->
-<section class="contact" id="contact">
+    <div class="product" data-category="grocery">
+      <div class="emoji">🧂</div>
+      <h3>नमक</h3>
+      <div class="price">₹25 / kg</div>
+      <button onclick="addToCart('नमक',25)">Add to Cart</button>
+    </div>
 
-    <h2>📞 Contact Us</h2>
+    <div class="product" data-category="personal">
+      <div class="emoji">🧴</div>
+      <h3>हेयर ऑयल</h3>
+      <div class="price">₹90</div>
+      <button onclick="addToCart('हेयर ऑयल',90)">Add to Cart</button>
+    </div>
 
-    <p>
-        ऑनलाइन ऑर्डर और जानकारी के लिए हमसे संपर्क करें।
-    </p>
+    <div class="product" data-category="personal">
+      <div class="emoji">🧼</div>
+      <h3>साबुन</h3>
+      <div class="price">₹40</div>
+      <button onclick="addToCart('साबुन',40)">Add to Cart</button>
+    </div>
 
-    <p>📱 Mobile: अपना नंबर यहाँ डालें</p>
+    <div class="product" data-category="protection">
+      <div class="emoji">🛡️</div>
+      <h3>Protection</h3>
+      <div class="price">₹120</div>
+      <button onclick="addToCart('Protection',120)">Add to Cart</button>
+    </div>
 
-    <p>📧 Email: apnakiranastore@gmail.com</p>
+    <div class="product" data-category="cleaning">
+      <div class="emoji">🧹</div>
+      <h3>Cleaning Powder</h3>
+      <div class="price">₹70</div>
+      <button onclick="addToCart('Cleaning Powder',70)">Add to Cart</button>
+    </div>
 
-    <p>📍 Address: अपना किराना स्टोर, मध्य प्रदेश</p>
+  </div>
+</div>
 
-</section>
-
-
-<!-- FOOTER -->
 <footer>
-
-    <div class="footer-content">
-
-        <div>
-            <h3>Apna Kirana Store</h3>
-            <p>
-                आपका अपना ऑनलाइन किराना स्टोर
-            </p>
-        </div>
-
-        <div>
-            <h3>Quick Links</h3>
-            <p>Home</p>
-            <p>Categories</p>
-            <p>Products</p>
-            <p>Contact</p>
-        </div>
-
-        <div>
-            <h3>Customer Service</h3>
-            <p>Help Center</p>
-            <p>Delivery Information</p>
-            <p>Return Policy</p>
-        </div>
-
-        <div>
-            <h3>Contact</h3>
-            <p>📧 apnakiranastore@gmail.com</p>
-            <p>📞 अपना नंबर यहाँ डालें</p>
-            <p>🚚 Home Delivery Available</p>
-        </div>
-
-    </div>
-
-    <p style="text-align:center;margin-top:30px;">
-        © 2026 Apna Kirana Store. All Rights Reserved.
-    </p>
-
+  <h3>🛒 APNA KIRANA STORE</h3>
+  <p>आपका अपना ऑनलाइन किराना स्टोर</p>
+  <p>© 2026 Apna Kirana Store</p>
 </footer>
 
-
-<!-- JAVASCRIPT -->
 <script>
 
 let cart = [];
+let cartCount = 0;
 
+function addToCart(name,price){
+  cart.push({
+    name:name,
+    price:price
+  });
 
-function addToCart(name, price){
+  cartCount++;
+  document.getElementById("cartCount").innerText = cartCount;
 
-    cart.push({
-        name:name,
-        price:price
-    });
-
-    document.getElementById("cartCount").innerText = cart.length;
-
-    alert(name + " Cart में add हो गया 🛒");
-
+  alert(name + " Cart में जोड़ दिया गया!");
 }
-
-
-function buyNow(name, price){
-
-    alert(
-        "आपने " +
-        name +
-        " खरीदा है। कीमत: ₹" +
-        price
-    );
-
-}
-
 
 function showCart(){
 
-    if(cart.length === 0){
+  if(cart.length === 0){
+    alert("आपका Cart खाली है!");
+    return;
+  }
 
-        alert("आपका Cart अभी खाली है 🛒");
+  let message = "🛒 आपका Cart:\n\n";
+  let total = 0;
 
-        return;
+  cart.forEach((item,index)=>{
+    message += (index+1) + ". " + item.name +
+    " - ₹" + item.price + "\n";
 
-    }
+    total += item.price;
+  });
 
-    let message = "🛒 आपका Cart:\n\n";
+  message += "\nकुल कीमत: ₹" + total;
 
-    let total = 0;
-
-    cart.forEach(function(item,index){
-
-        message +=
-            (index + 1) +
-            ". " +
-            item.name +
-            " - ₹" +
-            item.price +
-            "\n";
-
-        total += item.price;
-
-    });
-
-    message += "\nTotal: ₹" + total;
-
-    alert(message);
-
+  alert(message);
 }
-
 
 function loginUser(){
+  let name = prompt("अपना नाम डालें:");
 
-    alert("Login सुविधा जल्द उपलब्ध होगी 🔐");
-
+  if(name){
+    alert("Welcome " + name + "!");
+  }
 }
 
+function filterProducts(category){
+
+  let products =
+  document.querySelectorAll(".product");
+
+  products.forEach(product=>{
+
+    if(category === "all"){
+      product.style.display = "block";
+    }
+    else if(product.dataset.category === category){
+      product.style.display = "block";
+    }
+    else{
+      product.style.display = "none";
+    }
+
+  });
+}
 
 function searchProduct(){
 
-    let search =
-        document.querySelector(".search input").value;
+  let search =
+  document.getElementById("searchBox")
+  .value.toLowerCase();
 
-    if(search.trim() === ""){
+  let products =
+  document.querySelectorAll(".product");
 
-        alert("कृपया कोई सामान खोजें 🔍");
+  products.forEach(product=>{
 
-    }else{
+    let name =
+    product.querySelector("h3")
+    .innerText.toLowerCase();
 
-        alert(
-            "आपने खोजा: " +
-            search
-        );
-
+    if(name.includes(search)){
+      product.style.display = "block";
+    }
+    else{
+      product.style.display = "none";
     }
 
+  });
 }
 
 </script>
