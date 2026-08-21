@@ -1,554 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Apna Bakery</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>APNI BAKERY</title>
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-  font-family:Arial,sans-serif;
-}
-
-body{
-  background:#f5f5f5;
-  color:#222;
-}
-
-header{
-  background:#3b160d;
-  color:white;
-  padding:12px 4%;
-  display:flex;
-  align-items:center;
-  gap:14px;
-  position:sticky;
-  top:0;
-  z-index:1000;
-}
-
-.logo{
-  font-size:22px;
-  font-weight:bold;
-  white-space:nowrap;
-}
-
-.logo span{
-  color:#ffca7a;
-}
-
-.search{
-  flex:1;
-  display:flex;
-}
-
-.search input{
-  width:100%;
-  padding:12px;
-  border:0;
-  outline:0;
-  font-size:15px;
-}
-
-.search button{
-  width:52px;
-  border:0;
-  background:#ffb74d;
-  cursor:pointer;
-  font-size:19px;
-}
-
-.topbtn{
-  background:none;
-  border:0;
-  color:white;
-  font-weight:bold;
-  cursor:pointer;
-  white-space:nowrap;
-}
-
-nav{
-  background:#5a2114;
-  padding:12px 4%;
-  display:flex;
-  gap:24px;
-  overflow:auto;
-}
-
-nav button{
-  background:none;
-  border:0;
-  color:white;
-  cursor:pointer;
-  white-space:nowrap;
-  font-weight:bold;
-}
-
-.hero{
-  margin:16px 4%;
-  padding:40px;
-  min-height:250px;
-  border-radius:14px;
-  background:linear-gradient(120deg,#ffe0b2,#fff8f1);
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-.hero h1{
-  font-size:40px;
-  color:#42170e;
-  margin-bottom:10px;
-}
-
-.hero p{
-  font-size:18px;
-  margin-bottom:20px;
-}
-
-.shop{
-  background:#d84315;
-  color:white;
-  border:0;
-  padding:13px 28px;
-  border-radius:6px;
-  cursor:pointer;
-  font-weight:bold;
-}
-
-.heroImg{
-  font-size:100px;
-}
-
-.section{
-  background:white;
-  margin:16px 4%;
-  padding:20px;
-  border-radius:12px;
-}
-
-.section h2{
-  margin-bottom:18px;
-}
-
-.products{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:18px;
-}
-
-.product{
-  border:1px solid #ddd;
-  border-radius:12px;
-  padding:12px;
-  background:white;
-}
-
-.product:hover{
-  box-shadow:0 4px 15px #ccc;
-}
-
-.photo{
-  height:190px;
-  background:#fff8f1;
-  border-radius:9px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
-}
-
-.photo img{
-  width:100%;
-  height:100%;
-  object-fit:contain;
-}
-
-.name{
-  font-size:17px;
-  font-weight:bold;
-  margin:12px 0 7px;
-}
-
-.rating{
-  display:inline-block;
-  background:#198754;
-  color:white;
-  padding:4px 7px;
-  border-radius:4px;
-  font-size:12px;
-}
-
-.price{
-  font-size:20px;
-  font-weight:bold;
-  margin:10px 0;
-}
-
-.add{
-  width:100%;
-  padding:11px;
-  border:1px solid #e5b900;
-  background:#ffd814;
-  border-radius:20px;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-.add:hover{
-  background:#ffc400;
-}
-
-.reviewBtn{
-  width:100%;
-  padding:10px;
-  margin-top:8px;
-  background:white;
-  color:#198754;
-  border:1px solid #198754;
-  border-radius:20px;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-.reviewBox{
-  display:none;
-  margin-top:10px;
-  padding:10px;
-  background:#f8f8f8;
-  border-radius:8px;
-}
-
-.reviewBox.show{
-  display:block;
-}
-
-.reviewBox input,
-.reviewBox textarea{
-  width:100%;
-  padding:9px;
-  margin:5px 0;
-  border:1px solid #bbb;
-  border-radius:5px;
-}
-
-.reviewBox textarea{
-  height:65px;
-  resize:none;
-}
-
-.stars{
-  display:flex;
-  gap:2px;
-  margin:5px 0;
-}
-
-.stars button{
-  border:0;
-  background:none;
-  font-size:23px;
-  cursor:pointer;
-}
-
-.submitReview{
-  width:100%;
-  padding:9px;
-  background:#198754;
-  color:white;
-  border:0;
-  border-radius:5px;
-  cursor:pointer;
-}
-
-.reviewList{
-  margin-top:10px;
-}
-
-.singleReview{
-  border-top:1px solid #ddd;
-  padding:8px 0;
-  font-size:13px;
-}
-
-.yellowStars{
-  color:#e5a400;
-}
-
-.noresult{
-  display:none;
-  text-align:center;
-  padding:30px;
-  color:#777;
-}
-
-.cart{
-  position:fixed;
-  right:-460px;
-  top:0;
-  width:440px;
-  max-width:95%;
-  height:100vh;
-  background:white;
-  z-index:3000;
-  padding:20px;
-  box-shadow:-5px 0 20px #555;
-  transition:.3s;
-  overflow:auto;
-}
-
-.cart.open{
-  right:0;
-}
-
-.carthead{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  border-bottom:1px solid #ddd;
-  padding-bottom:15px;
-}
-
-.close{
-  border:0;
-  background:none;
-  font-size:30px;
-  cursor:pointer;
-}
-
-.cartitem{
-  padding:14px 0;
-  border-bottom:1px solid #ddd;
-}
-
-.cartrow{
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
-}
-
-.remove{
-  border:0;
-  background:none;
-  color:#d32f2f;
-  cursor:pointer;
-}
-
-.qty{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  margin-top:10px;
-}
-
-.qty button{
-  width:34px;
-  height:34px;
-  border:1px solid #aaa;
-  background:#eee;
-  font-size:20px;
-  border-radius:4px;
-  cursor:pointer;
-}
-
-.qty span{
-  min-width:25px;
-  text-align:center;
-  font-weight:bold;
-}
-
-.subtotal{
-  margin-top:7px;
-  font-weight:bold;
-}
-
-.total{
-  font-size:22px;
-  font-weight:bold;
-  border-top:2px solid #ddd;
-  padding:15px 0;
-  margin-top:10px;
-}
-
-.checkout h3{
-  margin:12px 0 7px;
-}
-
-.checkout input,
-.checkout textarea{
-  width:100%;
-  padding:11px;
-  margin:5px 0;
-  border:1px solid #bbb;
-  border-radius:5px;
-}
-
-.checkout textarea{
-  height:75px;
-  resize:none;
-}
-
-.payment{
-  border:1px solid #ddd;
-  padding:12px;
-  margin:7px 0;
-  border-radius:6px;
-}
-
-.payment.disabled{
-  background:#eee;
-  color:#888;
-}
-
-.upiBtn{
-  width:100%;
-  margin-top:10px;
-  padding:12px;
-  border:0;
-  border-radius:6px;
-  background:#138808;
-  color:white;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-.order{
-  width:100%;
-  padding:13px;
-  margin-top:10px;
-  background:#25D366;
-  color:white;
-  border:0;
-  border-radius:6px;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-.loginOverlay{
-  position:fixed;
-  inset:0;
-  background:#0008;
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:4000;
-}
-
-.loginOverlay.show{
-  display:flex;
-}
-
-.loginbox{
-  background:white;
-  width:350px;
-  max-width:90%;
-  padding:25px;
-  border-radius:10px;
-}
-
-.loginbox input{
-  width:100%;
-  padding:11px;
-  margin:6px 0;
-}
-
-.loginbox button{
-  padding:11px;
-  width:100%;
-  background:#d84315;
-  color:white;
-  border:0;
-  border-radius:5px;
-  margin-top:8px;
-}
-
-.support{
-  margin:16px 4%;
-  background:white;
-  padding:25px;
-  border-radius:12px;
-}
-
-.support h2{
-  margin-bottom:12px;
-  color:#42170e;
-}
-
-.support p{
-  margin:9px 0;
-}
-
-.support a{
-  color:#6d2c1a;
-  font-weight:bold;
-  text-decoration:none;
-}
-
-footer{
-  background:#2b1009;
-  color:white;
-  text-align:center;
-  padding:32px;
-  margin-top:25px;
-}
-
-footer p{
-  margin:8px 0;
-}
-
-@media(max-width:900px){
-  .products{
-    grid-template-columns:repeat(2,1fr);
-  }
-}
-
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial}
+body{background:#f5f5f5;color:#222}
+header{background:#3b160d;color:white;padding:12px 4%;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:1000}
+.logo{font-size:22px;font-weight:bold;white-space:nowrap}
+.logo span{color:#ffca7a}
+.search{flex:1;display:flex}
+.search input{width:100%;padding:12px;border:0;outline:0}
+.search button{width:50px;border:0;background:#ffb74d;cursor:pointer}
+.topbtn{background:none;border:0;color:white;font-weight:bold;cursor:pointer;white-space:nowrap}
+nav{background:#5a2114;padding:12px 4%;display:flex;gap:25px;overflow:auto}
+nav button{background:none;border:0;color:white;cursor:pointer;white-space:nowrap}
+.hero{margin:16px 4%;padding:35px;border-radius:14px;background:linear-gradient(120deg,#ffe0b2,#fff8f1);display:flex;justify-content:space-between;align-items:center}
+.hero h1{font-size:38px;color:#42170e;margin-bottom:10px}
+.hero p{font-size:18px;margin-bottom:18px}
+.shop{background:#d84315;color:white;border:0;padding:13px 28px;border-radius:6px;cursor:pointer}
+.heroImg{font-size:100px}
+.section,.support,.reviews{background:white;margin:16px 4%;padding:20px;border-radius:12px}
+.section h2,.reviews h2,.support h2{margin-bottom:18px}
+.products{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.product{border:1px solid #ddd;border-radius:12px;padding:12px;background:white}
+.product:hover{box-shadow:0 4px 15px #ccc}
+.photo{height:190px;background:#fff8f1;border-radius:9px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.photo img{width:100%;height:100%;object-fit:contain}
+.name{font-size:17px;font-weight:bold;margin:12px 0 7px}
+.rating{display:inline-block;background:#198754;color:white;padding:4px 7px;border-radius:4px;font-size:12px}
+.price{font-size:21px;font-weight:bold;margin:8px 0}
+.old{text-decoration:line-through;color:#888;font-size:13px}
+.discount{color:#198754;font-size:13px;font-weight:bold}
+.add{width:100%;padding:11px;border:1px solid #e5b900;background:#ffd814;border-radius:20px;font-weight:bold;cursor:pointer}
+.noresult{display:none;text-align:center;padding:30px;color:#777}
+.cart{position:fixed;right:-460px;top:0;width:440px;max-width:95%;height:100vh;background:white;z-index:3000;padding:20px;box-shadow:-5px 0 20px #555;transition:.3s;overflow:auto}
+.cart.open{right:0}
+.carthead{display:flex;justify-content:space-between;border-bottom:1px solid #ddd;padding-bottom:15px}
+.close{border:0;background:none;font-size:28px;cursor:pointer}
+.cartitem{padding:14px 0;border-bottom:1px solid #ddd}
+.row{display:flex;justify-content:space-between;gap:10px}
+.remove{border:0;background:none;color:#d32f2f;cursor:pointer}
+.qty{display:flex;align-items:center;gap:10px;margin-top:10px}
+.qty button{width:34px;height:34px;border:1px solid #aaa;background:#eee;font-size:20px;cursor:pointer}
+.qty span{min-width:25px;text-align:center;font-weight:bold}
+.subtotal{margin-top:7px;font-weight:bold}
+.total{font-size:21px;font-weight:bold;border-top:2px solid #ddd;padding:15px 0}
+.checkout h3{margin:12px 0 7px}
+.checkout input,.checkout textarea{width:100%;padding:11px;margin:5px 0;border:1px solid #bbb;border-radius:5px}
+.checkout textarea{height:75px;resize:none}
+.payment{border:1px solid #ddd;padding:13px;margin:8px 0;border-radius:6px}
+.payment.disabled{background:#eee;color:#888}
+.order{width:100%;padding:13px;margin-top:10px;background:#25D366;color:white;border:0;border-radius:6px;font-weight:bold;cursor:pointer}
+.loginOverlay{position:fixed;inset:0;background:#0008;display:none;align-items:center;justify-content:center;z-index:4000}
+.loginOverlay.show{display:flex}
+.loginbox{background:white;width:350px;max-width:90%;padding:25px;border-radius:10px}
+.loginbox input{width:100%;padding:11px;margin:6px 0}
+.loginbox button{padding:11px;width:100%;background:#d84315;color:white;border:0;border-radius:5px;margin-top:8px;cursor:pointer}
+.reviewInput{width:100%;padding:10px;margin:5px 0;border:1px solid #bbb;border-radius:5px}
+.reviewBox{border-top:1px solid #ddd;padding:12px 0;margin-top:10px}
+.support p{margin:9px 0}
+.support a{color:#6d2c1a;font-weight:bold;text-decoration:none}
+footer{background:#2b1009;color:white;text-align:center;padding:30px;margin-top:25px}
+footer p{margin:8px 0}
+@media(max-width:900px){.products{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){
-
-  header{
-    flex-wrap:wrap;
-    padding:10px;
-  }
-
-  .logo{
-    width:100%;
-    text-align:center;
-  }
-
-  .search{
-    width:100%;
-  }
-
-  .hero{
-    margin:10px;
-    padding:25px;
-  }
-
-  .hero h1{
-    font-size:28px;
-  }
-
-  .heroImg{
-    font-size:60px;
-  }
-
-  .section,
-  .support{
-    margin:10px 0;
-  }
-
-  .products{
-    gap:10px;
-  }
-
-  .photo{
-    height:145px;
-  }
-
-  .name{
-    font-size:14px;
-  }
+header{flex-wrap:wrap;padding:10px}
+.logo{width:100%;text-align:center}
+.search{width:100%}
+.hero{margin:10px;padding:25px}
+.hero h1{font-size:28px}
+.heroImg{font-size:60px}
+.section,.support,.reviews{margin:10px 0}
+.products{gap:10px}
+.photo{height:145px}
+.name{font-size:14px}
 }
 </style>
 </head>
@@ -558,61 +86,45 @@ footer p{
 <header>
 
 <div class="logo">
-APNA <span>BAKERY</span>
+APNI <span>BAKERY</span>
 </div>
 
 <div class="search">
-<input
-id="search"
-placeholder="Search products..."
+<input id="search"
+placeholder="Search cakes, paneer, chocolate, Bisleri..."
 oninput="searchProducts()">
-
 <button onclick="searchProducts()">🔍</button>
 </div>
 
-<button
-class="topbtn"
-id="loginButton"
-onclick="openLogin()">
+<button class="topbtn" id="loginButton" onclick="openLogin()">
 👤 Login
 </button>
 
-<button
-class="topbtn"
-onclick="openCart()">
+<button class="topbtn" onclick="openCart()">
 🛒 Cart (<span id="count">0</span>)
 </button>
 
 </header>
 
-
 <nav>
 <button onclick="filterProducts('all')">Home</button>
 <button onclick="filterProducts('cake')">Cakes</button>
 <button onclick="filterProducts('dairy')">Dairy</button>
-<button onclick="filterProducts('water')">Water</button>
 <button onclick="filterProducts('chocolate')">Chocolates</button>
+<button onclick="filterProducts('water')">Water</button>
 </nav>
-
 
 <section class="hero">
 
 <div>
 <h1>Fresh Bakery, Delivered Home</h1>
-
-<p>
-Fresh cakes, milk, paneer, water and chocolates.
-</p>
-
-<button class="shop" onclick="scrollProducts()">
-Shop Now
-</button>
+<p>Fresh cakes, paneer, chocolates and daily-use products.</p>
+<button class="shop" onclick="scrollProducts()">Shop Now</button>
 </div>
 
 <div class="heroImg">🎂</div>
 
 </section>
-
 
 <section class="section" id="productsSection">
 
@@ -620,492 +132,130 @@ Shop Now
 
 <div class="products">
 
+<!-- CAKE -->
 
-<!-- PRODUCT 1 -->
-
-<div class="product"
-data-category="cake"
-data-name="fresh cream cake">
-
+<div class="product" data-category="cake" data-name="fresh cream cake">
 <div class="photo">
-<img
-src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=85"
-alt="Fresh Cream Cake">
+<img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=90">
 </div>
-
 <div class="name">Fresh Cream Cake</div>
 <span class="rating">4.5 ★</span>
-<div class="price">₹250</div>
-
-<button class="add"
-onclick="addToCart('Fresh Cream Cake',250)">
-Add to Cart
-</button>
-
-<button class="reviewBtn"
-onclick="toggleReview('r1')">
-⭐ Review
-</button>
-
-<div class="reviewBox" id="r1">
-
-<input id="rn1" placeholder="Your Name">
-
-<div class="stars" id="stars1">
-<button onclick="chooseStar(1,1)">☆</button>
-<button onclick="chooseStar(1,2)">☆</button>
-<button onclick="chooseStar(1,3)">☆</button>
-<button onclick="chooseStar(1,4)">☆</button>
-<button onclick="chooseStar(1,5)">☆</button>
+<div class="price">₹250 <span class="old">₹300</span></div>
+<div class="discount">17% OFF</div>
+<button class="add" onclick="addToCart('Fresh Cream Cake',250)">Add to Cart</button>
 </div>
 
-<textarea id="rt1"
-placeholder="Write your review"></textarea>
+<!-- VANILLA -->
 
-<button class="submitReview"
-onclick="submitReview(1)">
-Submit Review
-</button>
-
-<div class="reviewList" id="list1"></div>
-
-</div>
-</div>
-
-
-<!-- PRODUCT 2 -->
-
-<div class="product"
-data-category="cake"
-data-name="premium vanilla cake vanilla">
-
+<div class="product" data-category="cake" data-name="vanilla cake">
 <div class="photo">
-<img
-src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?auto=format&fit=crop&w=700&q=85"
-alt="Premium Vanilla Cake">
+<img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?auto=format&fit=crop&w=700&q=90">
 </div>
-
 <div class="name">Premium Vanilla Cake</div>
 <span class="rating">4.6 ★</span>
-<div class="price">₹300</div>
-
-<button class="add"
-onclick="addToCart('Premium Vanilla Cake',300)">
-Add to Cart
-</button>
-
-<button class="reviewBtn"
-onclick="toggleReview('r2')">
-⭐ Review
-</button>
-
-<div class="reviewBox" id="r2">
-
-<input id="rn2" placeholder="Your Name">
-
-<div class="stars" id="stars2">
-<button onclick="chooseStar(2,1)">☆</button>
-<button onclick="chooseStar(2,2)">☆</button>
-<button onclick="chooseStar(2,3)">☆</button>
-<button onclick="chooseStar(2,4)">☆</button>
-<button onclick="chooseStar(2,5)">☆</button>
+<div class="price">₹300 <span class="old">₹350</span></div>
+<div class="discount">14% OFF</div>
+<button class="add" onclick="addToCart('Premium Vanilla Cake',300)">Add to Cart</button>
 </div>
 
-<textarea id="rt2"
-placeholder="Write your review"></textarea>
+<!-- CHOCOLATE CAKE -->
 
-<button class="submitReview"
-onclick="submitReview(2)">
-Submit Review
-</button>
-
-<div class="reviewList" id="list2"></div>
-
-</div>
-</div>
-
-
-<!-- PRODUCT 3 -->
-
-<div class="product"
-data-category="cake"
-data-name="chocolate cake">
-
+<div class="product" data-category="cake" data-name="chocolate cake">
 <div class="photo">
-<img
-src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=700&q=85"
-alt="Chocolate Cake">
+<img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=700&q=90">
 </div>
-
 <div class="name">Chocolate Cake</div>
 <span class="rating">4.8 ★</span>
-<div class="price">₹400</div>
-
-<button class="add"
-onclick="addToCart('Chocolate Cake',400)">
-Add to Cart
-</button>
-
-<button class="reviewBtn"
-onclick="toggleReview('r3')">
-⭐ Review
-</button>
-
-<div class="reviewBox" id="r3">
-
-<input id="rn3" placeholder="Your Name">
-
-<div class="stars" id="stars3">
-<button onclick="chooseStar(3,1)">☆</button>
-<button onclick="chooseStar(3,2)">☆</button>
-<button onclick="chooseStar(3,3)">☆</button>
-<button onclick="chooseStar(3,4)">☆</button>
-<button onclick="chooseStar(3,5)">☆</button>
+<div class="price">₹400 <span class="old">₹500</span></div>
+<div class="discount">20% OFF</div>
+<button class="add" onclick="addToCart('Chocolate Cake',400)">Add to Cart</button>
 </div>
 
-<textarea id="rt3"
-placeholder="Write your review"></textarea>
+<!-- BIRTHDAY -->
 
-<button class="submitReview"
-onclick="submitReview(3)">
-Submit Review
-</button>
-
-<div class="reviewList" id="list3"></div>
-
-</div>
-</div>
-
-
-<!-- PRODUCT 4 -->
-
-<div class="product"
-data-category="cake"
-data-name="special birthday cake birthday">
-
+<div class="product" data-category="cake" data-name="birthday cake">
 <div class="photo">
-<img
-src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=700&q=85"
-alt="Special Birthday Cake">
+<img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=700&q=90">
 </div>
-
 <div class="name">Special Birthday Cake</div>
 <span class="rating">4.7 ★</span>
-<div class="price">₹400</div>
-
-<button class="add"
-onclick="addToCart('Special Birthday Cake',400)">
-Add to Cart
-</button>
-
-<button class="reviewBtn"
-onclick="toggleReview('r4')">
-⭐ Review
-</button>
-
-<div class="reviewBox" id="r4">
-
-<input id="rn4" placeholder="Your Name">
-
-<div class="stars" id="stars4">
-<button onclick="chooseStar(4,1)">☆</button>
-<button onclick="chooseStar(4,2)">☆</button>
-<button onclick="chooseStar(4,3)">☆</button>
-<button onclick="chooseStar(4,4)">☆</button>
-<button onclick="chooseStar(4,5)">☆</button>
+<div class="price">₹400 <span class="old">₹450</span></div>
+<div class="discount">11% OFF</div>
+<button class="add" onclick="addToCart('Special Birthday Cake',400)">Add to Cart</button>
 </div>
 
-<textarea id="rt4"
-placeholder="Write your review"></textarea>
+<!-- PANEER ONLY -->
 
-<button class="submitReview"
-onclick="submitReview(4)">
-Submit Review
-</button>
-
-<div class="reviewList" id="list4"></div>
-
-</div>
-</div>
-
-
-<!-- PRODUCT 5 -->
-
-<div class="product"
-data-category="dairy"
-data-name="fresh milk milk">
-
+<div class="product" data-category="dairy" data-name="paneer fresh paneer">
 <div class="photo">
-<img
-src="https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=700&q=85"
-alt="Fresh Milk">
+<img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=700&q=90" alt="Fresh white paneer">
 </div>
-
-<div class="name">Fresh Milk 1 Litre</div>
-<span class="rating">4.7 ★</span>
-<div class="price">₹80</div>
-
-<button class="add"
-onclick="addToCart('Fresh Milk 1 Litre',80)">
-Add to Cart
-</button>
-
-<button class="reviewBtn"
-onclick="toggleReview('r5')">
-⭐ Review
-</button>
-
-<div class="reviewBox" id="r5">
-
-<input id="rn5" placeholder="Your Name">
-
-<div class="stars" id="stars5">
-<button onclick="chooseStar(5,1)">☆</button>
-<button onclick="chooseStar(5,2)">☆</button>
-<button onclick="chooseStar(5,3)">☆</button>
-<button onclick="chooseStar(5,4)">☆</button>
-<button onclick="chooseStar(5,5)">☆</button>
-</div>
-
-<textarea id="rt5"
-placeholder="Write your review"></textarea>
-
-<button class="submitReview"
-onclick="submitReview(5)">
-Submit Review
-</button>
-
-<div class="reviewList" id="list5"></div>
-
-</div>
-</div>
-
-
-<!-- PRODUCT 6 PANEER -->
-
-<div class="product"
-data-category="dairy"
-data-name="fresh paneer paneer">
-
-<div class="photo">
-<img
-src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=700&q=85"
-alt="Fresh Paneer">
-</div>
-
 <div class="name">Fresh Paneer 1 Kg</div>
 <span class="rating">4.6 ★</span>
-<div class="price">₹300</div>
-
-<button class="add"
-onclick="addToCart('Fresh Paneer 1 Kg',300)">
-Add to Cart
-</button>
-
-<button class="reviewBtn"
-onclick="toggleReview('r6')">
-⭐ Review
-</button>
-
-<div class="reviewBox" id="r6">
-
-<input id="rn6" placeholder="Your Name">
-
-<div class="stars" id="stars6">
-<button onclick="chooseStar(6,1)">☆</button>
-<button onclick="chooseStar(6,2)">☆</button>
-<button onclick="chooseStar(6,3)">☆</button>
-<button onclick="chooseStar(6,4)">☆</button>
-<button onclick="chooseStar(6,5)">☆</button>
+<div class="price">₹300 <span class="old">₹330</span></div>
+<div class="discount">9% OFF</div>
+<button class="add" onclick="addToCart('Fresh Paneer 1 Kg',300)">Add to Cart</button>
 </div>
 
-<textarea id="rt6"
-placeholder="Write your review"></textarea>
+<!-- DAIRY MILK 10 -->
 
-<button class="submitReview"
-onclick="submitReview(6)">
-Submit Review
-</button>
-
-<div class="reviewList" id="list6"></div>
-
-</div>
-</div>
-
-
-<!-- PRODUCT 7 BISLERI -->
-
-<div class="product"
-data-category="water"
-data-name="bisleri water bottle 1 litre">
-
+<div class="product" data-category="chocolate" data-name="dairy milk 10">
 <div class="photo">
-<img
-src="https://images.unsplash.com/photo-1564419320461-6870880221ad?auto=format&fit=crop&w=700&q=85"
-alt="Bisleri Water Bottle">
+<img src="https://images.unsplash.com/photo-1575377222312-dd1a12a4b6e7?auto=format&fit=crop&w=700&q=90">
+</div>
+<div class="name">Dairy Milk ₹10</div>
+<span class="rating">4.7 ★</span>
+<div class="price">₹10</div>
+<button class="add" onclick="addToCart('Dairy Milk ₹10',10)">Add to Cart</button>
 </div>
 
-<div class="name">Bisleri Water Bottle 1 Litre</div>
+<!-- DAIRY MILK 20 -->
+
+<div class="product" data-category="chocolate" data-name="dairy milk 20">
+<div class="photo">
+<img src="https://images.unsplash.com/photo-1575377222312-dd1a12a4b6e7?auto=format&fit=crop&w=700&q=90">
+</div>
+<div class="name">Dairy Milk ₹20</div>
 <span class="rating">4.7 ★</span>
 <div class="price">₹20</div>
-
-<button class="add"
-onclick="addToCart('Bisleri Water Bottle 1 Litre',20)">
-Add to Cart
-</button>
-
-<button class="reviewBtn"
-onclick="toggleReview('r7')">
-⭐ Review
-</button>
-
-<div class="reviewBox" id="r7">
-
-<input id="rn7" placeholder="Your Name">
-
-<div class="stars" id="stars7">
-<button onclick="chooseStar(7,1)">☆</button>
-<button onclick="chooseStar(7,2)">☆</button>
-<button onclick="chooseStar(7,3)">☆</button>
-<button onclick="chooseStar(7,4)">☆</button>
-<button onclick="chooseStar(7,5)">☆</button>
+<button class="add" onclick="addToCart('Dairy Milk ₹20',20)">Add to Cart</button>
 </div>
 
-<textarea id="rt7"
-placeholder="Write your review"></textarea>
+<!-- DAIRY MILK 50 -->
 
-<button class="submitReview"
-onclick="submitReview(7)">
-Submit Review
-</button>
-
-<div class="reviewList" id="list7"></div>
-
-</div>
-</div>
-
-
-<!-- PRODUCT 8 DAIRY MILK -->
-
-<div class="product"
-data-category="chocolate"
-data-name="dairy milk chocolate">
-
+<div class="product" data-category="chocolate" data-name="dairy milk 50">
 <div class="photo">
-<img
-src="https://images.unsplash.com/photo-1548907040-4d42d42f0aaf?auto=format&fit=crop&w=700&q=85"
-alt="Dairy Milk Chocolate">
+<img src="https://images.unsplash.com/photo-1575377222312-dd1a12a4b6e7?auto=format&fit=crop&w=700&q=90">
 </div>
-
-<div class="name">Dairy Milk Chocolate</div>
+<div class="name">Dairy Milk ₹50</div>
 <span class="rating">4.8 ★</span>
-<div class="price">₹20 / ₹50</div>
-
-<button class="add"
-onclick="addToCart('Dairy Milk Chocolate ₹20',20)">
-Add ₹20
-</button>
-
-<button class="add"
-style="margin-top:7px"
-onclick="addToCart('Dairy Milk Chocolate ₹50',50)">
-Add ₹50
-</button>
-
-<button class="reviewBtn"
-onclick="toggleReview('r8')">
-⭐ Review
-</button>
-
-<div class="reviewBox" id="r8">
-
-<input id="rn8" placeholder="Your Name">
-
-<div class="stars" id="stars8">
-<button onclick="chooseStar(8,1)">☆</button>
-<button onclick="chooseStar(8,2)">☆</button>
-<button onclick="chooseStar(8,3)">☆</button>
-<button onclick="chooseStar(8,4)">☆</button>
-<button onclick="chooseStar(8,5)">☆</button>
+<div class="price">₹50</div>
+<button class="add" onclick="addToCart('Dairy Milk ₹50',50)">Add to Cart</button>
 </div>
 
-<textarea id="rt8"
-placeholder="Write your review"></textarea>
+<!-- KITKAT -->
 
-<button class="submitReview"
-onclick="submitReview(8)">
-Submit Review
-</button>
-
-<div class="reviewList" id="list8"></div>
-
-</div>
-</div>
-
-
-<!-- PRODUCT 9 KITKAT -->
-
-<div class="product"
-data-category="chocolate"
-data-name="kitkat chocolate">
-
+<div class="product" data-category="chocolate" data-name="kitkat kit kat">
 <div class="photo">
-<img
-src="https://images.unsplash.com/photo-1589710751893-f9a6770ad71b?auto=format&fit=crop&w=700&q=85"
-alt="KitKat Chocolate">
+<img src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?auto=format&fit=crop&w=700&q=90">
 </div>
-
-<div class="name">KitKat Chocolate</div>
+<div class="name">KitKat ₹20</div>
 <span class="rating">4.7 ★</span>
-<div class="price">₹10 / ₹20 / ₹30</div>
-
-<button class="add"
-onclick="addToCart('KitKat Chocolate ₹10',10)">
-Add ₹10
-</button>
-
-<button class="add"
-style="margin-top:7px"
-onclick="addToCart('KitKat Chocolate ₹20',20)">
-Add ₹20
-</button>
-
-<button class="add"
-style="margin-top:7px"
-onclick="addToCart('KitKat Chocolate ₹30',30)">
-Add ₹30
-</button>
-
-<button class="reviewBtn"
-onclick="toggleReview('r9')">
-⭐ Review
-</button>
-
-<div class="reviewBox" id="r9">
-
-<input id="rn9" placeholder="Your Name">
-
-<div class="stars" id="stars9">
-<button onclick="chooseStar(9,1)">☆</button>
-<button onclick="chooseStar(9,2)">☆</button>
-<button onclick="chooseStar(9,3)">☆</button>
-<button onclick="chooseStar(9,4)">☆</button>
-<button onclick="chooseStar(9,5)">☆</button>
+<div class="price">₹20</div>
+<button class="add" onclick="addToCart('KitKat ₹20',20)">Add to Cart</button>
 </div>
 
-<textarea id="rt9"
-placeholder="Write your review"></textarea>
+<!-- BISLERI -->
 
-<button class="submitReview"
-onclick="submitReview(9)">
-Submit Review
-</button>
-
-<div class="reviewList" id="list9"></div>
-
+<div class="product" data-category="water" data-name="bisleri water bottle">
+<div class="photo">
+<img src="https://images.unsplash.com/photo-1564419320461-6870880221ad?auto=format&fit=crop&w=700&q=90" alt="Water Bottle">
 </div>
+<div class="name">Bisleri Water Bottle</div>
+<span class="rating">4.8 ★</span>
+<div class="price">₹20</div>
+<button class="add" onclick="addToCart('Bisleri Water Bottle',20)">Add to Cart</button>
 </div>
-
 
 </div>
 
@@ -1115,14 +265,12 @@ No product found.
 
 </section>
 
-
 <!-- CART -->
 
 <div class="cart" id="cart">
 
 <div class="carthead">
 <h2>Shopping Cart</h2>
-
 <button class="close" onclick="closeCart()">×</button>
 </div>
 
@@ -1138,105 +286,78 @@ Total: ₹<span id="total">0</span>
 
 <input id="customerName" placeholder="Your Name">
 
-<input
-id="customerPhone"
-type="tel"
-placeholder="Mobile Number">
+<input id="customerPhone" type="tel" placeholder="Mobile Number">
 
-<textarea
-id="customerAddress"
-placeholder="Complete Delivery Address"></textarea>
+<textarea id="customerAddress" placeholder="Complete Delivery Address"></textarea>
 
 <h3>Payment Method</h3>
 
 <div class="payment" id="codBox">
 
 <label>
-<input
-type="radio"
-name="payment"
-value="COD"
-id="codRadio"
-checked>
+<input type="radio" name="payment" value="COD" id="codRadio" checked>
 💵 Cash on Delivery
 </label>
 
-<p
-id="codMessage"
-style="font-size:12px;margin-top:7px">
+<p id="codMessage" style="font-size:12px;margin-top:7px">
 COD available from 6:00 AM to 8:00 PM.
 </p>
 
 </div>
 
-
-<div class="payment">
-
-<label>
-<input
-type="radio"
-name="payment"
-value="UPI"
-id="upiRadio">
-💳 UPI Payment
-</label>
-
-<p style="font-size:13px;margin-top:7px">
-UPI ID: <b>ay2279832@axl</b>
-</p>
-
-<button
-type="button"
-class="upiBtn"
-onclick="payUPI()">
-💳 Pay Now with UPI
+<button class="order" onclick="placeOrder()">
+📲 Place COD Order → WhatsApp
 </button>
 
 </div>
 
-
-<button
-class="order"
-onclick="placeOrder()">
-📲 Place Order on WhatsApp
-</button>
-
 </div>
-</div>
-
 
 <!-- LOGIN -->
 
-<div
-class="loginOverlay"
-id="loginOverlay">
+<div class="loginOverlay" id="loginOverlay">
 
 <div class="loginbox">
 
-<button
-onclick="closeLogin()"
-style="float:right;border:0;background:none;font-size:24px">
+<button onclick="closeLogin()" style="float:right;border:0;background:none;font-size:24px">
 ×
 </button>
 
 <h2>Login / Sign Up</h2>
 
-<input
-id="loginName"
-placeholder="Your Name">
+<input id="loginName" placeholder="Your Name">
 
-<input
-id="loginPhone"
-type="tel"
-placeholder="Mobile Number">
+<input id="loginPhone" type="tel" placeholder="Mobile Number">
 
 <button onclick="loginUser()">
 Continue
 </button>
 
 </div>
+
 </div>
 
+<!-- REVIEWS -->
+
+<section class="reviews">
+
+<h2>⭐ Customer Reviews</h2>
+
+<p style="color:#777;margin-bottom:10px">
+यहाँ सिर्फ customers द्वारा दिए गए reviews दिखाई देंगे।
+</p>
+
+<input class="reviewInput" id="reviewName" placeholder="Your Name">
+
+<textarea class="reviewInput" id="reviewText" placeholder="Write your review"></textarea>
+
+<button class="shop" onclick="submitReview()">
+Submit Review
+</button>
+
+<div id="reviewList"></div>
+
+</section>
 
 <!-- SUPPORT -->
 
@@ -1244,18 +365,463 @@ Continue
 
 <h2>Customer Support</h2>
 
-<p>
-📞 Phone:
+<p>📞 Phone:
 <a href="tel:9301272240">9301272240</a>
 </p>
 
-<p>
-📧 Email:
-<a href="mailto:ay2279832@gmail.com">
-ay2279832@gmail.com
-</a>
+<p>📧 Email:
+<a href="mailto:ay2279832@gmail.com">ay2279832@gmail.com</a>
 </p>
 
 <p>🏠 Home Delivery Available</p>
 
-<p>💵 Cash on Delivery: 6:00
+<p>💵 Cash on Delivery:
+<b>6:00 AM – 8:00 PM</b>
+</p>
+
+</section>
+
+<footer>
+
+<h2>APNI BAKERY</h2>
+
+<p>Fresh Cakes • Dairy • Chocolates • Home Delivery</p>
+
+<p>© 2026 APNI BAKERY</p>
+
+</footer>
+
+<script>
+
+let cart=[];
+
+/* ADD CART */
+
+function addToCart(name,price){
+
+let item=cart.find(x=>x.name===name);
+
+if(item){
+item.qty++;
+}else{
+cart.push({name:name,price:price,qty:1});
+}
+
+renderCart();
+openCart();
+
+}
+
+/* CART DISPLAY */
+
+function renderCart(){
+
+let box=document.getElementById("cartItems");
+let total=0;
+let count=0;
+
+box.innerHTML="";
+
+if(cart.length===0){
+
+box.innerHTML="<p style='padding:20px 0'>Your cart is empty.</p>";
+
+}
+
+cart.forEach(function(item,index){
+
+let subtotal=item.price*item.qty;
+
+total+=subtotal;
+count+=item.qty;
+
+box.innerHTML+=`
+
+<div class="cartitem">
+
+<div class="row">
+
+<b>${item.name}</b>
+
+<button class="remove"
+onclick="removeItem(${index})">
+Remove
+</button>
+
+</div>
+
+<div class="qty">
+
+<button onclick="changeQty(${index},-1)">−</button>
+
+<span>${item.qty}</span>
+
+<button onclick="changeQty(${index},1)">+</button>
+
+</div>
+
+<div class="subtotal">
+₹${subtotal}
+</div>
+
+</div>
+
+`;
+
+});
+
+document.getElementById("count").innerText=count;
+document.getElementById("total").innerText=total;
+
+}
+
+/* QUANTITY */
+
+function changeQty(index,amount){
+
+cart[index].qty+=amount;
+
+if(cart[index].qty<=0){
+cart.splice(index,1);
+}
+
+renderCart();
+
+}
+
+/* REMOVE */
+
+function removeItem(index){
+
+cart.splice(index,1);
+renderCart();
+
+}
+
+/* CART OPEN */
+
+function openCart(){
+
+document.getElementById("cart").classList.add("open");
+renderCart();
+
+}
+
+/* CART CLOSE */
+
+function closeCart(){
+
+document.getElementById("cart").classList.remove("open");
+
+}
+
+/* SEARCH */
+
+function searchProducts(){
+
+let text=document.getElementById("search").value.toLowerCase().trim();
+let found=0;
+
+document.querySelectorAll(".product").forEach(function(product){
+
+let name=product.dataset.name.toLowerCase();
+
+if(name.includes(text)){
+
+product.style.display="block";
+found++;
+
+}else{
+
+product.style.display="none";
+
+}
+
+});
+
+document.getElementById("noResult").style.display=
+found===0?"block":"none";
+
+}
+
+/* FILTER */
+
+function filterProducts(category){
+
+document.getElementById("search").value="";
+
+let found=0;
+
+document.querySelectorAll(".product").forEach(function(product){
+
+if(category==="all"||product.dataset.category===category){
+
+product.style.display="block";
+found++;
+
+}else{
+
+product.style.display="none";
+
+}
+
+});
+
+document.getElementById("noResult").style.display=
+found===0?"block":"none";
+
+scrollProducts();
+
+}
+
+/* SCROLL */
+
+function scrollProducts(){
+
+document.getElementById("productsSection")
+.scrollIntoView({behavior:"smooth"});
+
+}
+
+/* LOGIN */
+
+function openLogin(){
+
+document.getElementById("loginOverlay")
+.classList.add("show");
+
+}
+
+function closeLogin(){
+
+document.getElementById("loginOverlay")
+.classList.remove("show");
+
+}
+
+function loginUser(){
+
+let name=document.getElementById("loginName").value.trim();
+let phone=document.getElementById("loginPhone").value.trim();
+
+if(!name||!phone){
+
+alert("Please enter your name and mobile number.");
+return;
+
+}
+
+if(phone.length<10){
+
+alert("Please enter a valid mobile number.");
+return;
+
+}
+
+localStorage.setItem("bakeryName",name);
+localStorage.setItem("bakeryPhone",phone);
+
+document.getElementById("loginButton").innerText="👤 "+name;
+
+closeLogin();
+
+alert("Login successful!");
+
+}
+
+/* SAVED LOGIN */
+
+let savedName=localStorage.getItem("bakeryName");
+
+if(savedName){
+
+document.getElementById("loginButton").innerText="👤 "+savedName;
+
+}
+
+/* COD TIME */
+
+function codAvailable(){
+
+let hour=new Date().getHours();
+
+return hour>=6 && hour<20;
+
+}
+
+function updateCOD(){
+
+let radio=document.getElementById("codRadio");
+let box=document.getElementById("codBox");
+let message=document.getElementById("codMessage");
+
+if(codAvailable()){
+
+radio.disabled=false;
+box.classList.remove("disabled");
+
+message.innerText=
+"COD is available now — 6:00 AM to 8:00 PM.";
+
+message.style.color="#198754";
+
+}else{
+
+radio.disabled=true;
+box.classList.add("disabled");
+
+message.innerText=
+"COD is closed now. Available only from 6:00 AM to 8:00 PM.";
+
+message.style.color="#d32f2f";
+
+}
+
+}
+
+/* ORDER */
+
+function placeOrder(){
+
+if(cart.length===0){
+
+alert("Your cart is empty.");
+return;
+
+}
+
+if(!codAvailable()){
+
+alert(
+"Cash on Delivery is available only from 6:00 AM to 8:00 PM."
+);
+
+return;
+
+}
+
+let name=document.getElementById("customerName").value.trim();
+let phone=document.getElementById("customerPhone").value.trim();
+let address=document.getElementById("customerAddress").value.trim();
+
+if(!name||!phone||!address){
+
+alert(
+"Please enter Name, Mobile Number and Complete Address."
+);
+
+return;
+
+}
+
+let total=cart.reduce(function(sum,item){
+
+return sum+(item.price*item.qty);
+
+},0);
+
+let items=cart.map(function(item){
+
+return "• "+item.name+
+" × "+item.qty+
+" = ₹"+(item.price*item.qty);
+
+}).join("\n");
+
+let message=
+"*NEW COD ORDER - APNA BAKERY*\n\n"+
+"Customer Name: "+name+"\n"+
+"Mobile: "+phone+"\n"+
+"Address: "+address+"\n\n"+
+"*ORDER ITEMS*\n"+
+items+"\n\n"+
+"*TOTAL: ₹"+total+"*\n"+
+"Payment: CASH ON DELIVERY\n\n"+
+"Please confirm my order.";
+
+let whatsappNumber="919301272240";
+
+let url=
+"https://wa.me/"+
+whatsappNumber+
+"?text="+
+encodeURIComponent(message);
+
+window.open(url,"_blank");
+
+}
+
+/* REVIEWS */
+
+function submitReview(){
+
+let name=document.getElementById("reviewName").value.trim();
+let text=document.getElementById("reviewText").value.trim();
+
+if(!name||!text){
+
+alert("Please enter your name and review.");
+return;
+
+}
+
+let reviews=
+JSON.parse(
+localStorage.getItem("apniBakeryReviews")||"[]"
+);
+
+reviews.push({
+name:name,
+text:text
+});
+
+localStorage.setItem(
+"apniBakeryReviews",
+JSON.stringify(reviews)
+);
+
+document.getElementById("reviewName").value="";
+document.getElementById("reviewText").value="";
+
+showReviews();
+
+alert("Your review has been submitted.");
+
+}
+
+/* SHOW REVIEWS */
+
+function showReviews(){
+
+let reviews=
+JSON.parse(
+localStorage.getItem("apniBakeryReviews")||"[]"
+);
+
+document.getElementById("reviewList").innerHTML=
+
+reviews.map(function(r){
+
+return `
+<div class="reviewBox">
+<b>${r.name}</b>
+<p style="margin-top:5px">${r.text}</p>
+</div>
+`;
+
+}).join("");
+
+}
+
+/* START */
+
+renderCart();
+showReviews();
+updateCOD();
+
+setInterval(updateCOD,60000);
+
+</script>
+
+</body>
+  </html>
