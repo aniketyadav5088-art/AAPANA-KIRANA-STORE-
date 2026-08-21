@@ -84,12 +84,13 @@ nav button{
   color:white;
   cursor:pointer;
   white-space:nowrap;
+  font-weight:bold;
 }
 
 .hero{
   margin:16px 4%;
   padding:40px;
-  min-height:260px;
+  min-height:250px;
   border-radius:14px;
   background:linear-gradient(120deg,#ffe0b2,#fff8f1);
   display:flex;
@@ -115,10 +116,11 @@ nav button{
   padding:13px 28px;
   border-radius:6px;
   cursor:pointer;
+  font-weight:bold;
 }
 
 .heroImg{
-  font-size:110px;
+  font-size:100px;
 }
 
 .section{
@@ -181,7 +183,7 @@ nav button{
 }
 
 .price{
-  font-size:21px;
+  font-size:20px;
   font-weight:bold;
   margin:10px 0;
 }
@@ -196,13 +198,17 @@ nav button{
   cursor:pointer;
 }
 
+.add:hover{
+  background:#ffc400;
+}
+
 .reviewBtn{
   width:100%;
-  padding:9px;
+  padding:10px;
   margin-top:8px;
   background:white;
-  border:1px solid #198754;
   color:#198754;
+  border:1px solid #198754;
   border-radius:20px;
   font-weight:bold;
   cursor:pointer;
@@ -224,26 +230,26 @@ nav button{
 .reviewBox textarea{
   width:100%;
   padding:9px;
-  margin:4px 0;
+  margin:5px 0;
   border:1px solid #bbb;
   border-radius:5px;
 }
 
 .reviewBox textarea{
-  height:60px;
+  height:65px;
   resize:none;
 }
 
-.starSelect{
+.stars{
   display:flex;
-  gap:4px;
-  margin:6px 0;
+  gap:2px;
+  margin:5px 0;
 }
 
-.starSelect button{
+.stars button{
   border:0;
   background:none;
-  font-size:22px;
+  font-size:23px;
   cursor:pointer;
 }
 
@@ -257,17 +263,17 @@ nav button{
   cursor:pointer;
 }
 
-.reviews{
+.reviewList{
   margin-top:10px;
+}
+
+.singleReview{
+  border-top:1px solid #ddd;
+  padding:8px 0;
   font-size:13px;
 }
 
-.review{
-  border-top:1px solid #ddd;
-  padding:8px 0;
-}
-
-.reviewStars{
+.yellowStars{
   color:#e5a400;
 }
 
@@ -276,7 +282,6 @@ nav button{
   text-align:center;
   padding:30px;
   color:#777;
-  font-size:18px;
 }
 
 .cart{
@@ -301,6 +306,7 @@ nav button{
 .carthead{
   display:flex;
   justify-content:space-between;
+  align-items:center;
   border-bottom:1px solid #ddd;
   padding-bottom:15px;
 }
@@ -308,7 +314,7 @@ nav button{
 .close{
   border:0;
   background:none;
-  font-size:28px;
+  font-size:30px;
   cursor:pointer;
 }
 
@@ -317,7 +323,7 @@ nav button{
   border-bottom:1px solid #ddd;
 }
 
-.row{
+.cartrow{
   display:flex;
   justify-content:space-between;
   gap:10px;
@@ -359,10 +365,11 @@ nav button{
 }
 
 .total{
-  font-size:21px;
+  font-size:22px;
   font-weight:bold;
   border-top:2px solid #ddd;
   padding:15px 0;
+  margin-top:10px;
 }
 
 .checkout h3{
@@ -395,7 +402,7 @@ nav button{
   color:#888;
 }
 
-.payment button{
+.upiBtn{
   width:100%;
   margin-top:10px;
   padding:12px;
@@ -555,14 +562,12 @@ APNA <span>BAKERY</span>
 </div>
 
 <div class="search">
-
 <input
 id="search"
-placeholder="Search cakes, paneer, milk, water, chocolate..."
+placeholder="Search products..."
 oninput="searchProducts()">
 
 <button onclick="searchProducts()">🔍</button>
-
 </div>
 
 <button
@@ -582,59 +587,43 @@ onclick="openCart()">
 
 
 <nav>
-
 <button onclick="filterProducts('all')">Home</button>
 <button onclick="filterProducts('cake')">Cakes</button>
-<button onclick="filterProducts('bakery')">Bakery</button>
 <button onclick="filterProducts('dairy')">Dairy</button>
 <button onclick="filterProducts('water')">Water</button>
 <button onclick="filterProducts('chocolate')">Chocolates</button>
-
 </nav>
 
 
 <section class="hero">
 
 <div>
-
-<h1>
-Fresh Bakery, Delivered Home
-</h1>
+<h1>Fresh Bakery, Delivered Home</h1>
 
 <p>
 Fresh cakes, milk, paneer, water and chocolates.
 </p>
 
-<button
-class="shop"
-onclick="scrollProducts()">
+<button class="shop" onclick="scrollProducts()">
 Shop Now
 </button>
-
 </div>
 
-<div class="heroImg">
-🎂
-</div>
+<div class="heroImg">🎂</div>
 
 </section>
 
 
-<section
-class="section"
-id="productsSection">
+<section class="section" id="productsSection">
 
-<h2>
-Popular Products
-</h2>
+<h2>Popular Products</h2>
 
 <div class="products">
 
 
-<!-- FRESH CREAM CAKE -->
+<!-- PRODUCT 1 -->
 
-<div
-class="product"
+<div class="product"
 data-category="cake"
 data-name="fresh cream cake">
 
@@ -645,52 +634,50 @@ alt="Fresh Cream Cake">
 </div>
 
 <div class="name">Fresh Cream Cake</div>
-
 <span class="rating">4.5 ★</span>
-
 <div class="price">₹250</div>
 
-<button
-class="add"
+<button class="add"
 onclick="addToCart('Fresh Cream Cake',250)">
 Add to Cart
 </button>
 
-<button
-class="reviewBtn"
-onclick="toggleReview('review1')">
+<button class="reviewBtn"
+onclick="toggleReview('r1')">
 ⭐ Review
 </button>
 
-<div class="reviewBox" id="review1">
-<input id="name1" placeholder="Your Name">
+<div class="reviewBox" id="r1">
 
-<div class="starSelect">
-<button onclick="setStar(1,1)">☆</button>
-<button onclick="setStar(1,2)">☆</button>
-<button onclick="setStar(1,3)">☆</button>
-<button onclick="setStar(1,4)">☆</button>
-<button onclick="setStar(1,5)">☆</button>
+<input id="rn1" placeholder="Your Name">
+
+<div class="stars" id="stars1">
+<button onclick="chooseStar(1,1)">☆</button>
+<button onclick="chooseStar(1,2)">☆</button>
+<button onclick="chooseStar(1,3)">☆</button>
+<button onclick="chooseStar(1,4)">☆</button>
+<button onclick="chooseStar(1,5)">☆</button>
 </div>
 
-<textarea id="text1" placeholder="Write your review"></textarea>
+<textarea id="rt1"
+placeholder="Write your review"></textarea>
 
-<button class="submitReview" onclick="submitReview(1,'Fresh Cream Cake')">
+<button class="submitReview"
+onclick="submitReview(1)">
 Submit Review
 </button>
 
-<div class="reviews" id="reviews1"></div>
-</div>
+<div class="reviewList" id="list1"></div>
 
 </div>
+</div>
 
 
-<!-- VANILLA -->
+<!-- PRODUCT 2 -->
 
-<div
-class="product"
+<div class="product"
 data-category="cake"
-data-name="vanilla cake">
+data-name="premium vanilla cake vanilla">
 
 <div class="photo">
 <img
@@ -699,48 +686,48 @@ alt="Premium Vanilla Cake">
 </div>
 
 <div class="name">Premium Vanilla Cake</div>
-
 <span class="rating">4.6 ★</span>
-
 <div class="price">₹300</div>
 
-<button
-class="add"
+<button class="add"
 onclick="addToCart('Premium Vanilla Cake',300)">
 Add to Cart
 </button>
 
-<button class="reviewBtn" onclick="toggleReview('review2')">
+<button class="reviewBtn"
+onclick="toggleReview('r2')">
 ⭐ Review
 </button>
 
-<div class="reviewBox" id="review2">
-<input id="name2" placeholder="Your Name">
+<div class="reviewBox" id="r2">
 
-<div class="starSelect">
-<button onclick="setStar(2,1)">☆</button>
-<button onclick="setStar(2,2)">☆</button>
-<button onclick="setStar(2,3)">☆</button>
-<button onclick="setStar(2,4)">☆</button>
-<button onclick="setStar(2,5)">☆</button>
+<input id="rn2" placeholder="Your Name">
+
+<div class="stars" id="stars2">
+<button onclick="chooseStar(2,1)">☆</button>
+<button onclick="chooseStar(2,2)">☆</button>
+<button onclick="chooseStar(2,3)">☆</button>
+<button onclick="chooseStar(2,4)">☆</button>
+<button onclick="chooseStar(2,5)">☆</button>
 </div>
 
-<textarea id="text2" placeholder="Write your review"></textarea>
+<textarea id="rt2"
+placeholder="Write your review"></textarea>
 
-<button class="submitReview" onclick="submitReview(2,'Premium Vanilla Cake')">
+<button class="submitReview"
+onclick="submitReview(2)">
 Submit Review
 </button>
 
-<div class="reviews" id="reviews2"></div>
-</div>
+<div class="reviewList" id="list2"></div>
 
 </div>
+</div>
 
 
-<!-- CHOCOLATE CAKE -->
+<!-- PRODUCT 3 -->
 
-<div
-class="product"
+<div class="product"
 data-category="cake"
 data-name="chocolate cake">
 
@@ -751,50 +738,50 @@ alt="Chocolate Cake">
 </div>
 
 <div class="name">Chocolate Cake</div>
-
 <span class="rating">4.8 ★</span>
-
 <div class="price">₹400</div>
 
-<button
-class="add"
+<button class="add"
 onclick="addToCart('Chocolate Cake',400)">
 Add to Cart
 </button>
 
-<button class="reviewBtn" onclick="toggleReview('review3')">
+<button class="reviewBtn"
+onclick="toggleReview('r3')">
 ⭐ Review
 </button>
 
-<div class="reviewBox" id="review3">
-<input id="name3" placeholder="Your Name">
+<div class="reviewBox" id="r3">
 
-<div class="starSelect">
-<button onclick="setStar(3,1)">☆</button>
-<button onclick="setStar(3,2)">☆</button>
-<button onclick="setStar(3,3)">☆</button>
-<button onclick="setStar(3,4)">☆</button>
-<button onclick="setStar(3,5)">☆</button>
+<input id="rn3" placeholder="Your Name">
+
+<div class="stars" id="stars3">
+<button onclick="chooseStar(3,1)">☆</button>
+<button onclick="chooseStar(3,2)">☆</button>
+<button onclick="chooseStar(3,3)">☆</button>
+<button onclick="chooseStar(3,4)">☆</button>
+<button onclick="chooseStar(3,5)">☆</button>
 </div>
 
-<textarea id="text3" placeholder="Write your review"></textarea>
+<textarea id="rt3"
+placeholder="Write your review"></textarea>
 
-<button class="submitReview" onclick="submitReview(3,'Chocolate Cake')">
+<button class="submitReview"
+onclick="submitReview(3)">
 Submit Review
 </button>
 
-<div class="reviews" id="reviews3"></div>
-</div>
+<div class="reviewList" id="list3"></div>
 
 </div>
+</div>
 
 
-<!-- BIRTHDAY CAKE -->
+<!-- PRODUCT 4 -->
 
-<div
-class="product"
+<div class="product"
 data-category="cake"
-data-name="birthday cake special">
+data-name="special birthday cake birthday">
 
 <div class="photo">
 <img
@@ -803,48 +790,48 @@ alt="Special Birthday Cake">
 </div>
 
 <div class="name">Special Birthday Cake</div>
-
 <span class="rating">4.7 ★</span>
-
 <div class="price">₹400</div>
 
-<button
-class="add"
+<button class="add"
 onclick="addToCart('Special Birthday Cake',400)">
 Add to Cart
 </button>
 
-<button class="reviewBtn" onclick="toggleReview('review4')">
+<button class="reviewBtn"
+onclick="toggleReview('r4')">
 ⭐ Review
 </button>
 
-<div class="reviewBox" id="review4">
-<input id="name4" placeholder="Your Name">
+<div class="reviewBox" id="r4">
 
-<div class="starSelect">
-<button onclick="setStar(4,1)">☆</button>
-<button onclick="setStar(4,2)">☆</button>
-<button onclick="setStar(4,3)">☆</button>
-<button onclick="setStar(4,4)">☆</button>
-<button onclick="setStar(4,5)">☆</button>
+<input id="rn4" placeholder="Your Name">
+
+<div class="stars" id="stars4">
+<button onclick="chooseStar(4,1)">☆</button>
+<button onclick="chooseStar(4,2)">☆</button>
+<button onclick="chooseStar(4,3)">☆</button>
+<button onclick="chooseStar(4,4)">☆</button>
+<button onclick="chooseStar(4,5)">☆</button>
 </div>
 
-<textarea id="text4" placeholder="Write your review"></textarea>
+<textarea id="rt4"
+placeholder="Write your review"></textarea>
 
-<button class="submitReview" onclick="submitReview(4,'Special Birthday Cake')">
+<button class="submitReview"
+onclick="submitReview(4)">
 Submit Review
 </button>
 
-<div class="reviews" id="reviews4"></div>
-</div>
+<div class="reviewList" id="list4"></div>
 
 </div>
+</div>
 
 
-<!-- MILK -->
+<!-- PRODUCT 5 -->
 
-<div
-class="product"
+<div class="product"
 data-category="dairy"
 data-name="fresh milk milk">
 
@@ -855,102 +842,102 @@ alt="Fresh Milk">
 </div>
 
 <div class="name">Fresh Milk 1 Litre</div>
-
 <span class="rating">4.7 ★</span>
-
 <div class="price">₹80</div>
 
-<button
-class="add"
+<button class="add"
 onclick="addToCart('Fresh Milk 1 Litre',80)">
 Add to Cart
 </button>
 
-<button class="reviewBtn" onclick="toggleReview('review5')">
+<button class="reviewBtn"
+onclick="toggleReview('r5')">
 ⭐ Review
 </button>
 
-<div class="reviewBox" id="review5">
-<input id="name5" placeholder="Your Name">
+<div class="reviewBox" id="r5">
 
-<div class="starSelect">
-<button onclick="setStar(5,1)">☆</button>
-<button onclick="setStar(5,2)">☆</button>
-<button onclick="setStar(5,3)">☆</button>
-<button onclick="setStar(5,4)">☆</button>
-<button onclick="setStar(5,5)">☆</button>
+<input id="rn5" placeholder="Your Name">
+
+<div class="stars" id="stars5">
+<button onclick="chooseStar(5,1)">☆</button>
+<button onclick="chooseStar(5,2)">☆</button>
+<button onclick="chooseStar(5,3)">☆</button>
+<button onclick="chooseStar(5,4)">☆</button>
+<button onclick="chooseStar(5,5)">☆</button>
 </div>
 
-<textarea id="text5" placeholder="Write your review"></textarea>
+<textarea id="rt5"
+placeholder="Write your review"></textarea>
 
-<button class="submitReview" onclick="submitReview(5,'Fresh Milk 1 Litre')">
+<button class="submitReview"
+onclick="submitReview(5)">
 Submit Review
 </button>
 
-<div class="reviews" id="reviews5"></div>
-</div>
+<div class="reviewList" id="list5"></div>
 
 </div>
+</div>
 
 
-<!-- PANEER -->
+<!-- PRODUCT 6 PANEER -->
 
-<div
-class="product"
+<div class="product"
 data-category="dairy"
 data-name="fresh paneer paneer">
 
 <div class="photo">
 <img
-src="https://images.unsplash.com/photo-1628088062854-d1870b4553da?auto=format&fit=crop&w=700&q=85"
+src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=700&q=85"
 alt="Fresh Paneer">
 </div>
 
 <div class="name">Fresh Paneer 1 Kg</div>
-
 <span class="rating">4.6 ★</span>
-
 <div class="price">₹300</div>
 
-<button
-class="add"
+<button class="add"
 onclick="addToCart('Fresh Paneer 1 Kg',300)">
 Add to Cart
 </button>
 
-<button class="reviewBtn" onclick="toggleReview('review6')">
+<button class="reviewBtn"
+onclick="toggleReview('r6')">
 ⭐ Review
 </button>
 
-<div class="reviewBox" id="review6">
-<input id="name6" placeholder="Your Name">
+<div class="reviewBox" id="r6">
 
-<div class="starSelect">
-<button onclick="setStar(6,1)">☆</button>
-<button onclick="setStar(6,2)">☆</button>
-<button onclick="setStar(6,3)">☆</button>
-<button onclick="setStar(6,4)">☆</button>
-<button onclick="setStar(6,5)">☆</button>
+<input id="rn6" placeholder="Your Name">
+
+<div class="stars" id="stars6">
+<button onclick="chooseStar(6,1)">☆</button>
+<button onclick="chooseStar(6,2)">☆</button>
+<button onclick="chooseStar(6,3)">☆</button>
+<button onclick="chooseStar(6,4)">☆</button>
+<button onclick="chooseStar(6,5)">☆</button>
 </div>
 
-<textarea id="text6" placeholder="Write your review"></textarea>
+<textarea id="rt6"
+placeholder="Write your review"></textarea>
 
-<button class="submitReview" onclick="submitReview(6,'Fresh Paneer 1 Kg')">
+<button class="submitReview"
+onclick="submitReview(6)">
 Submit Review
 </button>
 
-<div class="reviews" id="reviews6"></div>
-</div>
+<div class="reviewList" id="list6"></div>
 
 </div>
+</div>
 
 
-<!-- BISLERI -->
+<!-- PRODUCT 7 BISLERI -->
 
-<div
-class="product"
+<div class="product"
 data-category="water"
-data-name="bisleri water bottle water">
+data-name="bisleri water bottle 1 litre">
 
 <div class="photo">
 <img
@@ -959,107 +946,48 @@ alt="Bisleri Water Bottle">
 </div>
 
 <div class="name">Bisleri Water Bottle 1 Litre</div>
-
 <span class="rating">4.7 ★</span>
-
 <div class="price">₹20</div>
 
-<button
-class="add"
+<button class="add"
 onclick="addToCart('Bisleri Water Bottle 1 Litre',20)">
 Add to Cart
 </button>
 
-<button class="reviewBtn" onclick="toggleReview('review7')">
+<button class="reviewBtn"
+onclick="toggleReview('r7')">
 ⭐ Review
 </button>
 
-<div class="reviewBox" id="review7">
-<input id="name7" placeholder="Your Name">
+<div class="reviewBox" id="r7">
 
-<div class="starSelect">
-<button onclick="setStar(7,1)">☆</button>
-<button onclick="setStar(7,2)">☆</button>
-<button onclick="setStar(7,3)">☆</button>
-<button onclick="setStar(7,4)">☆</button>
-<button onclick="setStar(7,5)">☆</button>
+<input id="rn7" placeholder="Your Name">
+
+<div class="stars" id="stars7">
+<button onclick="chooseStar(7,1)">☆</button>
+<button onclick="chooseStar(7,2)">☆</button>
+<button onclick="chooseStar(7,3)">☆</button>
+<button onclick="chooseStar(7,4)">☆</button>
+<button onclick="chooseStar(7,5)">☆</button>
 </div>
 
-<textarea id="text7" placeholder="Write your review"></textarea>
+<textarea id="rt7"
+placeholder="Write your review"></textarea>
 
-<button class="submitReview" onclick="submitReview(7,'Bisleri Water Bottle 1 Litre')">
+<button class="submitReview"
+onclick="submitReview(7)">
 Submit Review
 </button>
 
-<div class="reviews" id="reviews7"></div>
-</div>
+<div class="reviewList" id="list7"></div>
 
 </div>
-
-
-<!-- CRICKET CHOCOLATE -->
-
-<div
-class="product"
-data-category="chocolate"
-data-name="cricket chocolate">
-
-<div class="photo">
-<img
-src="https://images.unsplash.com/photo-1575377427642-087cf684f04d?auto=format&fit=crop&w=700&q=85"
-alt="Cricket Chocolate">
-</div>
-
-<div class="name">Cricket Chocolate</div>
-
-<span class="rating">4.6 ★</span>
-
-<div class="price">₹20 / ₹50</div>
-
-<button
-class="add"
-onclick="addToCart('Cricket Chocolate ₹20',20)">
-Add ₹20
-</button>
-
-<button
-class="add"
-style="margin-top:7px"
-onclick="addToCart('Cricket Chocolate ₹50',50)">
-Add ₹50
-</button>
-
-<button class="reviewBtn" onclick="toggleReview('review8')">
-⭐ Review
-</button>
-
-<div class="reviewBox" id="review8">
-<input id="name8" placeholder="Your Name">
-
-<div class="starSelect">
-<button onclick="setStar(8,1)">☆</button>
-<button onclick="setStar(8,2)">☆</button>
-<button onclick="setStar(8,3)">☆</button>
-<button onclick="setStar(8,4)">☆</button>
-<button onclick="setStar(8,5)">☆</button>
-</div>
-
-<textarea id="text8" placeholder="Write your review"></textarea>
-
-<button class="submitReview" onclick="submitReview(8,'Cricket Chocolate')">
-Submit Review
-</button>
-
-<div class="reviews" id="reviews8"></div>
-</div>
-
 </div>
 
 
-<!-- DAIRY MILK -->
+<!-- PRODUCT 8 DAIRY MILK -->
 
-<div
-class="product"
+<div class="product"
 data-category="chocolate"
 data-name="dairy milk chocolate">
 
@@ -1070,55 +998,54 @@ alt="Dairy Milk Chocolate">
 </div>
 
 <div class="name">Dairy Milk Chocolate</div>
-
 <span class="rating">4.8 ★</span>
-
 <div class="price">₹20 / ₹50</div>
 
-<button
-class="add"
+<button class="add"
 onclick="addToCart('Dairy Milk Chocolate ₹20',20)">
 Add ₹20
 </button>
 
-<button
-class="add"
+<button class="add"
 style="margin-top:7px"
 onclick="addToCart('Dairy Milk Chocolate ₹50',50)">
 Add ₹50
 </button>
 
-<button class="reviewBtn" onclick="toggleReview('review9')">
+<button class="reviewBtn"
+onclick="toggleReview('r8')">
 ⭐ Review
 </button>
 
-<div class="reviewBox" id="review9">
-<input id="name9" placeholder="Your Name">
+<div class="reviewBox" id="r8">
 
-<div class="starSelect">
-<button onclick="setStar(9,1)">☆</button>
-<button onclick="setStar(9,2)">☆</button>
-<button onclick="setStar(9,3)">☆</button>
-<button onclick="setStar(9,4)">☆</button>
-<button onclick="setStar(9,5)">☆</button>
+<input id="rn8" placeholder="Your Name">
+
+<div class="stars" id="stars8">
+<button onclick="chooseStar(8,1)">☆</button>
+<button onclick="chooseStar(8,2)">☆</button>
+<button onclick="chooseStar(8,3)">☆</button>
+<button onclick="chooseStar(8,4)">☆</button>
+<button onclick="chooseStar(8,5)">☆</button>
 </div>
 
-<textarea id="text9" placeholder="Write your review"></textarea>
+<textarea id="rt8"
+placeholder="Write your review"></textarea>
 
-<button class="submitReview" onclick="submitReview(9,'Dairy Milk Chocolate')">
+<button class="submitReview"
+onclick="submitReview(8)">
 Submit Review
 </button>
 
-<div class="reviews" id="reviews9"></div>
-</div>
+<div class="reviewList" id="list8"></div>
 
 </div>
+</div>
 
 
-<!-- KITKAT -->
+<!-- PRODUCT 9 KITKAT -->
 
-<div
-class="product"
+<div class="product"
 data-category="chocolate"
 data-name="kitkat chocolate">
 
@@ -1129,63 +1056,60 @@ alt="KitKat Chocolate">
 </div>
 
 <div class="name">KitKat Chocolate</div>
-
 <span class="rating">4.7 ★</span>
-
 <div class="price">₹10 / ₹20 / ₹30</div>
 
-<button
-class="add"
+<button class="add"
 onclick="addToCart('KitKat Chocolate ₹10',10)">
 Add ₹10
 </button>
 
-<button
-class="add"
+<button class="add"
 style="margin-top:7px"
 onclick="addToCart('KitKat Chocolate ₹20',20)">
 Add ₹20
 </button>
 
-<button
-class="add"
+<button class="add"
 style="margin-top:7px"
 onclick="addToCart('KitKat Chocolate ₹30',30)">
 Add ₹30
 </button>
 
-<button class="reviewBtn" onclick="toggleReview('review10')">
+<button class="reviewBtn"
+onclick="toggleReview('r9')">
 ⭐ Review
 </button>
 
-<div class="reviewBox" id="review10">
-<input id="name10" placeholder="Your Name">
+<div class="reviewBox" id="r9">
 
-<div class="starSelect">
-<button onclick="setStar(10,1)">☆</button>
-<button onclick="setStar(10,2)">☆</button>
-<button onclick="setStar(10,3)">☆</button>
-<button onclick="setStar(10,4)">☆</button>
-<button onclick="setStar(10,5)">☆</button>
+<input id="rn9" placeholder="Your Name">
+
+<div class="stars" id="stars9">
+<button onclick="chooseStar(9,1)">☆</button>
+<button onclick="chooseStar(9,2)">☆</button>
+<button onclick="chooseStar(9,3)">☆</button>
+<button onclick="chooseStar(9,4)">☆</button>
+<button onclick="chooseStar(9,5)">☆</button>
 </div>
 
-<textarea id="text10" placeholder="Write your review"></textarea>
+<textarea id="rt9"
+placeholder="Write your review"></textarea>
 
-<button class="submitReview" onclick="submitReview(10,'KitKat Chocolate')">
+<button class="submitReview"
+onclick="submitReview(9)">
 Submit Review
 </button>
 
-<div class="reviews" id="reviews10"></div>
-</div>
+<div class="reviewList" id="list9"></div>
 
 </div>
-
 </div>
 
 
-<div
-class="noresult"
-id="noResult">
+</div>
+
+<div class="noresult" id="noResult">
 No product found.
 </div>
 
@@ -1197,15 +1121,9 @@ No product found.
 <div class="cart" id="cart">
 
 <div class="carthead">
-
 <h2>Shopping Cart</h2>
 
-<button
-class="close"
-onclick="closeCart()">
-×
-</button>
-
+<button class="close" onclick="closeCart()">×</button>
 </div>
 
 <div id="cartItems"></div>
@@ -1214,14 +1132,11 @@ onclick="closeCart()">
 Total: ₹<span id="total">0</span>
 </div>
 
-
 <div class="checkout">
 
 <h3>Home Delivery Details</h3>
 
-<input
-id="customerName"
-placeholder="Your Name">
+<input id="customerName" placeholder="Your Name">
 
 <input
 id="customerPhone"
@@ -1232,9 +1147,115 @@ placeholder="Mobile Number">
 id="customerAddress"
 placeholder="Complete Delivery Address"></textarea>
 
-
 <h3>Payment Method</h3>
 
+<div class="payment" id="codBox">
+
+<label>
+<input
+type="radio"
+name="payment"
+value="COD"
+id="codRadio"
+checked>
+💵 Cash on Delivery
+</label>
+
+<p
+id="codMessage"
+style="font-size:12px;margin-top:7px">
+COD available from 6:00 AM to 8:00 PM.
+</p>
+
+</div>
+
+
+<div class="payment">
+
+<label>
+<input
+type="radio"
+name="payment"
+value="UPI"
+id="upiRadio">
+💳 UPI Payment
+</label>
+
+<p style="font-size:13px;margin-top:7px">
+UPI ID: <b>ay2279832@axl</b>
+</p>
+
+<button
+type="button"
+class="upiBtn"
+onclick="payUPI()">
+💳 Pay Now with UPI
+</button>
+
+</div>
+
+
+<button
+class="order"
+onclick="placeOrder()">
+📲 Place Order on WhatsApp
+</button>
+
+</div>
+</div>
+
+
+<!-- LOGIN -->
 
 <div
-class="pay
+class="loginOverlay"
+id="loginOverlay">
+
+<div class="loginbox">
+
+<button
+onclick="closeLogin()"
+style="float:right;border:0;background:none;font-size:24px">
+×
+</button>
+
+<h2>Login / Sign Up</h2>
+
+<input
+id="loginName"
+placeholder="Your Name">
+
+<input
+id="loginPhone"
+type="tel"
+placeholder="Mobile Number">
+
+<button onclick="loginUser()">
+Continue
+</button>
+
+</div>
+</div>
+
+
+<!-- SUPPORT -->
+
+<section class="support">
+
+<h2>Customer Support</h2>
+
+<p>
+📞 Phone:
+<a href="tel:9301272240">9301272240</a>
+</p>
+
+<p>
+📧 Email:
+<a href="mailto:ay2279832@gmail.com">
+ay2279832@gmail.com
+</a>
+</p>
+
+<p>🏠 Home Delivery Available</p>
+
+<p>💵 Cash on Delivery: 6:00
