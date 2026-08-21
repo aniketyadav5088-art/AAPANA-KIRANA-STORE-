@@ -3,195 +3,211 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>APNI BAKERY</title>
+<title>APNI BAKERY | Fresh Food & Grocery</title>
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
-body{background:#f5f5f5;color:#222}
+body{background:#f6f6f6;color:#222}
+button{cursor:pointer}
 
+/* HEADER */
 header{
- background:#3b160d;color:#fff;padding:12px 4%;
- display:flex;align-items:center;gap:14px;
- position:sticky;top:0;z-index:1000
+position:sticky;top:0;z-index:1000;
+background:#35140c;color:#fff;
+padding:12px 4%;display:flex;align-items:center;gap:14px
 }
-.logo{font-size:22px;font-weight:bold;white-space:nowrap}
-.logo span{color:#ffca7a}
-.search{flex:1;display:flex}
+.logo{font-size:23px;font-weight:bold;white-space:nowrap}
+.logo span{color:#ffc76b}
+.search{flex:1;display:flex;background:#fff;border-radius:7px;overflow:hidden}
 .search input{width:100%;padding:12px;border:0;outline:0}
-.search button{width:50px;border:0;background:#ffb74d;cursor:pointer}
-.topbtn{background:none;border:0;color:#fff;font-weight:bold;cursor:pointer}
+.search button{width:50px;border:0;background:#ffc107;font-size:18px}
+.topbtn{background:none;border:0;color:#fff;font-weight:bold;white-space:nowrap}
 
+/* NAV */
 nav{
- background:#5a2114;padding:12px 4%;
- display:flex;gap:25px;overflow:auto
+background:#5a2114;padding:12px 4%;
+display:flex;gap:25px;overflow:auto
 }
-nav button{
- background:none;border:0;color:#fff;cursor:pointer;white-space:nowrap
-}
+nav button{background:none;border:0;color:#fff;font-weight:bold;white-space:nowrap}
 
+/* HERO POSTER */
 .hero{
- margin:16px 4%;padding:35px;border-radius:14px;
- background:linear-gradient(120deg,#ffe0b2,#fff8f1);
- display:flex;justify-content:space-between;align-items:center
+margin:18px 4%;padding:42px;
+min-height:420px;border-radius:22px;
+background:
+radial-gradient(circle at 85% 20%,#ffd86b 0,transparent 25%),
+linear-gradient(135deg,#351109,#762b13 60%,#bd551b);
+color:#fff;display:flex;align-items:center;
+justify-content:space-between;overflow:hidden;
+box-shadow:0 10px 30px #0003
 }
-.hero h1{font-size:38px;color:#42170e;margin-bottom:10px}
-.hero p{font-size:18px;margin-bottom:18px}
+.heroText{max-width:650px}
+.offerTag{
+display:inline-block;background:#ffd814;color:#35140c;
+padding:8px 15px;border-radius:20px;
+font-weight:bold;font-size:13px;margin-bottom:15px
+}
+.hero h1{font-size:48px;line-height:1.08;margin-bottom:15px}
+.hero h1 span{color:#ffd36b}
+.hero p{font-size:18px;line-height:1.6;color:#fff2df;margin-bottom:20px}
+.offers{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px}
+.offer{
+padding:10px 14px;border-radius:10px;
+background:#ffffff18;border:1px solid #ffffff35
+}
+.offer b{display:block;color:#ffd36b}
+.offer small{font-size:11px}
 .shop{
- background:#d84315;color:#fff;border:0;padding:13px 28px;
- border-radius:6px;cursor:pointer
+border:0;background:#ffd814;color:#35140c;
+padding:14px 28px;border-radius:25px;
+font-weight:bold;font-size:16px
 }
-.heroImg{font-size:100px}
-
-.section,.support,.reviews{
- background:#fff;margin:16px 4%;padding:20px;border-radius:12px
+.heroArt{
+width:360px;height:320px;position:relative;
+display:flex;align-items:center;justify-content:center
 }
-
-.products{
- display:grid;grid-template-columns:repeat(4,1fr);
- gap:18px;margin-top:15px
+.bigCake{
+width:240px;height:240px;border-radius:50%;
+background:#fff3df;display:flex;
+align-items:center;justify-content:center;
+font-size:145px;box-shadow:0 20px 40px #0005
 }
+.sale{
+position:absolute;right:5px;top:0;
+width:105px;height:105px;border-radius:50%;
+background:#e53935;color:white;
+display:flex;flex-direction:column;
+align-items:center;justify-content:center;
+font-weight:bold;text-align:center;transform:rotate(8deg)
+}
+.sale strong{font-size:28px}
+.float{
+position:absolute;width:65px;height:65px;
+border-radius:50%;background:#fff;
+display:flex;align-items:center;justify-content:center;
+font-size:35px;box-shadow:0 7px 18px #0004
+}
+.f1{left:0;bottom:30px}.f2{right:0;bottom:20px}.f3{left:35px;top:20px}
 
+/* SECTIONS */
+.section,.reviews,.support{
+background:#fff;margin:18px 4%;padding:22px;border-radius:14px
+}
+.section h2,.reviews h2,.support h2{margin-bottom:15px}
+
+/* PRODUCTS */
+.products{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
 .product{
- border:1px solid #ddd;border-radius:14px;
- padding:12px;background:#fff;transition:.25s
+border:1px solid #ddd;border-radius:14px;
+padding:12px;background:#fff;transition:.2s
 }
-.product:hover{
- transform:translateY(-3px);
- box-shadow:0 8px 20px #0002
-}
-
+.product:hover{transform:translateY(-3px);box-shadow:0 8px 20px #0002}
 .photo{
- height:190px;background:#fff8f1;border-radius:10px;
- display:flex;align-items:center;justify-content:center;
- overflow:hidden;border:1px solid #eee
+height:190px;border-radius:10px;
+background:#fff7ef;display:flex;
+align-items:center;justify-content:center;
+overflow:hidden
 }
-.photo img{
- width:100%;height:100%;object-fit:contain
-}
-.emojiPhoto{font-size:100px}
-
+.productIcon{font-size:95px}
 .name{font-size:17px;font-weight:bold;margin:12px 0 7px}
 .rating{
- display:inline-block;background:#198754;color:#fff;
- padding:4px 7px;border-radius:4px;font-size:12px
+display:inline-block;background:#198754;color:#fff;
+padding:4px 7px;border-radius:5px;font-size:12px
 }
-.price{font-size:21px;font-weight:bold;margin:8px 0}
-.old{text-decoration:line-through;color:#888;font-size:13px}
-.discount{color:#198754;font-size:13px;font-weight:bold;margin-bottom:8px}
-
+.price{font-size:21px;font-weight:bold;margin:9px 0}
+.old{text-decoration:line-through;color:#888;font-size:13px;font-weight:normal}
+.discount{color:#198754;font-size:13px;font-weight:bold;margin-bottom:10px}
 .add{
- width:100%;padding:11px;border:1px solid #e5b900;
- background:#ffd814;border-radius:20px;font-weight:bold;cursor:pointer
+width:100%;padding:11px;border:1px solid #e2b900;
+background:#ffd814;border-radius:22px;font-weight:bold
 }
-.add:hover{background:#ffc400}
-
 .noresult{display:none;text-align:center;padding:30px;color:#777}
 
+/* CART */
 .cart{
- position:fixed;right:-460px;top:0;width:440px;max-width:95%;
- height:100vh;background:#fff;z-index:3000;padding:20px;
- box-shadow:-5px 0 20px #555;transition:.3s;overflow:auto
+position:fixed;right:-460px;top:0;width:440px;
+max-width:100%;height:100vh;background:#fff;
+z-index:3000;padding:20px;overflow:auto;
+box-shadow:-5px 0 25px #0005;transition:.3s
 }
 .cart.open{right:0}
-.carthead{
- display:flex;justify-content:space-between;
- border-bottom:1px solid #ddd;padding-bottom:15px
-}
-.close{border:0;background:none;font-size:28px;cursor:pointer}
+.carthead{display:flex;justify-content:space-between;border-bottom:1px solid #ddd;padding-bottom:15px}
+.close{border:0;background:none;font-size:30px}
 .cartitem{padding:14px 0;border-bottom:1px solid #ddd}
 .row{display:flex;justify-content:space-between;gap:10px}
-.remove{border:0;background:none;color:#d32f2f;cursor:pointer}
+.remove{border:0;background:none;color:#d32f2f}
 .qty{display:flex;align-items:center;gap:10px;margin-top:10px}
-.qty button{
- width:34px;height:34px;border:1px solid #aaa;
- background:#eee;font-size:20px;cursor:pointer
-}
+.qty button{width:34px;height:34px;border:1px solid #aaa;background:#eee;font-size:20px}
 .qty span{min-width:25px;text-align:center;font-weight:bold}
-.subtotal{margin-top:7px;font-weight:bold}
-.total{
- font-size:21px;font-weight:bold;
- border-top:2px solid #ddd;padding:15px 0
-}
+.subtotal{font-weight:bold;margin-top:8px}
+.total{font-size:22px;font-weight:bold;border-top:2px solid #ddd;padding:15px 0;margin-top:10px}
 
-.checkout h3{margin:12px 0 7px}
+/* CHECKOUT */
+.checkout h3{margin:15px 0 7px}
 .checkout input,.checkout textarea{
- width:100%;padding:11px;margin:5px 0;
- border:1px solid #bbb;border-radius:5px
+width:100%;padding:12px;margin:5px 0;
+border:1px solid #bbb;border-radius:6px
 }
-.checkout textarea{height:75px;resize:none}
-
-.payment{
- border:1px solid #ddd;padding:13px;
- margin:8px 0;border-radius:6px
-}
-.payment.active{
- border:2px solid #138808;background:#f1fff1
-}
+.checkout textarea{height:80px;resize:none}
+.payment{border:1px solid #ddd;padding:13px;margin:8px 0;border-radius:7px}
+.payment.active{border:2px solid #138808;background:#f1fff1}
 .payment.disabled{background:#eee;color:#888}
-
 .paybtn{
- width:100%;padding:12px;margin-top:8px;
- border:0;border-radius:6px;background:#138808;
- color:#fff;font-weight:bold;cursor:pointer
+width:100%;padding:12px;margin-top:9px;
+border:0;border-radius:7px;background:#138808;color:white;font-weight:bold
 }
-.order{
- width:100%;padding:13px;margin-top:10px;
- background:#25D366;color:#fff;border:0;
- border-radius:6px;font-weight:bold;cursor:pointer
-}
-
-.loginOverlay{
- position:fixed;inset:0;background:#0008;
- display:none;align-items:center;justify-content:center;z-index:4000
-}
-.loginOverlay.show{display:flex}
-.loginbox{
- background:#fff;width:350px;max-width:90%;
- padding:25px;border-radius:10px
-}
-.loginbox input{
- width:100%;padding:11px;margin:6px 0
-}
-.loginbox button{
- padding:11px;width:100%;background:#d84315;
- color:#fff;border:0;border-radius:5px;margin-top:8px
+.whatsapp{
+width:100%;padding:14px;margin-top:12px;
+border:0;border-radius:8px;background:#25D366;
+color:white;font-size:16px;font-weight:bold
 }
 
-.reviewInput{
- width:100%;padding:10px;margin:5px 0;
- border:1px solid #bbb;border-radius:5px
+/* LOGIN */
+.overlay{
+position:fixed;inset:0;background:#0008;
+display:none;align-items:center;justify-content:center;z-index:4000
 }
-.reviewBox{
- border-top:1px solid #ddd;padding:12px 0;margin-top:10px
+.overlay.show{display:flex}
+.login{
+background:#fff;width:350px;max-width:90%;
+padding:25px;border-radius:12px
 }
+.login input{width:100%;padding:12px;margin:6px 0;border:1px solid #bbb;border-radius:6px}
+.login .continue{
+width:100%;padding:12px;margin-top:8px;
+border:0;background:#d84315;color:#fff;border-radius:6px;font-weight:bold
+}
+
+/* REVIEWS */
+.reviewInput{width:100%;padding:11px;margin:5px 0;border:1px solid #bbb;border-radius:6px}
+.reviewBox{border-top:1px solid #ddd;padding:12px 0;margin-top:10px}
+
+/* SUPPORT */
 .support p{margin:9px 0}
-.support a{
- color:#6d2c1a;font-weight:bold;text-decoration:none
-}
-footer{
- background:#2b1009;color:#fff;text-align:center;
- padding:30px;margin-top:25px
-}
+.support a{color:#6d2c1a;font-weight:bold;text-decoration:none}
 
+/* FOOTER */
+footer{background:#2b1009;color:#fff;text-align:center;padding:30px;margin-top:25px}
+
+/* MOBILE */
 @media(max-width:900px){
- .products{grid-template-columns:repeat(2,1fr)}
+.products{grid-template-columns:repeat(2,1fr)}
 }
-
-@media(max-width:600px){
- header{flex-wrap:wrap;padding:10px}
- .logo{width:100%;text-align:center}
- .search{width:100%}
- .hero{margin:10px;padding:22px}
- .hero h1{font-size:27px}
- .heroImg{font-size:55px}
- .section,.support,.reviews{margin:10px 0}
- .products{gap:10px}
- .photo{height:145px}
- .product{padding:8px}
- .name{font-size:14px;min-height:36px}
- .price{font-size:18px}
- .add{font-size:12px;padding:9px}
- .cart{width:100%;max-width:100%}
+@media(max-width:650px){
+header{flex-wrap:wrap;padding:10px}
+.logo{width:100%;text-align:center}
+.search{width:100%}
+.hero{margin:10px;padding:28px 20px;display:block}
+.hero h1{font-size:35px}
+.hero p{font-size:15px}
+.heroArt{width:100%;height:240px;margin-top:20px}
+.bigCake{width:180px;height:180px;font-size:105px}
+.sale{width:85px;height:85px}
+.float{width:55px;height:55px;font-size:28px}
+.section,.reviews,.support{margin:10px 0}
+.photo{height:145px}
+.name{font-size:14px}
+.price{font-size:18px}
 }
 </style>
 </head>
@@ -199,171 +215,309 @@ footer{
 <body>
 
 <header>
+
 <div class="logo">APNI <span>BAKERY</span></div>
 
 <div class="search">
-<input id="search"
-placeholder="Search cake, paneer, chocolate, water..."
-oninput="searchProducts()">
+<input id="search" placeholder="Search cakes, paneer, chocolate..." oninput="searchProducts()">
 <button onclick="searchProducts()">🔍</button>
 </div>
 
 <button class="topbtn" id="loginButton" onclick="openLogin()">👤 Login</button>
+
 <button class="topbtn" onclick="openCart()">
 🛒 Cart (<span id="count">0</span>)
 </button>
+
 </header>
 
 <nav>
 <button onclick="filterProducts('all')">Home</button>
-<button onclick="filterProducts('cake')">Cakes</button>
-<button onclick="filterProducts('dairy')">Dairy</button>
-<button onclick="filterProducts('chocolate')">Chocolates</button>
-<button onclick="filterProducts('water')">Water</button>
+<button onclick="filterProducts('cake')">🎂 Cakes</button>
+<button onclick="filterProducts('dairy')">🥛 Dairy</button>
+<button onclick="filterProducts('chocolate')">🍫 Chocolates</button>
+<button onclick="filterProducts('water')">💧 Water</button>
 </nav>
 
+<!-- PROFESSIONAL POSTER -->
+
 <section class="hero">
-<div>
-<h1>Fresh Bakery, Delivered Home</h1>
-<p>Fresh cakes, paneer, chocolates and daily-use products.</p>
-<button class="shop" onclick="scrollProducts()">Shop Now</button>
+
+<div class="heroText">
+
+<div class="offerTag">🔥 TODAY'S SPECIAL OFFER</div>
+
+<h1>
+Fresh Taste.<br>
+<span>Happy Moments.</span>
+</h1>
+
+<p>
+Fresh cakes, premium chocolates, fresh paneer और
+daily-use products — अब आपके घर तक।
+Quality products, great prices और आसान home delivery.
+</p>
+
+<div class="offers">
+
+<div class="offer">
+<b>20% OFF</b>
+<small>Selected Cakes</small>
 </div>
-<div class="heroImg">🎂</div>
+
+<div class="offer">
+<b>10% OFF</b>
+<small>Fresh Dairy</small>
+</div>
+
+<div class="offer">
+<b>FREE DELIVERY</b>
+<small>Selected Orders</small>
+</div>
+
+</div>
+
+<button class="shop" onclick="scrollProducts()">
+🛍️ Shop Now
+</button>
+
+</div>
+
+<div class="heroArt">
+
+<div class="sale">
+UP TO
+<strong>20%</strong>
+OFF
+</div>
+
+<div class="bigCake">🎂</div>
+
+<div class="float f1">🍫</div>
+<div class="float f2">🥛</div>
+<div class="float f3">🎁</div>
+
+</div>
+
 </section>
 
+<!-- PRODUCTS -->
+
 <section class="section" id="productsSection">
-<h2>Popular Products</h2>
+
+<h2>⭐ Popular Products</h2>
 
 <div class="products">
 
 <div class="product" data-category="cake" data-name="fresh cream cake">
-<div class="photo emojiPhoto">🎂</div>
+
+<div class="photo productIcon">🎂</div>
+
 <div class="name">Fresh Cream Cake</div>
 <span class="rating">4.5 ★</span>
+
 <div class="price">₹250 <span class="old">₹300</span></div>
 <div class="discount">17% OFF</div>
-<button class="add" onclick="addToCart('Fresh Cream Cake',250)">Add to Cart</button>
+
+<button class="add" onclick="addToCart('Fresh Cream Cake',250)">
+Add to Cart
+</button>
+
 </div>
 
 <div class="product" data-category="cake" data-name="vanilla cake">
-<div class="photo emojiPhoto">🍰</div>
+
+<div class="photo productIcon">🍰</div>
+
 <div class="name">Premium Vanilla Cake</div>
 <span class="rating">4.6 ★</span>
+
 <div class="price">₹300 <span class="old">₹350</span></div>
 <div class="discount">14% OFF</div>
-<button class="add" onclick="addToCart('Premium Vanilla Cake',300)">Add to Cart</button>
+
+<button class="add" onclick="addToCart('Premium Vanilla Cake',300)">
+Add to Cart
+</button>
+
 </div>
 
 <div class="product" data-category="cake" data-name="chocolate cake">
-<div class="photo emojiPhoto">🍫</div>
+
+<div class="photo productIcon">🍫</div>
+
 <div class="name">Chocolate Cake</div>
 <span class="rating">4.8 ★</span>
+
 <div class="price">₹400 <span class="old">₹500</span></div>
 <div class="discount">20% OFF</div>
-<button class="add" onclick="addToCart('Chocolate Cake',400)">Add to Cart</button>
+
+<button class="add" onclick="addToCart('Chocolate Cake',400)">
+Add to Cart
+</button>
+
 </div>
 
 <div class="product" data-category="cake" data-name="birthday cake">
-<div class="photo emojiPhoto">🎂</div>
+
+<div class="photo productIcon">🎂</div>
+
 <div class="name">Special Birthday Cake</div>
 <span class="rating">4.7 ★</span>
+
 <div class="price">₹400 <span class="old">₹450</span></div>
 <div class="discount">11% OFF</div>
-<button class="add" onclick="addToCart('Special Birthday Cake',400)">Add to Cart</button>
+
+<button class="add" onclick="addToCart('Special Birthday Cake',400)">
+Add to Cart
+</button>
+
 </div>
 
 <div class="product" data-category="dairy" data-name="paneer fresh paneer">
-<div class="photo emojiPhoto">🧀</div>
+
+<div class="photo productIcon">🧀</div>
+
 <div class="name">Fresh Paneer 1 Kg</div>
 <span class="rating">4.6 ★</span>
+
 <div class="price">₹300 <span class="old">₹330</span></div>
 <div class="discount">9% OFF</div>
-<button class="add" onclick="addToCart('Fresh Paneer 1 Kg',300)">Add to Cart</button>
+
+<button class="add" onclick="addToCart('Fresh Paneer 1 Kg',300)">
+Add to Cart
+</button>
+
 </div>
 
 <div class="product" data-category="chocolate" data-name="dairy milk 10">
-<div class="photo emojiPhoto">🍫</div>
+
+<div class="photo productIcon">🍫</div>
+
 <div class="name">Dairy Milk ₹10</div>
 <span class="rating">4.7 ★</span>
+
 <div class="price">₹10</div>
-<button class="add" onclick="addToCart('Dairy Milk ₹10',10)">Add to Cart</button>
+
+<button class="add" onclick="addToCart('Dairy Milk ₹10',10)">
+Add to Cart
+</button>
+
 </div>
 
 <div class="product" data-category="chocolate" data-name="dairy milk 20">
-<div class="photo emojiPhoto">🍫</div>
+
+<div class="photo productIcon">🍫</div>
+
 <div class="name">Dairy Milk ₹20</div>
 <span class="rating">4.7 ★</span>
+
 <div class="price">₹20</div>
-<button class="add" onclick="addToCart('Dairy Milk ₹20',20)">Add to Cart</button>
+
+<button class="add" onclick="addToCart('Dairy Milk ₹20',20)">
+Add to Cart
+</button>
+
 </div>
 
 <div class="product" data-category="chocolate" data-name="dairy milk 50">
-<div class="photo emojiPhoto">🍫</div>
+
+<div class="photo productIcon">🍫</div>
+
 <div class="name">Dairy Milk ₹50</div>
 <span class="rating">4.8 ★</span>
+
 <div class="price">₹50</div>
-<button class="add" onclick="addToCart('Dairy Milk ₹50',50)">Add to Cart</button>
+
+<button class="add" onclick="addToCart('Dairy Milk ₹50',50)">
+Add to Cart
+</button>
+
 </div>
 
-<div class="product" data-category="chocolate" data-name="kitkat kit kat">
-<div class="photo emojiPhoto">🍫</div>
+<div class="product" data-category="chocolate" data-name="kitkat">
+
+<div class="photo productIcon">🍫</div>
+
 <div class="name">KitKat ₹20</div>
 <span class="rating">4.7 ★</span>
+
 <div class="price">₹20</div>
-<button class="add" onclick="addToCart('KitKat ₹20',20)">Add to Cart</button>
+
+<button class="add" onclick="addToCart('KitKat ₹20',20)">
+Add to Cart
+</button>
+
 </div>
 
 <div class="product" data-category="water" data-name="bisleri water bottle">
-<div class="photo emojiPhoto">💧</div>
+
+<div class="photo productIcon">💧</div>
+
 <div class="name">Bisleri Water Bottle</div>
 <span class="rating">4.8 ★</span>
+
 <div class="price">₹20</div>
-<button class="add" onclick="addToCart('Bisleri Water Bottle',20)">Add to Cart</button>
-</div>
+
+<button class="add" onclick="addToCart('Bisleri Water Bottle',20)">
+Add to Cart
+</button>
 
 </div>
 
-<div class="noresult" id="noResult">No product found.</div>
+</div>
+
+<div class="noresult" id="noResult">
+No product found.
+</div>
+
 </section>
+
+<!-- CART -->
 
 <div class="cart" id="cart">
 
 <div class="carthead">
-<h2>Shopping Cart</h2>
+<h2>🛒 Shopping Cart</h2>
 <button class="close" onclick="closeCart()">×</button>
 </div>
 
 <div id="cartItems"></div>
 
-<div class="total">Total: ₹<span id="total">0</span></div>
+<div class="total">
+Total: ₹<span id="total">0</span>
+</div>
 
 <div class="checkout">
 
-<h3>Home Delivery Details</h3>
+<h3>🏠 Home Delivery Details</h3>
 
 <input id="customerName" placeholder="Your Name">
+
 <input id="customerPhone" type="tel" placeholder="Mobile Number">
+
 <textarea id="customerAddress" placeholder="Complete Delivery Address"></textarea>
 
-<h3>Payment Method</h3>
+<h3>💳 Payment Method</h3>
 
 <div class="payment active" id="codBox">
+
 <label>
-<input type="radio" name="payment" value="COD"
-id="codRadio" checked onchange="selectPayment('COD')">
+<input type="radio" name="payment" id="codRadio"
+checked onchange="selectPayment('COD')">
 💵 Cash on Delivery
 </label>
 
 <p id="codMessage" style="font-size:12px;margin-top:7px">
 COD available from 6:00 AM to 8:00 PM.
 </p>
+
 </div>
 
 <div class="payment" id="upiBox">
 
 <label>
-<input type="radio" name="payment" value="UPI"
-id="upiRadio" onchange="selectPayment('UPI')">
+<input type="radio" name="payment" id="upiRadio"
+onchange="selectPayment('UPI')">
 💳 UPI Payment
 </label>
 
@@ -377,44 +531,50 @@ UPI ID: <b>ay2279832@axl</b>
 
 </div>
 
-<button class="order" onclick="placeOrder()">
-📲 Place Order → WhatsApp
+<button class="whatsapp" onclick="placeOrder()">
+📲 Place Order on WhatsApp
 </button>
 
 </div>
 </div>
 
-<div class="loginOverlay" id="loginOverlay">
+<!-- LOGIN -->
 
-<div class="loginbox">
+<div class="overlay" id="loginOverlay">
+
+<div class="login">
 
 <button onclick="closeLogin()"
 style="float:right;border:0;background:none;font-size:24px">
 ×
 </button>
 
-<h2>Login / Sign Up</h2>
+<h2>👤 Login / Sign Up</h2>
 
 <input id="loginName" placeholder="Your Name">
+
 <input id="loginPhone" type="tel" placeholder="Mobile Number">
 
-<button onclick="loginUser()">Continue</button>
+<button class="continue" onclick="loginUser()">
+Continue
+</button>
 
 </div>
 </div>
+
+<!-- REVIEWS -->
 
 <section class="reviews">
 
 <h2>⭐ Customer Reviews</h2>
 
 <p style="color:#777;margin-bottom:10px">
-यहाँ customers द्वारा दिए गए reviews दिखाई देंगे।
+आपका feedback हमारे लिए बहुत important है।
 </p>
 
 <input class="reviewInput" id="reviewName" placeholder="Your Name">
 
-<textarea class="reviewInput"
-id="reviewText"
+<textarea class="reviewInput" id="reviewText"
 placeholder="Write your review"></textarea>
 
 <button class="shop" onclick="submitReview()">
@@ -425,13 +585,13 @@ Submit Review
 
 </section>
 
+<!-- SUPPORT -->
+
 <section class="support">
 
-<h2>Customer Support</h2>
+<h2>📞 Customer Support</h2>
 
-<p>📞 Phone:
-<a href="tel:9301272240">9301272240</a>
-</p>
+<p>📞 Phone: <a href="tel:9301272240">9301272240</a></p>
 
 <p>📧 Email:
 <a href="mailto:ay2279832@gmail.com">
@@ -440,21 +600,31 @@ ay2279832@gmail.com
 </p>
 
 <p>🏠 Home Delivery Available</p>
+
 <p>💵 COD: <b>6:00 AM – 8:00 PM</b></p>
+
 <p>💳 UPI: <b>24 Hours</b></p>
 
 </section>
 
 <footer>
+
 <h2>APNI BAKERY</h2>
+
 <p>Fresh Cakes • Dairy • Chocolates • Home Delivery</p>
-<p>© 2026 APNI BAKERY</p>
+
+<p style="margin-top:8px">
+© 2026 APNI BAKERY
+</p>
+
 </footer>
 
 <script>
 
 let cart=[];
 let selectedPayment="COD";
+
+/* CART */
 
 function addToCart(name,price){
 
@@ -491,20 +661,36 @@ count+=item.qty;
 
 box.innerHTML+=`
 <div class="cartitem">
+
 <div class="row">
 <b>${item.name}</b>
+
 <button class="remove"
-onclick="removeItem(${index})">Remove</button>
+onclick="removeItem(${index})">
+Remove
+</button>
 </div>
 
 <div class="qty">
-<button onclick="changeQty(${index},-1)">−</button>
+
+<button onclick="changeQty(${index},-1)">
+−
+</button>
+
 <span>${item.qty}</span>
-<button onclick="changeQty(${index},1)">+</button>
+
+<button onclick="changeQty(${index},1)">
++
+</button>
+
 </div>
 
-<div class="subtotal">₹${sub}</div>
-</div>`;
+<div class="subtotal">
+₹${sub}
+</div>
+
+</div>
+`;
 });
 
 document.getElementById("count").innerText=count;
@@ -512,6 +698,8 @@ document.getElementById("total").innerText=total;
 }
 
 function changeQty(i,n){
+
+if(!cart[i])return;
 
 cart[i].qty+=n;
 
@@ -539,35 +727,41 @@ function closeCart(){
 document.getElementById("cart").classList.remove("open");
 }
 
+/* SEARCH */
+
 function searchProducts(){
 
-let text=document
-.getElementById("search")
+let text=document.getElementById("search")
 .value.toLowerCase().trim();
 
 let found=0;
 
-document.querySelectorAll(".product").forEach(function(p){
+document.querySelectorAll(".product")
+.forEach(function(p){
 
-let name=(p.dataset.name||"").toLowerCase();
-let category=(p.dataset.category||"").toLowerCase();
+let name=p.dataset.name.toLowerCase();
+let category=p.dataset.category.toLowerCase();
 
 if(
 text==="" ||
 name.includes(text) ||
 category.includes(text)
 ){
+
 p.style.display="";
 found++;
+
 }else{
 p.style.display="none";
 }
 
 });
 
-document.getElementById("noResult").style.display=
-found?"none":"block";
+document.getElementById("noResult")
+.style.display=found?"none":"block";
 }
+
+/* FILTER */
 
 function filterProducts(category){
 
@@ -575,20 +769,23 @@ document.getElementById("search").value="";
 
 let found=0;
 
-document.querySelectorAll(".product").forEach(function(p){
+document.querySelectorAll(".product")
+.forEach(function(p){
 
-if(category==="all"||p.dataset.category===category){
+if(category==="all" ||
+p.dataset.category===category){
 
 p.style.display="";
 found++;
+
 }else{
 p.style.display="none";
 }
 
 });
 
-document.getElementById("noResult").style.display=
-found?"none":"block";
+document.getElementById("noResult")
+.style.display=found?"none":"block";
 
 scrollProducts();
 }
@@ -598,6 +795,8 @@ function scrollProducts(){
 document.getElementById("productsSection")
 .scrollIntoView({behavior:"smooth"});
 }
+
+/* LOGIN */
 
 function openLogin(){
 
@@ -616,7 +815,7 @@ function loginUser(){
 let name=document.getElementById("loginName").value.trim();
 let phone=document.getElementById("loginPhone").value.trim();
 
-if(!name||!phone){
+if(!name || !phone){
 alert("Please enter your name and mobile number.");
 return;
 }
@@ -642,6 +841,8 @@ if(savedName){
 document.getElementById("loginButton").innerText="👤 "+savedName;
 }
 
+/* PAYMENT */
+
 function selectPayment(type){
 
 selectedPayment=type;
@@ -653,11 +854,13 @@ document.getElementById("upiBox")
 .classList.toggle("active",type==="UPI");
 }
 
+/* COD TIME */
+
 function codAvailable(){
 
 let h=new Date().getHours();
 
-return h>=6&&h<20;
+return h>=6 && h<20;
 }
 
 function updateCOD(){
@@ -693,6 +896,8 @@ selectPayment("UPI");
 }
 }
 
+/* UPI */
+
 function payUPI(){
 
 if(cart.length===0){
@@ -701,18 +906,23 @@ alert("Please add products to your cart first.");
 return;
 }
 
-let total=cart.reduce(
-(sum,item)=>sum+item.price*item.qty,0
-);
+let total=cart.reduce(function(sum,item){
+return sum+item.price*item.qty;
+},0);
+
+let upi="ay2279832@axl";
 
 let url=
-"upi://pay?pa="+encodeURIComponent("ay2279832@axl")+
+"upi://pay"+
+"?pa="+encodeURIComponent(upi)+
 "&pn="+encodeURIComponent("APNI BAKERY")+
 "&am="+encodeURIComponent(total)+
 "&cu=INR";
 
 window.location.href=url;
 }
+
+/* WHATSAPP ORDER */
 
 function placeOrder(){
 
@@ -722,125 +932,25 @@ alert("Your cart is empty.");
 return;
 }
 
-if(selectedPayment==="COD"&&!codAvailable()){
+if(selectedPayment==="COD" && !codAvailable()){
 
-alert(
-"Cash on Delivery is available only from 6:00 AM to 8:00 PM."
-);
+alert("Cash on Delivery is available only from 6:00 AM to 8:00 PM.");
 return;
 }
 
-let name=document.getElementById("customerName").value.trim();
-let phone=document.getElementById("customerPhone").value.trim();
-let address=document.getElementById("customerAddress").value.trim();
+let name=document.getElementById("customerName")
+.value.trim();
 
-if(!name||!phone||!address){
+let phone=document.getElementById("customerPhone")
+.value.trim();
+
+let address=document.getElementById("customerAddress")
+.value.trim();
+
+if(!name || !phone || !address){
 
 alert("Please enter Name, Mobile Number and Complete Address.");
 return;
 }
 
 if(!/^[0-9]{10}$/.test(phone)){
-
-alert("Please enter a valid 10 digit mobile number.");
-return;
-}
-
-let total=cart.reduce(
-(sum,item)=>sum+item.price*item.qty,0
-);
-
-let items=cart.map(function(item){
-
-return "• "+item.name+
-" × "+item.qty+
-" = ₹"+(item.price*item.qty);
-
-}).join("\n");
-
-let message=
-"*NEW ORDER - APNI BAKERY*\\n\\n"+
-"Customer Name: "+name+"\\n"+
-"Mobile: "+phone+"\\n"+
-"Address: "+address+"\\n\\n"+
-"*ORDER ITEMS*\\n"+
-items+"\\n\\n"+
-"*TOTAL: ₹"+total+"*\\n"+
-"Payment: "+selectedPayment+"\\n\\n"+
-"Please confirm my order.";
-
-let url=
-"https://wa.me/919301272240?text="+
-encodeURIComponent(message);
-
-window.open(url,"_blank");
-}
-
-function submitReview(){
-
-let name=document.getElementById("reviewName").value.trim();
-let text=document.getElementById("reviewText").value.trim();
-
-if(!name||!text){
-
-alert("Please enter your name and review.");
-return;
-}
-
-let reviews=JSON.parse(
-localStorage.getItem("apniBakeryReviews")||"[]"
-);
-
-reviews.push({name,text});
-
-localStorage.setItem(
-"apniBakeryReviews",
-JSON.stringify(reviews)
-);
-
-document.getElementById("reviewName").value="";
-document.getElementById("reviewText").value="";
-
-showReviews();
-
-alert("Review submitted.");
-}
-
-function showReviews(){
-
-let reviews=JSON.parse(
-localStorage.getItem("apniBakeryReviews")||"[]"
-);
-
-document.getElementById("reviewList").innerHTML=
-reviews.map(function(r){
-
-return `
-<div class="reviewBox">
-<b>${escapeHTML(r.name)}</b>
-<p style="margin-top:5px">${escapeHTML(r.text)}</p>
-</div>`;
-
-}).join("");
-}
-
-function escapeHTML(text){
-
-return String(text)
-.replace(/&/g,"&amp;")
-.replace(/</g,"&lt;")
-.replace(/>/g,"&gt;")
-.replace(/"/g,"&quot;")
-.replace(/'/g,"&#039;");
-}
-
-renderCart();
-showReviews();
-updateCOD();
-
-setInterval(updateCOD,60000);
-
-</script>
-
-</body>
-  </html>
