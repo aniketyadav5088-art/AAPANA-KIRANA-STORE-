@@ -2,382 +2,77 @@
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>APNI BAKERY</title>
 
 <style>
 *{box-sizing:border-box}
-body{
- margin:0;
- font-family:Arial,sans-serif;
- background:#fff8f2;
- color:#24130d
-}
+body{margin:0;font-family:Arial,sans-serif;background:#fff8f1;color:#26140d}
 button{cursor:pointer}
-header{
- position:sticky;
- top:0;
- z-index:100;
- background:#4b1f12;
- color:white;
- padding:12px;
- display:flex;
- align-items:center;
- gap:10px
-}
+header{position:sticky;top:0;z-index:99;background:#4b1f12;color:#fff;padding:12px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .logo{font-size:22px;font-weight:bold}
-.logo span{color:#ffd45c}
-.search{
- flex:1;
- display:flex;
- background:white;
- border-radius:8px;
- overflow:hidden
-}
-.search input{
- flex:1;
- border:0;
- padding:11px;
- outline:none
-}
-.search button{
- border:0;
- background:#ffd21c;
- padding:0 16px
-}
-.headerBtn{
- border:0;
- background:transparent;
- color:white;
- font-weight:bold;
- padding:8px
-}
-nav{
- background:#6d2c1b;
- padding:10px;
- display:flex;
- gap:10px;
- overflow:auto
-}
-nav button{
- border:0;
- background:#fff1d8;
- color:#4b1f12;
- padding:9px 16px;
- border-radius:20px;
- font-weight:bold;
- white-space:nowrap
-}
-.hero{
- margin:15px;
- border-radius:20px;
- padding:35px;
- color:white;
- background:linear-gradient(135deg,#40160c,#a74419);
- display:flex;
- justify-content:space-between;
- align-items:center;
- min-height:350px
-}
-.heroText{max-width:600px}
-.badge{
- display:inline-block;
- background:#ffd21c;
- color:#3c190e;
- padding:8px 14px;
- border-radius:20px;
- font-weight:bold
-}
-h1{
- font-size:48px;
- margin:15px 0
-}
-.hero h1 span{color:#ffd45c}
-.hero p{font-size:18px;line-height:1.6}
-.hero button{
- border:0;
- background:#ffd21c;
- padding:14px 25px;
- border-radius:25px;
- font-weight:bold
-}
-.heroCake{
- font-size:170px;
- filter:drop-shadow(0 15px 10px #0005)
-}
-.section{
- background:white;
- margin:15px;
- padding:20px;
- border-radius:15px
-}
-.products{
- display:grid;
- grid-template-columns:repeat(4,1fr);
- gap:15px
-}
-.card{
- border:1px solid #ddd;
- border-radius:14px;
- padding:10px;
- background:white;
- overflow:hidden
-}
-.pic{
- height:180px;
- border-radius:10px;
- background:#fff0df;
- display:flex;
- justify-content:center;
- align-items:center;
- font-size:90px;
- overflow:hidden
-}
-.pic img{
- width:100%;
- height:100%;
- object-fit:cover
-}
-.card h3{margin:10px 0 5px}
-.rating{
- display:inline-block;
- background:#198754;
- color:white;
- padding:4px 7px;
- border-radius:5px;
- font-size:12px
-}
-.price{
- font-size:20px;
- font-weight:bold;
- margin:8px 0
-}
-.old{
- text-decoration:line-through;
- color:#888;
- font-size:13px
-}
-.discount{
- color:#198754;
- font-weight:bold;
- font-size:13px
-}
-.add{
- width:100%;
- border:0;
- background:#ffd21c;
- padding:11px;
- border-radius:20px;
- font-weight:bold;
- margin-top:8px
-}
-.cart{
- position:fixed;
- right:-450px;
- top:0;
- width:420px;
- max-width:95%;
- height:100vh;
- background:white;
- z-index:1000;
- box-shadow:-5px 0 20px #0005;
- padding:20px;
- overflow:auto;
- transition:.3s
-}
+.logo span{color:#ffd43b}
+.search{display:flex;flex:1;min-width:180px;background:#fff;border-radius:8px;overflow:hidden}
+.search input{width:100%;border:0;outline:0;padding:11px}
+.search button{border:0;background:#ffd43b;padding:0 16px}
+.headBtn{background:none;color:#fff;border:0;font-weight:bold;padding:8px}
+nav{background:#692a18;padding:10px;display:flex;gap:10px;overflow:auto}
+nav button{border:0;border-radius:20px;padding:9px 16px;background:#fff0d2;color:#4b1f12;font-weight:bold;white-space:nowrap}
+.hero{margin:15px;padding:30px;border-radius:20px;background:linear-gradient(135deg,#3d150c,#a84619);color:#fff;display:flex;justify-content:space-between;align-items:center}
+.heroText{max-width:650px}
+.badge{background:#ffd43b;color:#3d150c;padding:8px 13px;border-radius:20px;font-weight:bold}
+.hero h1{font-size:48px;margin:18px 0 10px}
+.hero h1 span{color:#ffd43b}
+.hero p{font-size:17px;line-height:1.6}
+.shop{border:0;background:#ffd43b;padding:13px 24px;border-radius:25px;font-weight:bold}
+.heroArt{font-size:150px}
+.section{background:#fff;margin:15px;padding:20px;border-radius:15px}
+.products{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.card{border:1px solid #ddd;border-radius:14px;padding:10px;background:#fff}
+.photo{height:180px;border-radius:10px;background:#fff0df;display:flex;align-items:center;justify-content:center;overflow:hidden;font-size:80px}
+.photo img{width:100%;height:100%;object-fit:cover}
+.card h3{font-size:16px;margin:10px 0}
+.rating{background:#198754;color:#fff;border-radius:5px;padding:4px 7px;font-size:12px}
+.price{font-size:20px;font-weight:bold;margin:8px 0}
+.old{text-decoration:line-through;color:#888;font-size:13px}
+.discount{color:#198754;font-weight:bold;font-size:13px}
+.add{width:100%;border:0;background:#ffd43b;padding:11px;border-radius:20px;font-weight:bold;margin-top:8px}
+.noresult{text-align:center;display:none;padding:25px;color:#777}
+.cart{position:fixed;right:-450px;top:0;width:430px;max-width:95%;height:100vh;background:#fff;z-index:1000;box-shadow:-5px 0 20px #0005;padding:20px;overflow:auto;transition:.3s}
 .cart.open{right:0}
-.cartHead{
- display:flex;
- justify-content:space-between;
- border-bottom:1px solid #ddd;
- padding-bottom:12px
-}
-.close{
- border:0;
- background:none;
- font-size:28px
-}
-.cartItem{
- padding:13px 0;
- border-bottom:1px solid #ddd
-}
-.cartRow{
- display:flex;
- justify-content:space-between;
- gap:10px
-}
-.qty{
- display:flex;
- align-items:center;
- gap:10px;
- margin-top:10px
-}
-.qty button{
- width:32px;
- height:32px;
- border:1px solid #aaa;
- background:#eee
-}
-.remove{
- border:0;
- background:none;
- color:red
-}
-.total{
- font-size:22px;
- font-weight:bold;
- padding:15px 0
-}
-.checkout input,
-.checkout textarea{
- width:100%;
- padding:11px;
- margin:5px 0;
- border:1px solid #aaa;
- border-radius:6px
-}
+.cartHead{display:flex;justify-content:space-between;border-bottom:1px solid #ddd;padding-bottom:12px}
+.close{border:0;background:none;font-size:28px}
+.cartItem{padding:13px 0;border-bottom:1px solid #ddd}
+.row{display:flex;justify-content:space-between;gap:10px}
+.remove{border:0;background:none;color:#d00}
+.qty{display:flex;align-items:center;gap:12px;margin-top:10px}
+.qty button{width:32px;height:32px;border:1px solid #aaa;background:#eee}
+.total{font-size:22px;font-weight:bold;padding:15px 0}
+.checkout input,.checkout textarea{width:100%;padding:11px;margin:5px 0;border:1px solid #aaa;border-radius:6px}
 .checkout textarea{height:80px}
-.payBox{
- border:1px solid #ddd;
- padding:12px;
- margin-top:8px;
- border-radius:8px
-}
-.payBox.active{
- border:2px solid green;
- background:#f1fff1
-}
-.greenBtn{
- width:100%;
- border:0;
- background:#138808;
- color:white;
- padding:12px;
- border-radius:7px;
- margin-top:8px;
- font-weight:bold
-}
-.whatsapp{
- width:100%;
- border:0;
- background:#25d366;
- color:white;
- padding:13px;
- border-radius:7px;
- margin-top:10px;
- font-weight:bold
-}
-.loginOverlay{
- position:fixed;
- inset:0;
- background:#0009;
- display:none;
- align-items:center;
- justify-content:center;
- z-index:2000
-}
-.loginOverlay.show{display:flex}
-.login{
- width:350px;
- max-width:90%;
- background:white;
- padding:25px;
- border-radius:12px
-}
-.login input{
- width:100%;
- padding:11px;
- margin:6px 0;
- border:1px solid #aaa;
- border-radius:6px
-}
-.login button{
- width:100%;
- padding:12px;
- border:0;
- background:#6d2c1b;
- color:white;
- border-radius:6px;
- margin-top:8px
-}
-.review input,
-.review textarea{
- width:100%;
- padding:10px;
- margin:5px 0;
- border:1px solid #aaa;
- border-radius:6px
-}
+.pay{border:1px solid #ddd;border-radius:8px;padding:12px;margin:8px 0}
+.pay.active{border:2px solid green;background:#f1fff1}
+.green{width:100%;border:0;background:#138808;color:#fff;padding:12px;border-radius:7px;font-weight:bold}
+.whatsapp{width:100%;border:0;background:#25d366;color:#fff;padding:13px;border-radius:7px;font-weight:bold;margin-top:10px}
+.overlay{position:fixed;inset:0;background:#0009;display:none;align-items:center;justify-content:center;z-index:2000}
+.overlay.show{display:flex}
+.login{width:350px;max-width:90%;background:#fff;padding:25px;border-radius:12px}
+.login input{width:100%;padding:11px;margin:6px 0;border:1px solid #aaa;border-radius:6px}
+.login button{width:100%;padding:12px;border:0;background:#6d2a18;color:#fff;border-radius:6px}
+.review input,.review textarea{width:100%;padding:10px;margin:5px 0;border:1px solid #aaa;border-radius:6px}
 .review textarea{height:80px}
-.review button{
- border:0;
- background:#ffd21c;
- padding:11px 20px;
- border-radius:20px;
- font-weight:bold
-}
-.reviewItem{
- border-top:1px solid #ddd;
- padding:12px 0;
- margin-top:10px
-}
-.support{
- line-height:1.8
-}
-.support a{
- color:#6d2c1b;
- font-weight:bold
-}
-footer{
- background:#35140c;
- color:white;
- text-align:center;
- padding:25px;
- margin-top:20px
-}
-.noResult{
- display:none;
- text-align:center;
- padding:25px;
- color:#777
-}
-.toast{
- position:fixed;
- bottom:20px;
- left:50%;
- transform:translateX(-50%);
- background:#222;
- color:white;
- padding:12px 18px;
- border-radius:8px;
- opacity:0;
- pointer-events:none;
- transition:.3s;
- z-index:3000
-}
-.toast.show{opacity:1}
+.review button{border:0;background:#ffd43b;padding:11px 20px;border-radius:20px;font-weight:bold}
+.reviewItem{border-top:1px solid #ddd;padding:12px 0}
+.support a{color:#6d2a18;font-weight:bold}
+footer{background:#35140c;color:#fff;text-align:center;padding:25px;margin-top:20px}
 
-@media(max-width:900px){
- .products{grid-template-columns:repeat(2,1fr)}
- .heroCake{font-size:120px}
-}
+@media(max-width:900px){.products{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){
- header{flex-wrap:wrap}
- .logo{width:100%;text-align:center}
- .search{width:100%;flex-basis:100%}
- .hero{
-  margin:10px;
-  padding:25px;
-  display:block;
-  text-align:center
- }
- h1{font-size:35px}
- .heroCake{font-size:100px;margin-top:20px}
- .section{margin:10px}
- .products{grid-template-columns:repeat(2,1fr);gap:8px}
- .pic{height:130px;font-size:65px}
- .card h3{font-size:14px}
- .price{font-size:17px}
+header{padding:10px}.logo{width:100%;text-align:center}.search{flex-basis:100%}
+.hero{display:block;text-align:center;padding:25px;margin:10px}
+.hero h1{font-size:35px}.heroArt{font-size:90px;margin-top:20px}
+.section{margin:10px}.products{gap:8px}.photo{height:130px}
+.card h3{font-size:14px}.price{font-size:17px}
 }
 </style>
 </head>
@@ -385,1005 +80,548 @@ footer{
 <body>
 
 <header>
-
-<div class="logo">
-APNI <span>BAKERY</span>
-</div>
+<div class="logo">APNI <span>BAKERY</span></div>
 
 <div class="search">
-<input id="search" placeholder="Cake, chocolate, paneer...">
-<button id="searchBtn">🔍</button>
+<input id="search" type="search" placeholder="Search cakes, chocolate, paneer...">
+<button id="searchButton">🔍</button>
 </div>
 
-<button class="headerBtn" id="loginBtn">👤 Login</button>
-
-<button class="headerBtn" id="cartBtn">
-🛒 Cart (<span id="cartCount">0</span>)
-</button>
-
+<button class="headBtn" id="loginButton">👤 Login</button>
+<button class="headBtn" id="cartButton">🛒 Cart (<span id="cartCount">0</span>)</button>
 </header>
 
 <nav>
-<button data-cat="all">🏠 Home</button>
-<button data-cat="cake">🎂 Cakes</button>
-<button data-cat="dairy">🧀 Dairy</button>
-<button data-cat="chocolate">🍫 Chocolate</button>
-<button data-cat="water">💧 Water</button>
+<button class="category" data-category="all">🏠 Home</button>
+<button class="category" data-category="cake">🎂 Cakes</button>
+<button class="category" data-category="dairy">🧀 Dairy</button>
+<button class="category" data-category="chocolate">🍫 Chocolates</button>
+<button class="category" data-category="water">💧 Water</button>
 </nav>
 
 <section class="hero">
-
 <div class="heroText">
-
-<span class="badge">🔥 TODAY'S OFFER</span>
-
-<h1>
-Fresh Taste.<br>
-<span>Happy Moments.</span>
-</h1>
-
-<p>
-Fresh cakes, chocolates, paneer और daily-use products.
-अच्छी quality और शानदार price के साथ।
-</p>
-
-<p>
-🎁 Cakes पर <b>20% OFF</b><br>
-🚚 Selected orders पर FREE DELIVERY
-</p>
-
-<button id="shopBtn">
-🛍️ Shop Now
-</button>
-
+<span class="badge">🔥 TODAY'S SPECIAL OFFER</span>
+<h1>Fresh Taste.<br><span>Happy Moments.</span></h1>
+<p>Fresh cakes, chocolates, paneer और daily-use products. Quality सामान और शानदार कीमत।</p>
+<p>🎁 Cakes पर <b>20% OFF</b><br>🚚 Selected orders पर FREE Delivery</p>
+<button class="shop" id="shopButton">🛍️ Shop Now</button>
 </div>
-
-<div class="heroCake">
-🎂
-</div>
-
+<div class="heroArt">🎂</div>
 </section>
 
-<section class="section" id="productsSection">
-
+<section class="section" id="productSection">
 <h2>⭐ Popular Products</h2>
 
-<div class="products" id="products">
+<div class="products">
 
-<div class="card" data-cat="cake" data-name="fresh cream cake">
-
-<div class="pic">
-<img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80">
-</div>
-
-<h3>Fresh Cream Cake</h3>
-
-<span class="rating">4.5 ★</span>
-
-<div class="price">
-₹250 <span class="old">₹300</span>
-</div>
-
+<div class="card" data-category="cake" data-name="fresh cream cake">
+<div class="photo"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80"></div>
+<h3>Fresh Cream Cake</h3><span class="rating">4.5 ★</span>
+<div class="price">₹250 <span class="old">₹300</span></div>
 <div class="discount">17% OFF</div>
-
-<button class="add" data-name="Fresh Cream Cake" data-price="250">
-Add to Cart
-</button>
-
+<button class="add" data-name="Fresh Cream Cake" data-price="250">Add to Cart</button>
 </div>
 
-
-<div class="card" data-cat="cake" data-name="vanilla cake">
-
-<div class="pic">
-<img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?auto=format&fit=crop&w=700&q=80">
-</div>
-
-<h3>Premium Vanilla Cake</h3>
-
-<span class="rating">4.6 ★</span>
-
-<div class="price">
-₹300 <span class="old">₹350</span>
-</div>
-
+<div class="card" data-category="cake" data-name="vanilla cake">
+<div class="photo"><img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?auto=format&fit=crop&w=700&q=80"></div>
+<h3>Premium Vanilla Cake</h3><span class="rating">4.6 ★</span>
+<div class="price">₹300 <span class="old">₹350</span></div>
 <div class="discount">14% OFF</div>
-
-<button class="add" data-name="Premium Vanilla Cake" data-price="300">
-Add to Cart
-</button>
-
+<button class="add" data-name="Premium Vanilla Cake" data-price="300">Add to Cart</button>
 </div>
 
-
-<div class="card" data-cat="cake" data-name="chocolate cake">
-
-<div class="pic">
-<img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=700&q=80">
-</div>
-
-<h3>Chocolate Cake</h3>
-
-<span class="rating">4.8 ★</span>
-
-<div class="price">
-₹400 <span class="old">₹500</span>
-</div>
-
+<div class="card" data-category="cake" data-name="chocolate cake">
+<div class="photo"><img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=700&q=80"></div>
+<h3>Chocolate Cake</h3><span class="rating">4.8 ★</span>
+<div class="price">₹400 <span class="old">₹500</span></div>
 <div class="discount">20% OFF</div>
-
-<button class="add" data-name="Chocolate Cake" data-price="400">
-Add to Cart
-</button>
-
+<button class="add" data-name="Chocolate Cake" data-price="400">Add to Cart</button>
 </div>
 
-
-<div class="card" data-cat="cake" data-name="birthday cake">
-
-<div class="pic">🎂</div>
-
-<h3>Special Birthday Cake</h3>
-
-<span class="rating">4.7 ★</span>
-
-<div class="price">
-₹400 <span class="old">₹450</span>
-</div>
-
+<div class="card" data-category="cake" data-name="birthday cake">
+<div class="photo">🎂</div>
+<h3>Special Birthday Cake</h3><span class="rating">4.7 ★</span>
+<div class="price">₹400 <span class="old">₹450</span></div>
 <div class="discount">11% OFF</div>
-
-<button class="add" data-name="Special Birthday Cake" data-price="400">
-Add to Cart
-</button>
-
+<button class="add" data-name="Special Birthday Cake" data-price="400">Add to Cart</button>
 </div>
 
-
-<div class="card" data-cat="dairy" data-name="fresh paneer paneer">
-
-<div class="pic">🧀</div>
-
-<h3>Fresh Paneer 1 Kg</h3>
-
-<span class="rating">4.6 ★</span>
-
-<div class="price">
-₹300 <span class="old">₹330</span>
-</div>
-
+<div class="card" data-category="dairy" data-name="fresh paneer">
+<div class="photo">🧀</div>
+<h3>Fresh Paneer 1 Kg</h3><span class="rating">4.6 ★</span>
+<div class="price">₹300 <span class="old">₹330</span></div>
 <div class="discount">9% OFF</div>
-
-<button class="add" data-name="Fresh Paneer 1 Kg" data-price="300">
-Add to Cart
-</button>
-
+<button class="add" data-name="Fresh Paneer 1 Kg" data-price="300">Add to Cart</button>
 </div>
 
-
-<div class="card" data-cat="chocolate" data-name="dairy milk 10 chocolate">
-
-<div class="pic">🍫</div>
-
-<h3>Dairy Milk ₹10</h3>
-
-<span class="rating">4.7 ★</span>
-
+<div class="card" data-category="chocolate" data-name="dairy milk 10">
+<div class="photo">🍫</div>
+<h3>Dairy Milk ₹10</h3><span class="rating">4.7 ★</span>
 <div class="price">₹10</div>
-
-<button class="add" data-name="Dairy Milk ₹10" data-price="10">
-Add to Cart
-</button>
-
+<button class="add" data-name="Dairy Milk ₹10" data-price="10">Add to Cart</button>
 </div>
 
-
-<div class="card" data-cat="chocolate" data-name="dairy milk 20 chocolate">
-
-<div class="pic">🍫</div>
-
-<h3>Dairy Milk ₹20</h3>
-
-<span class="rating">4.7 ★</span>
-
+<div class="card" data-category="chocolate" data-name="dairy milk 20">
+<div class="photo">🍫</div>
+<h3>Dairy Milk ₹20</h3><span class="rating">4.7 ★</span>
 <div class="price">₹20</div>
-
-<button class="add" data-name="Dairy Milk ₹20" data-price="20">
-Add to Cart
-</button>
-
+<button class="add" data-name="Dairy Milk ₹20" data-price="20">Add to Cart</button>
 </div>
 
-
-<div class="card" data-cat="chocolate" data-name="dairy milk 50 chocolate">
-
-<div class="pic">🍫</div>
-
-<h3>Dairy Milk ₹50</h3>
-
-<span class="rating">4.8 ★</span>
-
+<div class="card" data-category="chocolate" data-name="dairy milk 50">
+<div class="photo">🍫</div>
+<h3>Dairy Milk ₹50</h3><span class="rating">4.8 ★</span>
 <div class="price">₹50</div>
-
-<button class="add" data-name="Dairy Milk ₹50" data-price="50">
-Add to Cart
-</button>
-
+<button class="add" data-name="Dairy Milk ₹50" data-price="50">Add to Cart</button>
 </div>
 
-
-<div class="card" data-cat="chocolate" data-name="kitkat chocolate">
-
-<div class="pic">🍫</div>
-
-<h3>KitKat ₹20</h3>
-
-<span class="rating">4.7 ★</span>
-
+<div class="card" data-category="chocolate" data-name="kitkat">
+<div class="photo">🍫</div>
+<h3>KitKat ₹20</h3><span class="rating">4.7 ★</span>
 <div class="price">₹20</div>
-
-<button class="add" data-name="KitKat ₹20" data-price="20">
-Add to Cart
-</button>
-
+<button class="add" data-name="KitKat ₹20" data-price="20">Add to Cart</button>
 </div>
 
-
-<div class="card" data-cat="water" data-name="bisleri water bottle">
-
-<div class="pic">💧</div>
-
-<h3>Bisleri Water Bottle</h3>
-
-<span class="rating">4.8 ★</span>
-
+<div class="card" data-category="water" data-name="water bottle">
+<div class="photo">💧</div>
+<h3>Water Bottle</h3><span class="rating">4.8 ★</span>
 <div class="price">₹20</div>
-
-<button class="add" data-name="Bisleri Water Bottle" data-price="20">
-Add to Cart
-</button>
-
+<button class="add" data-name="Water Bottle" data-price="20">Add to Cart</button>
 </div>
 
 </div>
 
-<div class="noResult" id="noResult">
-कोई product नहीं मिला।
-</div>
-
+<div class="noresult" id="noResult">कोई product नहीं मिला।</div>
 </section>
 
-
 <!-- CART -->
-
 <div class="cart" id="cart">
 
 <div class="cartHead">
-
-<h2>🛒 Your Cart</h2>
-
+<h2>🛒 Shopping Cart</h2>
 <button class="close" id="closeCart">×</button>
-
 </div>
 
 <div id="cartItems"></div>
 
-<div class="total">
-Total: ₹<span id="total">0</span>
-</div>
+<div class="total">Total: ₹<span id="total">0</span></div>
 
 <div class="checkout">
 
 <h3>🏠 Delivery Details</h3>
 
 <input id="customerName" placeholder="Your Name">
+<input id="customerPhone" type="tel" maxlength="10" placeholder="Mobile Number">
+<textarea id="customerAddress" placeholder="Complete Delivery Address"></textarea>
 
-<input
-id="customerPhone"
-type="tel"
-maxlength="10"
-placeholder="Mobile Number"
->
+<h3>💳 Payment Method</h3>
 
-<textarea
-id="customerAddress"
-placeholder="Complete Delivery Address"
-></textarea>
-
-<h3>💳 Payment</h3>
-
-<div class="payBox active" id="codBox">
-
-<label>
-<input type="radio" name="payment" id="cod" checked>
-💵 Cash on Delivery
-</label>
-
-<p id="codText" style="font-size:12px"></p>
-
+<div class="pay active" id="codBox">
+<label><input type="radio" name="payment" id="codRadio" checked> 💵 Cash on Delivery</label>
+<p id="codStatus" style="font-size:12px"></p>
 </div>
 
-<div class="payBox" id="upiBox">
-
-<label>
-<input type="radio" name="payment" id="upi">
-💳 UPI Payment
-</label>
-
-<p>
-UPI ID:
-<b>ay2279832@axl</b>
-</p>
-
-<button class="greenBtn" id="upiPay">
-Pay with UPI
-</button>
-
+<div class="pay" id="upiBox">
+<label><input type="radio" name="payment" id="upiRadio"> 💳 UPI Payment</label>
+<p>UPI ID: <b>ay2279832@axl</b></p>
+<button class="green" id="upiButton">💳 Pay with UPI</button>
 </div>
 
-<button class="whatsapp" id="orderBtn">
-📲 Order on WhatsApp
-</button>
+<button class="whatsapp" id="whatsappButton">📲 Place Order on WhatsApp</button>
 
 </div>
-
 </div>
-
 
 <!-- LOGIN -->
-
-<div class="loginOverlay" id="loginOverlay">
-
+<div class="overlay" id="loginOverlay">
 <div class="login">
-
-<button
-id="closeLogin"
-style="float:right;border:0;background:none;font-size:25px"
->
-×
-</button>
-
+<button id="closeLogin" style="float:right;border:0;background:none;font-size:25px">×</button>
 <h2>👤 Login / Sign Up</h2>
-
 <input id="loginName" placeholder="Your Name">
-
-<input
-id="loginPhone"
-type="tel"
-maxlength="10"
-placeholder="Mobile Number"
->
-
-<button id="continueLogin">
-Continue
-</button>
-
+<input id="loginPhone" type="tel" maxlength="10" placeholder="Mobile Number">
+<button id="continueLogin">Continue</button>
 </div>
-
 </div>
-
 
 <section class="section review">
-
 <h2>⭐ Customer Reviews</h2>
-
 <input id="reviewName" placeholder="Your Name">
-
-<textarea
-id="reviewText"
-placeholder="Write your review"
-></textarea>
-
-<button id="reviewBtn">
-Submit Review
-</button>
-
-<div id="reviews"></div>
-
+<textarea id="reviewText" placeholder="Write your review"></textarea>
+<button id="submitReview">Submit Review</button>
+<div id="reviewList"></div>
 </section>
 
-
-<section class="section support">
-
+<section class="section">
 <h2>📞 Customer Support</h2>
-
-<p>
-📞 Phone:
-<a href="tel:9301272240">9301272240</a>
-</p>
-
-<p>
-📧 Email:
-<a href="mailto:ay2279832@gmail.com">
-ay2279832@gmail.com
-</a>
-</p>
-
+<p>📞 Phone: <a href="tel:9301272240">9301272240</a></p>
+<p>📧 Email: <a href="mailto:ay2279832@gmail.com">ay2279832@gmail.com</a></p>
 <p>🏠 Home Delivery Available</p>
-
 <p>💵 COD: 6:00 AM – 8:00 PM</p>
-
 <p>💳 UPI: 24 Hours</p>
-
 </section>
-
 
 <footer>
-
 <h2>APNI BAKERY</h2>
-
-<p>
-Fresh Cakes • Dairy • Chocolates • Home Delivery
-</p>
-
+<p>Fresh Cakes • Dairy • Chocolates • Home Delivery</p>
 <p>© 2026 APNI BAKERY</p>
-
 </footer>
 
-<div class="toast" id="toast"></div>
-
-
 <script>
+"use strict";
 
-/* =========================
-   VARIABLES
-========================= */
+/* ===== SETTINGS ===== */
+const UPI_ID = "ay2279832@axl";
+const WHATSAPP_NUMBER = "919301272240";
 
 let cart = [];
+let paymentMethod = "COD";
 
-let payment = "COD";
-
-const UPI_ID = "ay2279832@axl";
-
-const WHATSAPP = "919301272240";
-
-
-/* =========================
-   HELPERS
-========================= */
-
-const $ = id => document.getElementById(id);
-
-function toast(text){
-
- const t = $("toast");
-
- t.textContent = text;
-
- t.classList.add("show");
-
- setTimeout(()=>{
-   t.classList.remove("show");
- },2000);
-
+/* ===== SHORTCUT ===== */
+function $(id){
+  return document.getElementById(id);
 }
 
-
-function total(){
-
- return cart.reduce(
-  (sum,item)=>sum + item.price * item.qty,
-  0
- );
-
+/* ===== CART ===== */
+function getTotal(){
+  return cart.reduce(function(sum,item){
+    return sum + item.price * item.qty;
+  },0);
 }
-
-
-/* =========================
-   CART
-========================= */
 
 function renderCart(){
 
- const box = $("cartItems");
+  const box = $("cartItems");
+  box.innerHTML = "";
 
- box.innerHTML = "";
+  let count = 0;
 
- let count = 0;
+  if(cart.length === 0){
+    box.innerHTML = "<p>आपका cart खाली है।</p>";
+  }
 
- if(cart.length === 0){
+  cart.forEach(function(item,index){
 
-  box.innerHTML =
-   "<p style='padding:20px 0'>Cart खाली है।</p>";
+    count += item.qty;
 
- }
+    const div = document.createElement("div");
+    div.className = "cartItem";
 
- cart.forEach((item,index)=>{
+    div.innerHTML =
+      "<div class='row'>" +
+      "<b>"+item.name+"</b>" +
+      "<button class='remove' data-remove='"+index+"'>Remove</button>" +
+      "</div>" +
+      "<div class='qty'>" +
+      "<button data-minus='"+index+"'>−</button>" +
+      "<b>"+item.qty+"</b>" +
+      "<button data-plus='"+index+"'>+</button>" +
+      "</div>" +
+      "<div style='margin-top:7px;font-weight:bold'>₹"+(item.price*item.qty)+"</div>";
 
-  count += item.qty;
-
-  box.innerHTML += `
-
-   <div class="cartItem">
-
-    <div class="cartRow">
-
-     <b>${item.name}</b>
-
-     <button
-      class="remove"
-      onclick="removeItem(${index})"
-     >
-      Remove
-     </button>
-
-    </div>
-
-    <div class="qty">
-
-     <button
-      onclick="quantity(${index},-1)"
-     >
-      −
-     </button>
-
-     <b>${item.qty}</b>
-
-     <button
-      onclick="quantity(${index},1)"
-     >
-      +
-     </button>
-
-    </div>
-
-    <div style="margin-top:7px;font-weight:bold">
-     ₹${item.price * item.qty}
-    </div>
-
-   </div>
-
-  `;
-
- });
-
- $("cartCount").textContent = count;
-
- $("total").textContent = total();
-
-}
-
-
-function add(name,price){
-
- const found =
-  cart.find(item=>item.name===name);
-
- if(found){
-
-  found.qty++;
-
- }else{
-
-  cart.push({
-   name:name,
-   price:Number(price),
-   qty:1
+    box.appendChild(div);
   });
 
- }
+  $("cartCount").textContent = count;
+  $("total").textContent = getTotal();
 
- renderCart();
+  document.querySelectorAll("[data-remove]").forEach(function(btn){
+    btn.onclick = function(){
+      cart.splice(Number(btn.dataset.remove),1);
+      renderCart();
+    };
+  });
 
- $("cart").classList.add("open");
+  document.querySelectorAll("[data-minus]").forEach(function(btn){
+    btn.onclick = function(){
+      changeQty(Number(btn.dataset.minus),-1);
+    };
+  });
 
- toast("Added to cart ✓");
-
+  document.querySelectorAll("[data-plus]").forEach(function(btn){
+    btn.onclick = function(){
+      changeQty(Number(btn.dataset.plus),1);
+    };
+  });
 }
 
+function changeQty(index,change){
 
-function quantity(index,change){
+  if(!cart[index]) return;
 
- if(!cart[index]) return;
+  cart[index].qty += change;
 
- cart[index].qty += change;
+  if(cart[index].qty <= 0){
+    cart.splice(index,1);
+  }
 
- if(cart[index].qty <= 0){
-
-  cart.splice(index,1);
-
- }
-
- renderCart();
-
+  renderCart();
 }
 
+function addToCart(name,price){
 
-function removeItem(index){
+  const existing = cart.find(function(item){
+    return item.name === name;
+  });
 
- cart.splice(index,1);
+  if(existing){
+    existing.qty++;
+  }else{
+    cart.push({
+      name:name,
+      price:Number(price),
+      qty:1
+    });
+  }
 
- renderCart();
-
+  renderCart();
+  $("cart").classList.add("open");
 }
 
+/* ===== ADD BUTTONS ===== */
+document.querySelectorAll(".add").forEach(function(button){
 
-$("cartBtn").onclick=()=>{
- $("cart").classList.add("open");
- renderCart();
+  button.onclick = function(){
+
+    addToCart(
+      button.dataset.name,
+      button.dataset.price
+    );
+
+  };
+
+});
+
+/* ===== CART OPEN/CLOSE ===== */
+$("cartButton").onclick = function(){
+  $("cart").classList.add("open");
+  renderCart();
 };
 
-$("closeCart").onclick=()=>{
- $("cart").classList.remove("open");
+$("closeCart").onclick = function(){
+  $("cart").classList.remove("open");
 };
 
+/* ===== CATEGORY ===== */
+document.querySelectorAll(".category").forEach(function(button){
 
-/* =========================
-   PRODUCT BUTTONS
-========================= */
+  button.onclick = function(){
 
-document
-.querySelectorAll(".add")
-.forEach(button=>{
+    const category = button.dataset.category;
+    let found = 0;
 
- button.onclick=()=>{
+    document.querySelectorAll(".card").forEach(function(card){
 
-  add(
-   button.dataset.name,
-   button.dataset.price
+      if(category === "all" || card.dataset.category === category){
+        card.style.display = "";
+        found++;
+      }else{
+        card.style.display = "none";
+      }
+
+    });
+
+    $("noResult").style.display = found ? "none" : "block";
+
+    $("productSection").scrollIntoView({
+      behavior:"smooth"
+    });
+  };
+
+});
+
+/* ===== SEARCH ===== */
+function searchProducts(){
+
+  const text = $("search").value.toLowerCase().trim();
+  let found = 0;
+
+  document.querySelectorAll(".card").forEach(function(card){
+
+    const name = card.dataset.name.toLowerCase();
+
+    if(text === "" || name.includes(text)){
+      card.style.display = "";
+      found++;
+    }else{
+      card.style.display = "none";
+    }
+
+  });
+
+  $("noResult").style.display = found ? "none" : "block";
+}
+
+$("search").addEventListener("input",searchProducts);
+$("searchButton").onclick = searchProducts;
+
+/* ===== SHOP ===== */
+$("shopButton").onclick = function(){
+  $("productSection").scrollIntoView({
+    behavior:"smooth"
+  });
+};
+
+/* ===== LOGIN ===== */
+$("loginButton").onclick = function(){
+  $("loginOverlay").classList.add("show");
+};
+
+$("closeLogin").onclick = function(){
+  $("loginOverlay").classList.remove("show");
+};
+
+$("continueLogin").onclick = function(){
+
+  const name = $("loginName").value.trim();
+  const phone = $("loginPhone").value.trim();
+
+  if(name === ""){
+    alert("अपना नाम डालें।");
+    return;
+  }
+
+  if(!/^[0-9]{10}$/.test(phone)){
+    alert("10 digit mobile number डालें।");
+    return;
+  }
+
+  localStorage.setItem("bakeryName",name);
+  localStorage.setItem("bakeryPhone",phone);
+
+  $("loginButton").textContent = "👤 " + name;
+  $("loginOverlay").classList.remove("show");
+
+  alert("Login successful!");
+};
+
+const savedName = localStorage.getItem("bakeryName");
+
+if(savedName){
+  $("loginButton").textContent = "👤 " + savedName;
+}
+
+/* ===== PAYMENT ===== */
+$("codRadio").onchange = function(){
+  paymentMethod = "COD";
+  updatePaymentUI();
+};
+
+$("upiRadio").onchange = function(){
+  paymentMethod = "UPI";
+  updatePaymentUI();
+};
+
+function updatePaymentUI(){
+
+  $("codBox").classList.toggle(
+    "active",
+    paymentMethod === "COD"
   );
 
- };
+  $("upiBox").classList.toggle(
+    "active",
+    paymentMethod === "UPI"
+  );
+}
 
-});
+/* ===== COD STATUS ===== */
+function updateCOD(){
 
+  const hour = new Date().getHours();
+  const available = hour >= 6 && hour < 20;
 
-/* =========================
-   FILTER
-========================= */
+  if(available){
 
-document
-.querySelectorAll("nav button")
-.forEach(button=>{
-
- button.onclick=()=>{
-
-  const category =
-   button.dataset.cat;
-
-  const cards =
-   document.querySelectorAll(".card");
-
-  let found=0;
-
-  cards.forEach(card=>{
-
-   if(
-    category==="all" ||
-    card.dataset.cat===category
-   ){
-
-    card.style.display="";
-
-    found++;
-
-   }else{
-
-    card.style.display="none";
-
-   }
-
-  });
-
-  $("noResult").style.display =
-   found ? "none" : "block";
-
-  $("productsSection").scrollIntoView({
-   behavior:"smooth"
-  });
-
- };
-
-});
-
-
-/* =========================
-   SEARCH
-========================= */
-
-function search(){
-
- const text =
-  $("search").value.toLowerCase().trim();
-
- let found=0;
-
- document
- .querySelectorAll(".card")
- .forEach(card=>{
-
-  const name =
-   card.dataset.name.toLowerCase();
-
-  if(
-   text==="" ||
-   name.includes(text)
-  ){
-
-   card.style.display="";
-   found++;
+    $("codRadio").disabled = false;
+    $("codStatus").textContent =
+      "COD अभी available है।";
 
   }else{
 
-   card.style.display="none";
+    $("codRadio").disabled = true;
+    $("codStatus").textContent =
+      "COD सुबह 6 बजे से रात 8 बजे तक available है।";
 
+    if(paymentMethod === "COD"){
+      paymentMethod = "UPI";
+      $("upiRadio").checked = true;
+      updatePaymentUI();
+    }
+  }
+}
+
+updateCOD();
+
+/* ===== UPI ===== */
+$("upiButton").onclick = function(){
+
+  if(cart.length === 0){
+    alert("पहले cart में product डालें।");
+    return;
   }
 
- });
+  const amount = getTotal();
 
- $("noResult").style.display =
-  found ? "none" : "block";
+  const upiUrl =
+    "upi://pay" +
+    "?pa=" + encodeURIComponent(UPI_ID) +
+    "&pn=" + encodeURIComponent("APNI BAKERY") +
+    "&am=" + encodeURIComponent(amount) +
+    "&cu=INR";
 
-}
-
-
-$("search").oninput=search;
-
-$("searchBtn").onclick=search;
-
-
-/* =========================
-   SHOP NOW
-========================= */
-
-$("shopBtn").onclick=()=>{
-
- $("productsSection").scrollIntoView({
-  behavior:"smooth"
- });
-
+  window.location.href = upiUrl;
 };
 
+/* ===== WHATSAPP ===== */
+$("whatsappButton").onclick = function(){
 
-/* =========================
-   LOGIN
-========================= */
-
-$("loginBtn").onclick=()=>{
-
- $("loginOverlay").classList.add("show");
-
-};
-
-
-$("closeLogin").onclick=()=>{
-
- $("loginOverlay").classList.remove("show");
-
-};
-
-
-$("continueLogin").onclick=()=>{
-
- const name =
-  $("loginName").value.trim();
-
- const phone =
-  $("loginPhone").value.trim();
-
- if(!name){
-
-  alert("अपना नाम डालें।");
-  return;
-
- }
-
- if(!/^[0-9]{10}$/.test(phone)){
-
-  alert("10 digit mobile number डालें।");
-  return;
-
- }
-
- localStorage.setItem(
-  "bakeryName",
-  name
- );
-
- localStorage.setItem(
-  "bakeryPhone",
-  phone
- );
-
- $("loginBtn").textContent =
-  "👤 "+name;
-
- $("loginOverlay").classList.remove("show");
-
- toast("Login successful ✓");
-
-};
-
-
-const saved =
- localStorage.getItem("bakeryName");
-
-if(saved){
-
- $("loginBtn").textContent =
-  "👤 "+saved;
-
-}
-
-
-/* =========================
-   PAYMENT
-========================= */
-
-function paymentChange(){
-
- $("codBox")
- .classList.toggle(
-  "active",
-  payment==="COD"
- );
-
- $("upiBox")
- .classList.toggle(
-  "active",
-  payment==="UPI"
- );
-
-}
-
-
-$("cod").onchange=()=>{
-
- payment="COD";
-
- paymentChange();
-
-};
-
-
-$("upi").onchange=()=>{
-
- payment="UPI";
-
- paymentChange();
-
-};
-
-
-/* =========================
-   COD TIME
-========================= */
-
-function checkCOD(){
-
- const hour =
-  new Date().getHours();
-
- const available =
-  hour>=6 && hour<20;
-
- $("cod").disabled =
-  !available;
-
- if(available){
-
-  $("codText").textContent =
-   "COD अभी available है।";
-
- }else{
-
-  $("codText").textContent =
-   "COD सुबह 6 बजे से रात 8 बजे तक available है।";
-
-  if(payment==="COD"){
-
-   payment="UPI";
-
-   $("upi").checked=true;
-
-   paymentChange();
-
+  if(cart.length === 0){
+    alert("Cart खाली है।");
+    return;
   }
 
- }
+  const name = $("customerName").value.trim();
+  const phone = $("customerPhone").value.trim();
+  const address = $("customerAddress").value.trim();
 
-}
+  if(name === ""){
+    alert("अपना नाम डालें।");
+    return;
+  }
 
-checkCOD();
+  if(!/^[0-9]{10}$/.test(phone)){
+    alert("सही 10 digit mobile number डालें।");
+    return;
+  }
 
-setInterval(checkCOD,60000);
+  if(address === ""){
+    alert("Delivery address डालें।");
+    return;
+  }
 
+  if(paymentMethod === "COD"){
 
-/* =========================
-   UPI
-========================= */
+    const hour = new Date().getHours();
 
-$("upiPay").onclick=()=>{
+    if(hour < 6 || hour >= 20){
+      alert("अभी COD available नहीं है। UPI select करें।");
+      return;
+    }
+  }
 
- if(cart.length===0){
+  let items = "";
 
-  alert("पहले cart में product डालें।");
-  return;
+  cart.forEach(function(item){
 
- }
+    items +=
+      "• " + item.name +
+      " x " + item.qty +
+      " = ₹" + (item.price * item.qty) +
+      "\n";
+  });
 
- const amount = total();
-
- const url =
-  "upi://pay" +
-  "?pa="+encodeURIComponent(UPI_ID)+
-  "&pn="+encodeURIComponent("APNI BAKERY")+
-  "&am="+encodeURIComponent(amount)+
-  "&cu=INR";
-
- window.location.href=url;
-
-};
-
-
-/* =========================
-   WHATSAPP ORDER
-========================= */
-
-$("orderBtn").onclick=()=>{
-
- if(cart.length===0){
-
-  alert("Cart खाली है।");
-  return;
-
- }
-
- const name =
-  $("customerName").value.trim();
-
- const phone =
-  $("customerPhone").value.trim();
-
- const address =
-  $("customerAddress").value.trim();
-
- if(!name){
-
-  alert("अपना नाम डालें।");
-  return;
-
- }
-
- if(!/^[0-9]{10}$/.test(phone)){
-
-  alert("सही 10 digit mobile number डालें।");
-  return;
-
- }
-
- if(!address){
-
-  alert("Delivery address डालें।");
-  return;
-
- }
-
- if(
-  payment==="COD" &&
-  (new Date().getHours()<6 ||
-   new Date().getHours()>=20)
- ){
-
-  alert("अभी COD available नहीं है।");
-  return;
-
- }
-
- let items="";
-
- cart.forEach(item=>{
-
-  items +=
-   "• "+item.name+
-   " × "+item.qty+
-   " = ₹"+(item.price*item.qty)+
-   "\n";
-
- });
-
- const message =
-
+  const message =
 `*APNI BAKERY - NEW ORDER*
 
 Name: ${name}
@@ -1392,32 +630,73 @@ Address: ${address}
 
 *Products:*
 ${items}
-
-*Total: ₹${total()}*
-
-Payment: ${payment}
+*Total: ₹${getTotal()}*
+Payment: ${paymentMethod}
 
 Please confirm my order.`;
 
- const url =
-  "https://wa.me/"+WHATSAPP+
-  "?text="+encodeURIComponent(message);
+  const url =
+    "https://wa.me/" +
+    WHATSAPP_NUMBER +
+    "?text=" +
+    encodeURIComponent(message);
 
- window.open(url,"_blank");
-
+  window.open(url,"_blank");
 };
 
+/* ===== REVIEWS ===== */
+function loadReviews(){
 
-/* =========================
-   REVIEWS
-========================= */
+  let reviews = [];
 
-function showReviews(){
+  try{
+    reviews =
+      JSON.parse(
+        localStorage.getItem("bakeryReviews") || "[]"
+      );
+  }catch(e){
+    reviews = [];
+  }
 
- let data=[];
+  $("reviewList").innerHTML = "";
 
- try{
+  reviews.forEach(function(review){
 
-  data =
-   JSON.parse(
-    localStorage.getItem("reviews") || 
+    const div = document.createElement("div");
+    div.className = "reviewItem";
+
+    const name = document.createElement("b");
+    name.textContent = "⭐ " + review.name;
+
+    const text = document.createElement("p");
+    text.textContent = review.text;
+
+    div.appendChild(name);
+    div.appendChild(text);
+
+    $("reviewList").appendChild(div);
+  });
+}
+
+$("submitReview").onclick = function(){
+
+  const name = $("reviewName").value.trim();
+  const text = $("reviewText").value.trim();
+
+  if(!name || !text){
+    alert("Name और review दोनों डालें।");
+    return;
+  }
+
+  let reviews = [];
+
+  try{
+    reviews =
+      JSON.parse(
+        localStorage.getItem("bakeryReviews") || "[]"
+      );
+  }catch(e){
+    reviews = [];
+  }
+
+ 
