@@ -5,31 +5,20 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>APNI BAKERY</title>
 <style>
-*{box-sizing:border-box}body{margin:0;background:#f7f7f7;font-family:Arial;color:#222}
-header{background:#ff6b35;color:white;padding:14px;text-align:center;position:sticky;top:0;z-index:5}
-header h1{margin:0}.search{margin-top:10px;padding:10px;width:90%;border:0;border-radius:20px}
-nav{background:white;padding:12px;text-align:center}
-nav button{margin:4px;padding:8px 14px;border:0;border-radius:18px;background:#ffe0d6}
-.hero{margin:12px;padding:25px;text-align:center;background:#fff0e9;border-radius:12px}
-.hero h2{color:#e65100}.shop{background:#ff6b35;color:white;border:0;padding:11px 22px;border-radius:6px}
-.products{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding:10px}
-.card{background:white;padding:10px;border-radius:10px;box-shadow:0 1px 5px #ddd}
-.card img{width:100%;height:150px;object-fit:contain;border-radius:8px}
-.card h3{font-size:16px}.price{font-size:19px;font-weight:bold}
-.old{text-decoration:line-through;color:#888;font-size:12px}
-.off{color:green;font-size:12px}
-.add{width:100%;padding:10px;border:0;background:#ffd814;border-radius:20px;font-weight:bold}
-.cart{position:fixed;right:-420px;top:0;width:390px;max-width:95%;height:100%;background:white;z-index:10;padding:18px;overflow:auto;transition:.3s;box-shadow:-4px 0 15px #777}
-.cart.show{right:0}.close{float:right;border:0;background:none;font-size:25px}
-.item{padding:12px 0;border-bottom:1px solid #ddd}
-.qty button{padding:5px 12px}.total{font-size:21px;font-weight:bold;margin:15px 0}
-input,textarea{width:100%;padding:10px;margin:5px 0;border:1px solid #ccc;border-radius:5px}
-.pay,.wa{width:100%;padding:12px;border:0;border-radius:6px;margin-top:8px;font-weight:bold}
-.pay{background:#198754;color:white}.wa{background:#25d366;color:white}
-.reviews{background:white;margin:12px;padding:18px;border-radius:10px}
-.star{font-size:25px;border:0;background:none;color:#ccc}.star.on{color:#ffb300}
-.review{border-top:1px solid #ddd;padding:12px 0}
-footer{background:#222;color:white;text-align:center;padding:25px;margin-top:15px}
+body{margin:0;font-family:Arial;background:#fff8f4;color:#222}
+header{background:#e85d04;color:white;padding:15px;text-align:center}
+input,textarea{padding:11px;margin:5px;width:90%;border:1px solid #ccc;border-radius:7px}
+nav{text-align:center;background:white;padding:10px}
+button{padding:10px;border:0;border-radius:7px;cursor:pointer}
+.products{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:12px}
+.card{background:white;padding:10px;border-radius:10px;box-shadow:0 2px 7px #ddd}
+.card img{width:100%;height:150px;object-fit:contain}
+.price{font-size:19px;font-weight:bold}.off{color:green;font-size:13px}
+.add{width:100%;background:#ffd814;margin-top:8px}
+#cart{display:none;background:white;padding:15px;margin:12px;border-radius:10px}
+.order{background:#25d366;color:white;width:100%;margin-top:10px}
+footer{text-align:center;background:#222;color:white;padding:20px;margin-top:15px}
+.review{background:white;padding:10px;margin-top:8px;border-radius:8px}
 @media(min-width:700px){.products{grid-template-columns:repeat(4,1fr)}}
 </style>
 </head>
@@ -38,124 +27,83 @@ footer{background:#222;color:white;text-align:center;padding:25px;margin-top:15p
 
 <header>
 <h1>🍰 APNI BAKERY</h1>
-<input class="search" id="search" placeholder="Cake, Paneer, Chocolate..." oninput="search()">
+<input id="search" placeholder="सामान Search करें..." oninput="search()">
 </header>
 
 <nav>
-<button onclick="filter('all')">All</button>
-<button onclick="filter('cake')">Cakes</button>
-<button onclick="filter('choc')">Chocolates</button>
-<button onclick="openCart()">🛒 Cart (<span id="num">0</span>)</button>
+<button onclick="show('all')">All</button>
+<button onclick="show('cake')">Cake</button>
+<button onclick="show('food')">Food</button>
+<button onclick="show('choc')">Chocolate</button>
+<button onclick="openCart()">🛒 Cart <span id="count">0</span></button>
 </nav>
 
-<div class="hero">
-<h2>Fresh & Delicious</h2>
-<p>Best Price • Fresh Products • Home Delivery</p>
-<button class="shop" onclick="document.getElementById('products').scrollIntoView()">Shop Now</button>
-</div>
-
-<div class="products" id="products">
+<div class="products">
 
 <div class="card" data-type="cake" data-name="cake">
-<img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=500&q=80">
-<h3>Fresh Cream Cake</h3><div class="price">₹250 <span class="old">₹300</span></div><div class="off">17% OFF</div>
-<button class="add" onclick="add('Fresh Cream Cake',250)">Add to Cart</button>
+<img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=500&q=90">
+<h3>Fresh Cake</h3><p class="price">₹250</p>
+<button class="add" onclick="add('Fresh Cake',250)">Add to Cart</button>
 </div>
 
-<div class="card" data-type="cake" data-name="vanilla cake">
-<img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?auto=format&fit=crop&w=500&q=80">
-<h3>Vanilla Cake</h3><div class="price">₹300 <span class="old">₹350</span></div><div class="off">14% OFF</div>
-<button class="add" onclick="add('Vanilla Cake',300)">Add to Cart</button>
+<div class="card" data-type="food" data-name="paneer">
+<img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=500&q=90">
+<h3>Fresh Paneer</h3><p class="price">₹80</p>
+<button class="add" onclick="add('Fresh Paneer',80)">Add to Cart</button>
 </div>
 
-<div class="card" data-type="cake" data-name="chocolate cake">
-<img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=500&q=80">
-<h3>Chocolate Cake</h3><div class="price">₹400 <span class="old">₹500</span></div><div class="off">20% OFF</div>
-<button class="add" onclick="add('Chocolate Cake',400)">Add to Cart</button>
-</div>
-
-<div class="card" data-type="choc" data-name="dairy milk 10">
-<img src="https://images.unsplash.com/photo-1575377222312-dd1a12a4b6e7?auto=format&fit=crop&w=500&q=80">
-<h3>Dairy Milk ₹10</h3><div class="price">₹10</div>
-<button class="add" onclick="add('Dairy Milk ₹10',10)">Add to Cart</button>
-</div>
-
-<div class="card" data-type="choc" data-name="dairy milk 20">
-<img src="https://images.unsplash.com/photo-1575377222312-dd1a12a4b6e7?auto=format&fit=crop&w=500&q=80">
-<h3>Dairy Milk ₹20</h3><div class="price">₹20</div>
+<div class="card" data-type="choc" data-name="dairy milk">
+<img src="https://images.unsplash.com/photo-1575377222312-dd1a12a4b6e7?auto=format&fit=crop&w=500&q=90">
+<h3>Dairy Milk ₹20</h3><p class="price">₹20</p>
 <button class="add" onclick="add('Dairy Milk ₹20',20)">Add to Cart</button>
 </div>
 
-<div class="card" data-type="choc" data-name="dairy milk 50">
-<img src="https://images.unsplash.com/photo-1575377222312-dd1a12a4b6e7?auto=format&fit=crop&w=500&q=80">
-<h3>Dairy Milk ₹50</h3><div class="price">₹50</div>
-<button class="add" onclick="add('Dairy Milk ₹50',50)">Add to Cart</button>
-</div>
-
-<div class="card" data-type="choc" data-name="kitkat 10">
-<img src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?auto=format&fit=crop&w=500&q=80">
-<h3>KitKat ₹10</h3><div class="price">₹10</div>
-<button class="add" onclick="add('KitKat ₹10',10)">Add to Cart</button>
-</div>
-
-<div class="card" data-type="choc" data-name="kitkat 20">
-<img src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?auto=format&fit=crop&w=500&q=80">
-<h3>KitKat ₹20</h3><div class="price">₹20</div>
+<div class="card" data-type="choc" data-name="kitkat">
+<img src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?auto=format&fit=crop&w=500&q=90">
+<h3>KitKat ₹20</h3><p class="price">₹20</p>
 <button class="add" onclick="add('KitKat ₹20',20)">Add to Cart</button>
 </div>
 
-<div class="card" data-type="choc" data-name="kitkat 30">
-<img src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?auto=format&fit=crop&w=500&q=80">
-<h3>KitKat ₹30</h3><div class="price">₹30</div>
-<button class="add" onclick="add('KitKat ₹30',30)">Add to Cart</button>
+<div class="card" data-type="food" data-name="bisleri">
+<img src="https://images.unsplash.com/photo-1564419320461-6870880221ad?auto=format&fit=crop&w=500&q=90">
+<h3>Bisleri Water Bottle</h3><p class="price">₹20</p>
+<button class="add" onclick="add('Bisleri Water Bottle',20)">Add to Cart</button>
 </div>
 
 </div>
 
-<!-- CART -->
-<div class="cart" id="cart">
-<button class="close" onclick="closeCart()">×</button>
+<div id="cart">
 <h2>🛒 Your Cart</h2>
 <div id="items"></div>
-<div class="total">Total ₹<span id="total">0</span></div>
+<h3>Total: ₹<span id="total">0</span></h3>
 
 <input id="name" placeholder="Customer Name">
 <input id="phone" placeholder="Mobile Number">
-<textarea id="address" placeholder="Delivery Address"></textarea>
+<textarea id="address" placeholder="पूरा Delivery Address"></textarea>
 
 <p>💵 <b>Cash on Delivery: सुबह 6:00 बजे से शाम 8:00 बजे तक</b></p>
 
-<p>💳 <b>UPI 24 घंटे</b><br>UPI ID: ay2279832@axl</p>
-<button class="pay" onclick="upi()">Pay with UPI</button>
-<button class="wa" onclick="order()">📲 Order on WhatsApp</button>
+<button class="order" onclick="placeOrder()">
+📦 Place COD Order
+</button>
 </div>
 
-<!-- REVIEWS -->
-<section class="reviews">
+<section style="padding:15px">
 <h2>⭐ Customer Reviews</h2>
-<input id="rname" placeholder="Your Name">
-
-<div>
-<button class="star" onclick="rate(1)">★</button>
-<button class="star" onclick="rate(2)">★</button>
-<button class="star" onclick="rate(3)">★</button>
-<button class="star" onclick="rate(4)">★</button>
-<button class="star" onclick="rate(5)">★</button>
-</div>
-
-<textarea id="rtext" placeholder="अपना Review लिखें"></textarea>
-<button class="shop" onclick="review()">Submit Review</button>
-
-<div id="reviewList"></div>
+<input id="rn" placeholder="आपका नाम">
+<textarea id="rt" placeholder="अपना Review लिखें"></textarea>
+<button onclick="review()">Submit Review</button>
+<div id="reviews"></div>
 </section>
 
 <footer>
 <h2>🍰 APNI BAKERY</h2>
-<p>Home Delivery • Best Price</p>
+<p>Fresh Products • Home Delivery</p>
+<p>Cash on Delivery: 6:00 AM – 8:00 PM</p>
 </footer>
 
 <script>
-let cart=[],stars=0;
+let cart=[];
 
 function add(n,p){
 let x=cart.find(a=>a.n==n);
@@ -167,17 +115,13 @@ function render(){
 let s="",t=0,c=0;
 cart.forEach((x,i)=>{
 t+=x.p*x.q;c+=x.q;
-s+=`<div class="item"><b>${x.n}</b><br>
-<div class="qty">
+s+=`<p><b>${x.n}</b> × ${x.q}
 <button onclick="change(${i},-1)">−</button>
-${x.q}
 <button onclick="change(${i},1)">+</button>
-<button onclick="del(${i})">Remove</button>
-</div>₹${x.p*x.q}</div>`;
+₹${x.p*x.q}</p>`;
 });
-document.getElementById("items").innerHTML=s||"Cart खाली है";
-document.getElementById("total").innerText=t;
-document.getElementById("num").innerText=c;
+items.innerHTML=s||"Cart खाली है";
+total.innerText=t;count.innerText=c;
 }
 
 function change(i,n){
@@ -186,82 +130,64 @@ if(cart[i].q<1)cart.splice(i,1);
 render();
 }
 
-function del(i){cart.splice(i,1);render()}
-function openCart(){document.getElementById("cart").classList.add("show");render()}
-function closeCart(){document.getElementById("cart").classList.remove("show")}
+function openCart(){cart.style.display="block";render()}
+
+function show(type){
+document.querySelectorAll(".card").forEach(x=>
+x.style.display=type=="all"||x.dataset.type==type?"block":"none");
+}
 
 function search(){
-let q=document.getElementById("search").value.toLowerCase();
-document.querySelectorAll(".card").forEach(x=>{
-x.style.display=x.dataset.name.includes(q)?"block":"none";
-});
+let q=search.value.toLowerCase();
+document.querySelectorAll(".card").forEach(x=>
+x.style.display=x.dataset.name.includes(q)?"block":"none");
 }
 
-function filter(t){
-document.querySelectorAll(".card").forEach(x=>{
-x.style.display=t=="all"||x.dataset.type==t?"block":"none";
-});
-}
+function placeOrder(){
+if(!cart.length)return alert("पहले सामान Cart में डालें");
 
-function upi(){
-if(!cart.length)return alert("Cart खाली है");
-let t=cart.reduce((a,x)=>a+x.p*x.q,0);
-location.href=`upi://pay?pa=ay2279832@axl&pn=APNI%20BAKERY&am=${t}&cu=INR`;
-}
+let h=new Date().getHours();
+if(h<6||h>=20)
+return alert("Cash on Delivery सुबह 6:00 बजे से शाम 8:00 बजे तक ही उपलब्ध है।");
 
-function order(){
-if(!cart.length)return alert("Cart खाली है");
-let n=document.getElementById("name").value,
-p=document.getElementById("phone").value,
-a=document.getElementById("address").value;
+let n=name.value,p=phone.value,a=address.value;
 if(!n||!p||!a)return alert("Name, Mobile और Address भरें");
 
-let t=cart.reduce((a,x)=>a+x.p*x.q,0);
-let list=cart.map(x=>`${x.n} x ${x.q}`).join("\n");
+let list=cart.map(x=>x.n+" × "+x.q).join("\n");
+let t=cart.reduce((s,x)=>s+x.p*x.q,0);
 
-let msg=`*APNI BAKERY ORDER*
+let msg=`*APNI BAKERY COD ORDER*
 Customer: ${n}
 Mobile: ${p}
 Address: ${a}
 
-Products:
+Items:
 ${list}
 
-Total: ₹${t}`;
+Total: ₹${t}
+Payment: CASH ON DELIVERY`;
 
 window.open("https://wa.me/919301272240?text="+encodeURIComponent(msg));
 }
 
-function rate(n){
-stars=n;
-document.querySelectorAll(".star").forEach((x,i)=>x.classList.toggle("on",i<n));
-}
-
 function review(){
-let n=document.getElementById("rname").value,
-t=document.getElementById("rtext").value;
-if(!n||!t||!stars)return alert("Name, Rating और Review भरें");
+let n=rn.value,t=rt.value;
+if(!n||!t)return alert("नाम और Review लिखें");
 
-let r=JSON.parse(localStorage.getItem("reviews")||"[]");
-r.push({n:n,t:t,s:stars});
-localStorage.setItem("reviews",JSON.stringify(r));
-document.getElementById("rname").value="";
-document.getElementById("rtext").value="";
-stars=0;
-showReviews();
-alert("Review submit हो गया");
+let r=JSON.parse(localStorage.getItem("apniReviews")||"[]");
+r.push({n:n,t:t});
+localStorage.setItem("apniReviews",JSON.stringify(r));
+rn.value="";rt.value="";
+reviews();
 }
 
-function showReviews(){
-let r=JSON.parse(localStorage.getItem("reviews")||"[]");
-document.getElementById("reviewList").innerHTML=r.map(x=>
-`<div class="review"><b>${x.n}</b><br>
-<span style="color:#ffb300">${"★".repeat(x.s)}</span>
-<p>${x.t}</p></div>`).join("");
+function reviews(){
+let r=JSON.parse(localStorage.getItem("apniReviews")||"[]");
+document.getElementById("reviews").innerHTML=r.map(x=>
+`<div class="review"><b>${x.n}</b><p>${x.t}</p></div>`).join("");
 }
 
-showReviews();
-render();
+reviews();render();
 </script>
 
 </body>
