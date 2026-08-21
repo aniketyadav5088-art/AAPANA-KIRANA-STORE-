@@ -18,7 +18,6 @@ body{
   color:#222;
 }
 
-/* HEADER */
 header{
   background:#3b160d;
   color:white;
@@ -71,7 +70,6 @@ header{
   white-space:nowrap;
 }
 
-/* NAV */
 nav{
   background:#5a2114;
   padding:12px 4%;
@@ -88,7 +86,6 @@ nav button{
   white-space:nowrap;
 }
 
-/* HERO */
 .hero{
   margin:16px 4%;
   padding:40px;
@@ -124,7 +121,6 @@ nav button{
   font-size:110px;
 }
 
-/* PRODUCTS */
 .section{
   background:white;
   margin:16px 4%;
@@ -200,6 +196,81 @@ nav button{
   cursor:pointer;
 }
 
+.reviewBtn{
+  width:100%;
+  padding:9px;
+  margin-top:8px;
+  background:white;
+  border:1px solid #198754;
+  color:#198754;
+  border-radius:20px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.reviewBox{
+  display:none;
+  margin-top:10px;
+  padding:10px;
+  background:#f8f8f8;
+  border-radius:8px;
+}
+
+.reviewBox.show{
+  display:block;
+}
+
+.reviewBox input,
+.reviewBox textarea{
+  width:100%;
+  padding:9px;
+  margin:4px 0;
+  border:1px solid #bbb;
+  border-radius:5px;
+}
+
+.reviewBox textarea{
+  height:60px;
+  resize:none;
+}
+
+.starSelect{
+  display:flex;
+  gap:4px;
+  margin:6px 0;
+}
+
+.starSelect button{
+  border:0;
+  background:none;
+  font-size:22px;
+  cursor:pointer;
+}
+
+.submitReview{
+  width:100%;
+  padding:9px;
+  background:#198754;
+  color:white;
+  border:0;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+.reviews{
+  margin-top:10px;
+  font-size:13px;
+}
+
+.review{
+  border-top:1px solid #ddd;
+  padding:8px 0;
+}
+
+.reviewStars{
+  color:#e5a400;
+}
+
 .noresult{
   display:none;
   text-align:center;
@@ -208,7 +279,6 @@ nav button{
   font-size:18px;
 }
 
-/* CART */
 .cart{
   position:fixed;
   right:-460px;
@@ -295,7 +365,6 @@ nav button{
   padding:15px 0;
 }
 
-/* CHECKOUT */
 .checkout h3{
   margin:12px 0 7px;
 }
@@ -338,11 +407,6 @@ nav button{
   cursor:pointer;
 }
 
-.payment button:disabled{
-  background:#aaa;
-  cursor:not-allowed;
-}
-
 .order{
   width:100%;
   padding:13px;
@@ -355,7 +419,6 @@ nav button{
   cursor:pointer;
 }
 
-/* LOGIN */
 .loginOverlay{
   position:fixed;
   inset:0;
@@ -394,7 +457,6 @@ nav button{
   margin-top:8px;
 }
 
-/* SUPPORT */
 .support{
   margin:16px 4%;
   background:white;
@@ -417,7 +479,6 @@ nav button{
   text-decoration:none;
 }
 
-/* FOOTER */
 footer{
   background:#2b1009;
   color:white;
@@ -430,13 +491,10 @@ footer p{
   margin:8px 0;
 }
 
-/* MOBILE */
 @media(max-width:900px){
-
   .products{
     grid-template-columns:repeat(2,1fr);
   }
-
 }
 
 @media(max-width:600px){
@@ -484,14 +542,11 @@ footer p{
   .name{
     font-size:14px;
   }
-
 }
 </style>
 </head>
 
 <body>
-
-<!-- HEADER -->
 
 <header>
 
@@ -503,7 +558,7 @@ APNA <span>BAKERY</span>
 
 <input
 id="search"
-placeholder="Search cakes, paneer, milk, bread..."
+placeholder="Search cakes, paneer, milk, water, chocolate..."
 oninput="searchProducts()">
 
 <button onclick="searchProducts()">🔍</button>
@@ -514,50 +569,29 @@ oninput="searchProducts()">
 class="topbtn"
 id="loginButton"
 onclick="openLogin()">
-
 👤 Login
-
 </button>
 
 <button
 class="topbtn"
 onclick="openCart()">
-
 🛒 Cart (<span id="count">0</span>)
-
 </button>
 
 </header>
 
 
-<!-- NAV -->
-
 <nav>
 
-<button onclick="filterProducts('all')">
-Home
-</button>
-
-<button onclick="filterProducts('cake')">
-Cakes
-</button>
-
-<button onclick="filterProducts('bakery')">
-Bakery
-</button>
-
-<button onclick="filterProducts('dairy')">
-Dairy
-</button>
-
-<button onclick="filterProducts('snacks')">
-Snacks
-</button>
+<button onclick="filterProducts('all')">Home</button>
+<button onclick="filterProducts('cake')">Cakes</button>
+<button onclick="filterProducts('bakery')">Bakery</button>
+<button onclick="filterProducts('dairy')">Dairy</button>
+<button onclick="filterProducts('water')">Water</button>
+<button onclick="filterProducts('chocolate')">Chocolates</button>
 
 </nav>
 
-
-<!-- HERO -->
 
 <section class="hero">
 
@@ -568,15 +602,13 @@ Fresh Bakery, Delivered Home
 </h1>
 
 <p>
-Fresh cakes, milk, paneer and bakery products.
+Fresh cakes, milk, paneer, water and chocolates.
 </p>
 
 <button
 class="shop"
 onclick="scrollProducts()">
-
 Shop Now
-
 </button>
 
 </div>
@@ -587,8 +619,6 @@ Shop Now
 
 </section>
 
-
-<!-- PRODUCTS -->
 
 <section
 class="section"
@@ -601,7 +631,7 @@ Popular Products
 <div class="products">
 
 
-<!-- CAKE 250 -->
+<!-- FRESH CREAM CAKE -->
 
 <div
 class="product"
@@ -609,37 +639,53 @@ data-category="cake"
 data-name="fresh cream cake">
 
 <div class="photo">
-
 <img
 src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=85"
 alt="Fresh Cream Cake">
-
 </div>
 
-<div class="name">
-Fresh Cream Cake
-</div>
+<div class="name">Fresh Cream Cake</div>
 
-<span class="rating">
-4.5 ★
-</span>
+<span class="rating">4.5 ★</span>
 
-<div class="price">
-₹250
-</div>
+<div class="price">₹250</div>
 
 <button
 class="add"
 onclick="addToCart('Fresh Cream Cake',250)">
-
 Add to Cart
-
 </button>
+
+<button
+class="reviewBtn"
+onclick="toggleReview('review1')">
+⭐ Review
+</button>
+
+<div class="reviewBox" id="review1">
+<input id="name1" placeholder="Your Name">
+
+<div class="starSelect">
+<button onclick="setStar(1,1)">☆</button>
+<button onclick="setStar(1,2)">☆</button>
+<button onclick="setStar(1,3)">☆</button>
+<button onclick="setStar(1,4)">☆</button>
+<button onclick="setStar(1,5)">☆</button>
+</div>
+
+<textarea id="text1" placeholder="Write your review"></textarea>
+
+<button class="submitReview" onclick="submitReview(1,'Fresh Cream Cake')">
+Submit Review
+</button>
+
+<div class="reviews" id="reviews1"></div>
+</div>
 
 </div>
 
 
-<!-- CAKE 300 -->
+<!-- VANILLA -->
 
 <div
 class="product"
@@ -647,37 +693,51 @@ data-category="cake"
 data-name="vanilla cake">
 
 <div class="photo">
-
 <img
 src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?auto=format&fit=crop&w=700&q=85"
-alt="Vanilla Cake">
-
+alt="Premium Vanilla Cake">
 </div>
 
-<div class="name">
-Premium Vanilla Cake
-</div>
+<div class="name">Premium Vanilla Cake</div>
 
-<span class="rating">
-4.6 ★
-</span>
+<span class="rating">4.6 ★</span>
 
-<div class="price">
-₹300
-</div>
+<div class="price">₹300</div>
 
 <button
 class="add"
 onclick="addToCart('Premium Vanilla Cake',300)">
-
 Add to Cart
-
 </button>
+
+<button class="reviewBtn" onclick="toggleReview('review2')">
+⭐ Review
+</button>
+
+<div class="reviewBox" id="review2">
+<input id="name2" placeholder="Your Name">
+
+<div class="starSelect">
+<button onclick="setStar(2,1)">☆</button>
+<button onclick="setStar(2,2)">☆</button>
+<button onclick="setStar(2,3)">☆</button>
+<button onclick="setStar(2,4)">☆</button>
+<button onclick="setStar(2,5)">☆</button>
+</div>
+
+<textarea id="text2" placeholder="Write your review"></textarea>
+
+<button class="submitReview" onclick="submitReview(2,'Premium Vanilla Cake')">
+Submit Review
+</button>
+
+<div class="reviews" id="reviews2"></div>
+</div>
 
 </div>
 
 
-<!-- CHOCOLATE 400 -->
+<!-- CHOCOLATE CAKE -->
 
 <div
 class="product"
@@ -685,32 +745,46 @@ data-category="cake"
 data-name="chocolate cake">
 
 <div class="photo">
-
 <img
 src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=700&q=85"
 alt="Chocolate Cake">
-
 </div>
 
-<div class="name">
-Chocolate Cake
-</div>
+<div class="name">Chocolate Cake</div>
 
-<span class="rating">
-4.8 ★
-</span>
+<span class="rating">4.8 ★</span>
 
-<div class="price">
-₹400
-</div>
+<div class="price">₹400</div>
 
 <button
 class="add"
 onclick="addToCart('Chocolate Cake',400)">
-
 Add to Cart
-
 </button>
+
+<button class="reviewBtn" onclick="toggleReview('review3')">
+⭐ Review
+</button>
+
+<div class="reviewBox" id="review3">
+<input id="name3" placeholder="Your Name">
+
+<div class="starSelect">
+<button onclick="setStar(3,1)">☆</button>
+<button onclick="setStar(3,2)">☆</button>
+<button onclick="setStar(3,3)">☆</button>
+<button onclick="setStar(3,4)">☆</button>
+<button onclick="setStar(3,5)">☆</button>
+</div>
+
+<textarea id="text3" placeholder="Write your review"></textarea>
+
+<button class="submitReview" onclick="submitReview(3,'Chocolate Cake')">
+Submit Review
+</button>
+
+<div class="reviews" id="reviews3"></div>
+</div>
 
 </div>
 
@@ -720,225 +794,389 @@ Add to Cart
 <div
 class="product"
 data-category="cake"
-data-name="birthday cake special cake">
+data-name="birthday cake special">
 
 <div class="photo">
-
 <img
 src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=700&q=85"
-alt="Birthday Cake">
-
+alt="Special Birthday Cake">
 </div>
 
-<div class="name">
-Special Birthday Cake
-</div>
+<div class="name">Special Birthday Cake</div>
 
-<span class="rating">
-4.7 ★
-</span>
+<span class="rating">4.7 ★</span>
 
-<div class="price">
-₹400
-</div>
+<div class="price">₹400</div>
 
 <button
 class="add"
 onclick="addToCart('Special Birthday Cake',400)">
-
 Add to Cart
-
 </button>
 
-</div>
-
-
-<!-- BREAD -->
-
-<div
-class="product"
-data-category="bakery"
-data-name="fresh bread bread">
-
-<div class="photo">
-
-<img
-src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=700&q=85"
-alt="Fresh Bread">
-
-</div>
-
-<div class="name">
-Fresh Bread
-</div>
-
-<span class="rating">
-4.4 ★
-</span>
-
-<div class="price">
-₹45
-</div>
-
-<button
-class="add"
-onclick="addToCart('Fresh Bread',45)">
-
-Add to Cart
-
+<button class="reviewBtn" onclick="toggleReview('review4')">
+⭐ Review
 </button>
 
+<div class="reviewBox" id="review4">
+<input id="name4" placeholder="Your Name">
+
+<div class="starSelect">
+<button onclick="setStar(4,1)">☆</button>
+<button onclick="setStar(4,2)">☆</button>
+<button onclick="setStar(4,3)">☆</button>
+<button onclick="setStar(4,4)">☆</button>
+<button onclick="setStar(4,5)">☆</button>
 </div>
 
+<textarea id="text4" placeholder="Write your review"></textarea>
 
-<!-- COOKIES -->
-
-<div
-class="product"
-data-category="snacks"
-data-name="cookies biscuit biscuits">
-
-<div class="photo">
-
-<img
-src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=700&q=85"
-alt="Cookies">
-
-</div>
-
-<div class="name">
-Fresh Cookies
-</div>
-
-<span class="rating">
-4.5 ★
-</span>
-
-<div class="price">
-₹60
-</div>
-
-<button
-class="add"
-onclick="addToCart('Fresh Cookies',60)">
-
-Add to Cart
-
+<button class="submitReview" onclick="submitReview(4,'Special Birthday Cake')">
+Submit Review
 </button>
 
+<div class="reviews" id="reviews4"></div>
+</div>
+
 </div>
 
 
-<!-- MILK 80 -->
+<!-- MILK -->
 
 <div
 class="product"
 data-category="dairy"
-data-name="milk fresh milk">
+data-name="fresh milk milk">
 
 <div class="photo">
-
 <img
 src="https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=700&q=85"
 alt="Fresh Milk">
-
 </div>
 
-<div class="name">
-Fresh Milk 1 Litre
-</div>
+<div class="name">Fresh Milk 1 Litre</div>
 
-<span class="rating">
-4.7 ★
-</span>
+<span class="rating">4.7 ★</span>
 
-<div class="price">
-₹80
-</div>
+<div class="price">₹80</div>
 
 <button
 class="add"
 onclick="addToCart('Fresh Milk 1 Litre',80)">
-
 Add to Cart
-
 </button>
+
+<button class="reviewBtn" onclick="toggleReview('review5')">
+⭐ Review
+</button>
+
+<div class="reviewBox" id="review5">
+<input id="name5" placeholder="Your Name">
+
+<div class="starSelect">
+<button onclick="setStar(5,1)">☆</button>
+<button onclick="setStar(5,2)">☆</button>
+<button onclick="setStar(5,3)">☆</button>
+<button onclick="setStar(5,4)">☆</button>
+<button onclick="setStar(5,5)">☆</button>
+</div>
+
+<textarea id="text5" placeholder="Write your review"></textarea>
+
+<button class="submitReview" onclick="submitReview(5,'Fresh Milk 1 Litre')">
+Submit Review
+</button>
+
+<div class="reviews" id="reviews5"></div>
+</div>
 
 </div>
 
 
-<!-- PANEER 300 -->
+<!-- PANEER -->
 
 <div
 class="product"
 data-category="dairy"
-data-name="paneer fresh paneer cheese">
+data-name="fresh paneer paneer">
 
 <div class="photo">
-
 <img
-src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=700&q=85"
+src="https://images.unsplash.com/photo-1628088062854-d1870b4553da?auto=format&fit=crop&w=700&q=85"
 alt="Fresh Paneer">
-
 </div>
 
-<div class="name">
-Fresh Paneer 1 Kg
-</div>
+<div class="name">Fresh Paneer 1 Kg</div>
 
-<span class="rating">
-4.6 ★
-</span>
+<span class="rating">4.6 ★</span>
 
-<div class="price">
-₹300
-</div>
+<div class="price">₹300</div>
 
 <button
 class="add"
 onclick="addToCart('Fresh Paneer 1 Kg',300)">
-
 Add to Cart
-
 </button>
+
+<button class="reviewBtn" onclick="toggleReview('review6')">
+⭐ Review
+</button>
+
+<div class="reviewBox" id="review6">
+<input id="name6" placeholder="Your Name">
+
+<div class="starSelect">
+<button onclick="setStar(6,1)">☆</button>
+<button onclick="setStar(6,2)">☆</button>
+<button onclick="setStar(6,3)">☆</button>
+<button onclick="setStar(6,4)">☆</button>
+<button onclick="setStar(6,5)">☆</button>
+</div>
+
+<textarea id="text6" placeholder="Write your review"></textarea>
+
+<button class="submitReview" onclick="submitReview(6,'Fresh Paneer 1 Kg')">
+Submit Review
+</button>
+
+<div class="reviews" id="reviews6"></div>
+</div>
 
 </div>
 
 
-<!-- PUFF -->
+<!-- BISLERI -->
 
 <div
 class="product"
-data-category="bakery"
-data-name="veg puff">
+data-category="water"
+data-name="bisleri water bottle water">
 
 <div class="photo">
-
 <img
-src="https://images.unsplash.com/photo-1623334044303-241021148842?auto=format&fit=crop&w=700&q=85"
-alt="Veg Puff">
-
+src="https://images.unsplash.com/photo-1564419320461-6870880221ad?auto=format&fit=crop&w=700&q=85"
+alt="Bisleri Water Bottle">
 </div>
 
-<div class="name">
-Veg Puff
-</div>
+<div class="name">Bisleri Water Bottle 1 Litre</div>
 
-<span class="rating">
-4.4 ★
-</span>
+<span class="rating">4.7 ★</span>
 
-<div class="price">
-₹35
-</div>
+<div class="price">₹20</div>
 
 <button
 class="add"
-onclick="addToCart('Veg Puff',35)">
-
+onclick="addToCart('Bisleri Water Bottle 1 Litre',20)">
 Add to Cart
-
 </button>
+
+<button class="reviewBtn" onclick="toggleReview('review7')">
+⭐ Review
+</button>
+
+<div class="reviewBox" id="review7">
+<input id="name7" placeholder="Your Name">
+
+<div class="starSelect">
+<button onclick="setStar(7,1)">☆</button>
+<button onclick="setStar(7,2)">☆</button>
+<button onclick="setStar(7,3)">☆</button>
+<button onclick="setStar(7,4)">☆</button>
+<button onclick="setStar(7,5)">☆</button>
+</div>
+
+<textarea id="text7" placeholder="Write your review"></textarea>
+
+<button class="submitReview" onclick="submitReview(7,'Bisleri Water Bottle 1 Litre')">
+Submit Review
+</button>
+
+<div class="reviews" id="reviews7"></div>
+</div>
+
+</div>
+
+
+<!-- CRICKET CHOCOLATE -->
+
+<div
+class="product"
+data-category="chocolate"
+data-name="cricket chocolate">
+
+<div class="photo">
+<img
+src="https://images.unsplash.com/photo-1575377427642-087cf684f04d?auto=format&fit=crop&w=700&q=85"
+alt="Cricket Chocolate">
+</div>
+
+<div class="name">Cricket Chocolate</div>
+
+<span class="rating">4.6 ★</span>
+
+<div class="price">₹20 / ₹50</div>
+
+<button
+class="add"
+onclick="addToCart('Cricket Chocolate ₹20',20)">
+Add ₹20
+</button>
+
+<button
+class="add"
+style="margin-top:7px"
+onclick="addToCart('Cricket Chocolate ₹50',50)">
+Add ₹50
+</button>
+
+<button class="reviewBtn" onclick="toggleReview('review8')">
+⭐ Review
+</button>
+
+<div class="reviewBox" id="review8">
+<input id="name8" placeholder="Your Name">
+
+<div class="starSelect">
+<button onclick="setStar(8,1)">☆</button>
+<button onclick="setStar(8,2)">☆</button>
+<button onclick="setStar(8,3)">☆</button>
+<button onclick="setStar(8,4)">☆</button>
+<button onclick="setStar(8,5)">☆</button>
+</div>
+
+<textarea id="text8" placeholder="Write your review"></textarea>
+
+<button class="submitReview" onclick="submitReview(8,'Cricket Chocolate')">
+Submit Review
+</button>
+
+<div class="reviews" id="reviews8"></div>
+</div>
+
+</div>
+
+
+<!-- DAIRY MILK -->
+
+<div
+class="product"
+data-category="chocolate"
+data-name="dairy milk chocolate">
+
+<div class="photo">
+<img
+src="https://images.unsplash.com/photo-1548907040-4d42d42f0aaf?auto=format&fit=crop&w=700&q=85"
+alt="Dairy Milk Chocolate">
+</div>
+
+<div class="name">Dairy Milk Chocolate</div>
+
+<span class="rating">4.8 ★</span>
+
+<div class="price">₹20 / ₹50</div>
+
+<button
+class="add"
+onclick="addToCart('Dairy Milk Chocolate ₹20',20)">
+Add ₹20
+</button>
+
+<button
+class="add"
+style="margin-top:7px"
+onclick="addToCart('Dairy Milk Chocolate ₹50',50)">
+Add ₹50
+</button>
+
+<button class="reviewBtn" onclick="toggleReview('review9')">
+⭐ Review
+</button>
+
+<div class="reviewBox" id="review9">
+<input id="name9" placeholder="Your Name">
+
+<div class="starSelect">
+<button onclick="setStar(9,1)">☆</button>
+<button onclick="setStar(9,2)">☆</button>
+<button onclick="setStar(9,3)">☆</button>
+<button onclick="setStar(9,4)">☆</button>
+<button onclick="setStar(9,5)">☆</button>
+</div>
+
+<textarea id="text9" placeholder="Write your review"></textarea>
+
+<button class="submitReview" onclick="submitReview(9,'Dairy Milk Chocolate')">
+Submit Review
+</button>
+
+<div class="reviews" id="reviews9"></div>
+</div>
+
+</div>
+
+
+<!-- KITKAT -->
+
+<div
+class="product"
+data-category="chocolate"
+data-name="kitkat chocolate">
+
+<div class="photo">
+<img
+src="https://images.unsplash.com/photo-1589710751893-f9a6770ad71b?auto=format&fit=crop&w=700&q=85"
+alt="KitKat Chocolate">
+</div>
+
+<div class="name">KitKat Chocolate</div>
+
+<span class="rating">4.7 ★</span>
+
+<div class="price">₹10 / ₹20 / ₹30</div>
+
+<button
+class="add"
+onclick="addToCart('KitKat Chocolate ₹10',10)">
+Add ₹10
+</button>
+
+<button
+class="add"
+style="margin-top:7px"
+onclick="addToCart('KitKat Chocolate ₹20',20)">
+Add ₹20
+</button>
+
+<button
+class="add"
+style="margin-top:7px"
+onclick="addToCart('KitKat Chocolate ₹30',30)">
+Add ₹30
+</button>
+
+<button class="reviewBtn" onclick="toggleReview('review10')">
+⭐ Review
+</button>
+
+<div class="reviewBox" id="review10">
+<input id="name10" placeholder="Your Name">
+
+<div class="starSelect">
+<button onclick="setStar(10,1)">☆</button>
+<button onclick="setStar(10,2)">☆</button>
+<button onclick="setStar(10,3)">☆</button>
+<button onclick="setStar(10,4)">☆</button>
+<button onclick="setStar(10,5)">☆</button>
+</div>
+
+<textarea id="text10" placeholder="Write your review"></textarea>
+
+<button class="submitReview" onclick="submitReview(10,'KitKat Chocolate')">
+Submit Review
+</button>
+
+<div class="reviews" id="reviews10"></div>
+</div>
 
 </div>
 
@@ -948,9 +1186,7 @@ Add to Cart
 <div
 class="noresult"
 id="noResult">
-
 No product found.
-
 </div>
 
 </section>
@@ -958,45 +1194,30 @@ No product found.
 
 <!-- CART -->
 
-<div
-class="cart"
-id="cart">
+<div class="cart" id="cart">
 
 <div class="carthead">
 
-<h2>
-Shopping Cart
-</h2>
+<h2>Shopping Cart</h2>
 
 <button
 class="close"
 onclick="closeCart()">
-
 ×
 </button>
 
 </div>
 
-
-<div id="cartItems">
-</div>
-
+<div id="cartItems"></div>
 
 <div class="total">
-
-Total:
-₹<span id="total">0</span>
-
+Total: ₹<span id="total">0</span>
 </div>
 
-
-<!-- CUSTOMER DETAILS -->
 
 <div class="checkout">
 
-<h3>
-Home Delivery Details
-</h3>
+<h3>Home Delivery Details</h3>
 
 <input
 id="customerName"
@@ -1009,796 +1230,11 @@ placeholder="Mobile Number">
 
 <textarea
 id="customerAddress"
-placeholder="Complete Delivery Address">
-</textarea>
+placeholder="Complete Delivery Address"></textarea>
 
 
-<h3>
-Payment Method
-</h3>
+<h3>Payment Method</h3>
 
-
-<!-- COD -->
 
 <div
-class="payment"
-id="codBox">
-
-<label>
-
-<input
-type="radio"
-name="payment"
-value="COD"
-id="codRadio"
-checked>
-
-💵 Cash on Delivery
-
-</label>
-
-<p
-id="codMessage"
-style="font-size:12px;margin-top:7px;color:#555">
-
-COD available from 6:00 AM to 8:00 PM.
-
-</p>
-
-</div>
-
-
-<!-- UPI -->
-
-<div class="payment">
-
-<label>
-
-<input
-type="radio"
-name="payment"
-value="UPI"
-id="upiRadio">
-
-💳 UPI Payment
-
-</label>
-
-<p style="font-size:13px;margin-top:7px">
-
-UPI ID:
-<b>ay2279832@axl</b>
-
-</p>
-
-<button
-type="button"
-onclick="payUPI()">
-
-💳 Pay Now with UPI
-
-</button>
-
-</div>
-
-
-<!-- WHATSAPP -->
-
-<button
-class="order"
-onclick="placeOrder()">
-
-📲 Place Order on WhatsApp
-
-</button>
-
-</div>
-
-</div>
-
-
-<!-- LOGIN -->
-
-<div
-class="loginOverlay"
-id="loginOverlay">
-
-<div class="loginbox">
-
-<button
-onclick="closeLogin()"
-style="float:right;border:0;background:none;font-size:24px">
-
-×
-</button>
-
-<h2>
-Login / Sign Up
-</h2>
-
-<input
-id="loginName"
-placeholder="Your Name">
-
-<input
-id="loginPhone"
-type="tel"
-placeholder="Mobile Number">
-
-<button onclick="loginUser()">
-Continue
-</button>
-
-</div>
-
-</div>
-
-
-<!-- SUPPORT -->
-
-<section class="support">
-
-<h2>
-Customer Support
-</h2>
-
-<p>
-📞 Phone:
-<a href="tel:9301272240">
-9301272240
-</a>
-</p>
-
-<p>
-📧 Email:
-<a href="mailto:ay2279832@gmail.com">
-ay2279832@gmail.com
-</a>
-</p>
-
-<p>
-🏠 Home Delivery Available
-</p>
-
-<p>
-💵 Cash on Delivery: 6:00 AM – 8:00 PM
-</p>
-
-<p>
-💳 UPI Payment Available 24 Hours
-</p>
-
-</section>
-
-
-<!-- FOOTER -->
-
-<footer>
-
-<h2>
-APNA BAKERY
-</h2>
-
-<p>
-Fresh Cakes • Bakery • Dairy • Home Delivery
-</p>
-
-<p>
-© 2026 Apna Bakery
-</p>
-
-</footer>
-
-
-<script>
-
-let cart=[];
-
-
-/* ADD TO CART */
-
-function addToCart(name,price){
-
-let item=
-cart.find(function(x){
-return x.name===name;
-});
-
-if(item){
-
-item.qty++;
-
-}else{
-
-cart.push({
-name:name,
-price:price,
-qty:1
-});
-
-}
-
-renderCart();
-openCart();
-
-}
-
-
-/* RENDER CART */
-
-function renderCart(){
-
-let box=
-document.getElementById("cartItems");
-
-let total=0;
-let count=0;
-
-box.innerHTML="";
-
-if(cart.length===0){
-
-box.innerHTML=
-"<p style='padding:20px 0'>Your cart is empty.</p>";
-
-}
-
-cart.forEach(function(item,index){
-
-let subtotal=
-item.price*item.qty;
-
-total+=subtotal;
-count+=item.qty;
-
-box.innerHTML+=`
-
-<div class="cartitem">
-
-<div class="row">
-
-<b>
-${item.name}
-</b>
-
-<button
-class="remove"
-onclick="removeItem(${index})">
-
-Remove
-
-</button>
-
-</div>
-
-
-<div class="qty">
-
-<button
-onclick="changeQty(${index},-1)">
-
-−
-
-</button>
-
-<span>
-${item.qty}
-</span>
-
-<button
-onclick="changeQty(${index},1)">
-
-+
-
-</button>
-
-</div>
-
-
-<div class="subtotal">
-
-₹${subtotal}
-
-</div>
-
-</div>
-
-`;
-
-});
-
-document.getElementById("count").innerText=count;
-
-document.getElementById("total").innerText=total;
-
-}
-
-
-/* QUANTITY */
-
-function changeQty(index,amount){
-
-cart[index].qty+=amount;
-
-if(cart[index].qty<=0){
-
-cart.splice(index,1);
-
-}
-
-renderCart();
-
-}
-
-
-/* REMOVE */
-
-function removeItem(index){
-
-cart.splice(index,1);
-
-renderCart();
-
-}
-
-
-/* OPEN CART */
-
-function openCart(){
-
-document
-.getElementById("cart")
-.classList.add("open");
-
-renderCart();
-
-}
-
-
-/* CLOSE CART */
-
-function closeCart(){
-
-document
-.getElementById("cart")
-.classList.remove("open");
-
-}
-
-
-/* SEARCH */
-
-function searchProducts(){
-
-let text=
-document
-.getElementById("search")
-.value
-.toLowerCase()
-.trim();
-
-let found=0;
-
-document
-.querySelectorAll(".product")
-.forEach(function(product){
-
-let name=
-product.dataset.name.toLowerCase();
-
-if(name.includes(text)){
-
-product.style.display="block";
-
-found++;
-
-}else{
-
-product.style.display="none";
-
-}
-
-});
-
-document.getElementById("noResult")
-.style.display=
-found===0
-?"block"
-:"none";
-
-}
-
-
-/* FILTER */
-
-function filterProducts(category){
-
-document.getElementById("search").value="";
-
-let found=0;
-
-document
-.querySelectorAll(".product")
-.forEach(function(product){
-
-if(
-category==="all" ||
-product.dataset.category===category
-){
-
-product.style.display="block";
-
-found++;
-
-}else{
-
-product.style.display="none";
-
-}
-
-});
-
-document.getElementById("noResult")
-.style.display=
-found===0
-?"block"
-:"none";
-
-scrollProducts();
-
-}
-
-
-/* SCROLL */
-
-function scrollProducts(){
-
-document
-.getElementById("productsSection")
-.scrollIntoView({
-behavior:"smooth"
-});
-
-}
-
-
-/* LOGIN */
-
-function openLogin(){
-
-document
-.getElementById("loginOverlay")
-.classList.add("show");
-
-}
-
-
-function closeLogin(){
-
-document
-.getElementById("loginOverlay")
-.classList.remove("show");
-
-}
-
-
-function loginUser(){
-
-let name=
-document
-.getElementById("loginName")
-.value
-.trim();
-
-let phone=
-document
-.getElementById("loginPhone")
-.value
-.trim();
-
-if(!name || !phone){
-
-alert(
-"Please enter your name and mobile number."
-);
-
-return;
-
-}
-
-localStorage.setItem(
-"bakeryUser",
-name
-);
-
-document
-.getElementById("loginButton")
-.innerText=
-"👤 "+name;
-
-closeLogin();
-
-alert(
-"Welcome "+name+"!"
-);
-
-}
-
-
-/* SAVED LOGIN */
-
-let savedUser=
-localStorage.getItem("bakeryUser");
-
-if(savedUser){
-
-document
-.getElementById("loginButton")
-.innerText=
-"👤 "+savedUser;
-
-}
-
-
-/* COD TIME CHECK */
-
-function isCODAvailable(){
-
-let now=
-new Date();
-
-let hour=
-now.getHours();
-
-return hour>=6 && hour<20;
-
-}
-
-
-/* UPDATE COD */
-
-function updateCOD(){
-
-let codRadio=
-document.getElementById("codRadio");
-
-let codBox=
-document.getElementById("codBox");
-
-let message=
-document.getElementById("codMessage");
-
-if(isCODAvailable()){
-
-codRadio.disabled=false;
-
-codBox.classList.remove("disabled");
-
-message.innerText=
-"COD is available now (6:00 AM - 8:00 PM).";
-
-message.style.color=
-"#198754";
-
-}else{
-
-codRadio.disabled=true;
-
-codBox.classList.add("disabled");
-
-message.innerText=
-"COD is closed now. COD works from 6:00 AM to 8:00 PM.";
-
-message.style.color=
-"#d32f2f";
-
-/* Automatically select UPI */
-
-document.getElementById("upiRadio").checked=true;
-
-}
-
-}
-
-
-/* UPI PAYMENT */
-
-function payUPI(){
-
-if(cart.length===0){
-
-alert(
-"Please add products to your cart first."
-);
-
-return;
-
-}
-
-let amount=0;
-
-cart.forEach(function(item){
-
-amount+=
-item.price*item.qty;
-
-});
-
-let upiID=
-"ay2279832@axl";
-
-let upiURL=
-"upi://pay"+
-"?pa="+encodeURIComponent(upiID)+
-"&pn="+encodeURIComponent("Apna Bakery")+
-"&am="+encodeURIComponent(amount)+
-"&cu=INR";
-
-window.location.href=
-upiURL;
-
-}
-
-
-/* PLACE ORDER */
-
-function placeOrder(){
-
-if(cart.length===0){
-
-alert(
-"Your cart is empty."
-);
-
-return;
-
-}
-
-
-let name=
-document
-.getElementById("customerName")
-.value
-.trim();
-
-let phone=
-document
-.getElementById("customerPhone")
-.value
-.trim();
-
-let address=
-document
-.getElementById("customerAddress")
-.value
-.trim();
-
-
-if(
-!name ||
-!phone ||
-!address
-){
-
-alert(
-"Please enter your name, mobile number and complete address."
-);
-
-return;
-
-}
-
-
-let payment=
-document.querySelector(
-'input[name="payment"]:checked'
-).value;
-
-
-/* COD TIME SECURITY */
-
-if(payment==="COD" && !isCODAvailable()){
-
-alert(
-"Cash on Delivery is available only from 6:00 AM to 8:00 PM. Please select UPI."
-);
-
-document.getElementById("upiRadio").checked=true;
-
-return;
-
-}
-
-
-let total=
-document
-.getElementById("total")
-.innerText;
-
-
-let orderList="";
-
-
-cart.forEach(function(item){
-
-orderList+=
-"• "+
-item.name+
-" x "+
-item.qty+
-" = ₹"+
-(item.price*item.qty)+
-"\n";
-
-});
-
-
-let message=
-
-"*NEW ORDER - APNA BAKERY*"+
-"\n\n"+
-
-"Customer Name: "+
-name+
-"\n"+
-
-"Mobile: "+
-phone+
-"\n"+
-
-"Address: "+
-address+
-"\n\n"+
-
-"*ORDER ITEMS*"+
-"\n"+
-orderList+
-"\n"+
-
-"Total: ₹"+
-total+
-"\n"+
-
-"Payment: "+
-payment+
-"\n\n"+
-
-"Please confirm my order.";
-
-
-let whatsappNumber=
-"919301272240";
-
-
-let whatsappURL=
-"https://wa.me/"+
-whatsappNumber+
-"?text="+
-encodeURIComponent(message);
-
-
-window.open(
-whatsappURL,
-"_blank"
-);
-
-}
-
-
-/* START */
-
-updateCOD();
-
-renderCart();
-
-/* Check COD status every minute */
-
-setInterval(
-updateCOD,
-60000
-);
-
-</script>
-
-</body>
-  </html>
+class="pay
