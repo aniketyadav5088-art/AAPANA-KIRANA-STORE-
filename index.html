@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Apna Bakery</title>
 
 <style>
@@ -18,7 +18,6 @@ body{
   color:#222;
 }
 
-/* HEADER */
 header{
   background:#3b160d;
   color:white;
@@ -71,7 +70,6 @@ header{
   white-space:nowrap;
 }
 
-/* NAV */
 nav{
   background:#5a2114;
   padding:12px 4%;
@@ -88,7 +86,6 @@ nav button{
   white-space:nowrap;
 }
 
-/* HERO */
 .hero{
   margin:16px 4%;
   padding:40px;
@@ -124,7 +121,6 @@ nav button{
   font-size:110px;
 }
 
-/* PRODUCTS */
 .section{
   background:white;
   margin:16px 4%;
@@ -187,7 +183,27 @@ nav button{
 .price{
   font-size:21px;
   font-weight:bold;
-  margin:10px 0;
+  margin:10px 0 3px;
+}
+
+.mrp{
+  color:#777;
+  text-decoration:line-through;
+  font-size:13px;
+  margin-left:6px;
+}
+
+.discount{
+  color:#198754;
+  font-size:13px;
+  font-weight:bold;
+  margin-bottom:4px;
+}
+
+.save{
+  color:#d84315;
+  font-size:12px;
+  margin-bottom:10px;
 }
 
 .add{
@@ -209,6 +225,7 @@ nav button{
 }
 
 /* CART */
+
 .cart{
   position:fixed;
   right:-460px;
@@ -295,7 +312,6 @@ nav button{
   padding:15px 0;
 }
 
-/* CHECKOUT */
 .checkout h3{
   margin:12px 0 7px;
 }
@@ -338,11 +354,6 @@ nav button{
   cursor:pointer;
 }
 
-.payment button:disabled{
-  background:#aaa;
-  cursor:not-allowed;
-}
-
 .order{
   width:100%;
   padding:13px;
@@ -356,6 +367,7 @@ nav button{
 }
 
 /* LOGIN */
+
 .loginOverlay{
   position:fixed;
   inset:0;
@@ -394,7 +406,97 @@ nav button{
   margin-top:8px;
 }
 
+/* REVIEWS */
+
+.review-section{
+  background:white;
+  margin:16px 4%;
+  padding:25px;
+  border-radius:12px;
+}
+
+.review-section h2{
+  color:#42170e;
+  margin-bottom:15px;
+}
+
+.review-form{
+  background:#fff8f1;
+  padding:18px;
+  border-radius:10px;
+  margin-bottom:20px;
+}
+
+.review-form input,
+.review-form textarea{
+  width:100%;
+  padding:11px;
+  margin:6px 0;
+  border:1px solid #ccc;
+  border-radius:6px;
+}
+
+.review-form textarea{
+  height:80px;
+  resize:none;
+}
+
+.stars{
+  display:flex;
+  gap:4px;
+  margin:8px 0;
+}
+
+.star{
+  font-size:28px;
+  border:0;
+  background:none;
+  cursor:pointer;
+  color:#ccc;
+}
+
+.star.selected{
+  color:#ffb400;
+}
+
+.submitReview{
+  width:100%;
+  padding:12px;
+  background:#d84315;
+  color:white;
+  border:0;
+  border-radius:6px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.review{
+  border-bottom:1px solid #ddd;
+  padding:15px 0;
+}
+
+.reviewStars{
+  color:#ffb400;
+  font-size:18px;
+}
+
+.reviewName{
+  font-weight:bold;
+  margin-top:5px;
+}
+
+.reviewText{
+  margin-top:6px;
+  color:#444;
+}
+
+.noReviews{
+  color:#777;
+  padding:15px 0;
+}
+
 /* SUPPORT */
+
 .support{
   margin:16px 4%;
   background:white;
@@ -417,7 +519,6 @@ nav button{
   text-decoration:none;
 }
 
-/* FOOTER */
 footer{
   background:#2b1009;
   color:white;
@@ -430,68 +531,66 @@ footer p{
   margin:8px 0;
 }
 
-/* MOBILE */
 @media(max-width:900px){
 
-  .products{
-    grid-template-columns:repeat(2,1fr);
-  }
+.products{
+  grid-template-columns:repeat(2,1fr);
+}
 
 }
 
 @media(max-width:600px){
 
-  header{
-    flex-wrap:wrap;
-    padding:10px;
-  }
+header{
+  flex-wrap:wrap;
+  padding:10px;
+}
 
-  .logo{
-    width:100%;
-    text-align:center;
-  }
+.logo{
+  width:100%;
+  text-align:center;
+}
 
-  .search{
-    width:100%;
-  }
+.search{
+  width:100%;
+}
 
-  .hero{
-    margin:10px;
-    padding:25px;
-  }
+.hero{
+  margin:10px;
+  padding:25px;
+}
 
-  .hero h1{
-    font-size:28px;
-  }
+.hero h1{
+  font-size:28px;
+}
 
-  .heroImg{
-    font-size:60px;
-  }
+.heroImg{
+  font-size:60px;
+}
 
-  .section,
-  .support{
-    margin:10px 0;
-  }
+.section,
+.review-section,
+.support{
+  margin:10px 0;
+}
 
-  .products{
-    gap:10px;
-  }
+.products{
+  gap:10px;
+}
 
-  .photo{
-    height:145px;
-  }
+.photo{
+  height:145px;
+}
 
-  .name{
-    font-size:14px;
-  }
+.name{
+  font-size:14px;
+}
 
 }
 </style>
 </head>
 
 <body>
-
-<!-- HEADER -->
 
 <header>
 
@@ -503,7 +602,7 @@ APNA <span>BAKERY</span>
 
 <input
 id="search"
-placeholder="Search cakes, paneer, milk, bread..."
+placeholder="Search cakes, chocolate, paneer, milk..."
 oninput="searchProducts()">
 
 <button onclick="searchProducts()">🔍</button>
@@ -514,23 +613,17 @@ oninput="searchProducts()">
 class="topbtn"
 id="loginButton"
 onclick="openLogin()">
-
 👤 Login
-
 </button>
 
 <button
 class="topbtn"
 onclick="openCart()">
-
 🛒 Cart (<span id="count">0</span>)
-
 </button>
 
 </header>
 
-
-<!-- NAV -->
 
 <nav>
 
@@ -542,41 +635,37 @@ Home
 Cakes
 </button>
 
-<button onclick="filterProducts('bakery')">
-Bakery
-</button>
-
 <button onclick="filterProducts('dairy')">
 Dairy
 </button>
 
-<button onclick="filterProducts('snacks')">
-Snacks
+<button onclick="filterProducts('chocolate')">
+Chocolates
+</button>
+
+<button onclick="filterProducts('water')">
+Water
 </button>
 
 </nav>
 
-
-<!-- HERO -->
 
 <section class="hero">
 
 <div>
 
 <h1>
-Fresh Bakery, Delivered Home
+Fresh Bakery & Dairy
 </h1>
 
 <p>
-Fresh cakes, milk, paneer and bakery products.
+Fresh cakes, chocolates, paneer, milk and more.
 </p>
 
 <button
 class="shop"
 onclick="scrollProducts()">
-
 Shop Now
-
 </button>
 
 </div>
@@ -587,8 +676,6 @@ Shop Now
 
 </section>
 
-
-<!-- PRODUCTS -->
 
 <section
 class="section"
@@ -603,8 +690,7 @@ Popular Products
 
 <!-- CAKE 250 -->
 
-<div
-class="product"
+<div class="product"
 data-category="cake"
 data-name="fresh cream cake">
 
@@ -620,20 +706,25 @@ alt="Fresh Cream Cake">
 Fresh Cream Cake
 </div>
 
-<span class="rating">
-4.5 ★
-</span>
+<span class="rating">4.5 ★</span>
 
 <div class="price">
 ₹250
+<span class="mrp">₹300</span>
+</div>
+
+<div class="discount">
+16% OFF
+</div>
+
+<div class="save">
+You Save ₹50
 </div>
 
 <button
 class="add"
 onclick="addToCart('Fresh Cream Cake',250)">
-
 Add to Cart
-
 </button>
 
 </div>
@@ -641,8 +732,7 @@ Add to Cart
 
 <!-- CAKE 300 -->
 
-<div
-class="product"
+<div class="product"
 data-category="cake"
 data-name="vanilla cake">
 
@@ -658,29 +748,33 @@ alt="Vanilla Cake">
 Premium Vanilla Cake
 </div>
 
-<span class="rating">
-4.6 ★
-</span>
+<span class="rating">4.6 ★</span>
 
 <div class="price">
 ₹300
+<span class="mrp">₹350</span>
+</div>
+
+<div class="discount">
+14% OFF
+</div>
+
+<div class="save">
+You Save ₹50
 </div>
 
 <button
 class="add"
 onclick="addToCart('Premium Vanilla Cake',300)">
-
 Add to Cart
-
 </button>
 
 </div>
 
 
-<!-- CHOCOLATE 400 -->
+<!-- CHOCOLATE CAKE -->
 
-<div
-class="product"
+<div class="product"
 data-category="cake"
 data-name="chocolate cake">
 
@@ -696,20 +790,25 @@ alt="Chocolate Cake">
 Chocolate Cake
 </div>
 
-<span class="rating">
-4.8 ★
-</span>
+<span class="rating">4.8 ★</span>
 
 <div class="price">
 ₹400
+<span class="mrp">₹500</span>
+</div>
+
+<div class="discount">
+20% OFF
+</div>
+
+<div class="save">
+You Save ₹100
 </div>
 
 <button
 class="add"
 onclick="addToCart('Chocolate Cake',400)">
-
 Add to Cart
-
 </button>
 
 </div>
@@ -717,10 +816,9 @@ Add to Cart
 
 <!-- BIRTHDAY CAKE -->
 
-<div
-class="product"
+<div class="product"
 data-category="cake"
-data-name="birthday cake special cake">
+data-name="birthday cake">
 
 <div class="photo">
 
@@ -734,145 +832,35 @@ alt="Birthday Cake">
 Special Birthday Cake
 </div>
 
-<span class="rating">
-4.7 ★
-</span>
+<span class="rating">4.7 ★</span>
 
 <div class="price">
 ₹400
+<span class="mrp">₹480</span>
+</div>
+
+<div class="discount">
+17% OFF
+</div>
+
+<div class="save">
+You Save ₹80
 </div>
 
 <button
 class="add"
 onclick="addToCart('Special Birthday Cake',400)">
-
 Add to Cart
-
 </button>
 
 </div>
 
 
-<!-- BREAD -->
+<!-- PANEER -->
 
-<div
-class="product"
-data-category="bakery"
-data-name="fresh bread bread">
-
-<div class="photo">
-
-<img
-src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=700&q=85"
-alt="Fresh Bread">
-
-</div>
-
-<div class="name">
-Fresh Bread
-</div>
-
-<span class="rating">
-4.4 ★
-</span>
-
-<div class="price">
-₹45
-</div>
-
-<button
-class="add"
-onclick="addToCart('Fresh Bread',45)">
-
-Add to Cart
-
-</button>
-
-</div>
-
-
-<!-- COOKIES -->
-
-<div
-class="product"
-data-category="snacks"
-data-name="cookies biscuit biscuits">
-
-<div class="photo">
-
-<img
-src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=700&q=85"
-alt="Cookies">
-
-</div>
-
-<div class="name">
-Fresh Cookies
-</div>
-
-<span class="rating">
-4.5 ★
-</span>
-
-<div class="price">
-₹60
-</div>
-
-<button
-class="add"
-onclick="addToCart('Fresh Cookies',60)">
-
-Add to Cart
-
-</button>
-
-</div>
-
-
-<!-- MILK 80 -->
-
-<div
-class="product"
+<div class="product"
 data-category="dairy"
-data-name="milk fresh milk">
-
-<div class="photo">
-
-<img
-src="https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=700&q=85"
-alt="Fresh Milk">
-
-</div>
-
-<div class="name">
-Fresh Milk 1 Litre
-</div>
-
-<span class="rating">
-4.7 ★
-</span>
-
-<div class="price">
-₹80
-</div>
-
-<button
-class="add"
-onclick="addToCart('Fresh Milk 1 Litre',80)">
-
-Add to Cart
-
-</button>
-
-</div>
-
-
-<!-- PANEER 300 -->
-
-<div
-class="product"
-data-category="dairy"
-data-name="paneer fresh paneer cheese">
+data-name="fresh paneer paneer">
 
 <div class="photo">
 
@@ -886,71 +874,330 @@ alt="Fresh Paneer">
 Fresh Paneer 1 Kg
 </div>
 
-<span class="rating">
-4.6 ★
-</span>
+<span class="rating">4.6 ★</span>
 
 <div class="price">
 ₹300
+<span class="mrp">₹340</span>
+</div>
+
+<div class="discount">
+12% OFF
+</div>
+
+<div class="save">
+You Save ₹40
 </div>
 
 <button
 class="add"
 onclick="addToCart('Fresh Paneer 1 Kg',300)">
-
 Add to Cart
-
 </button>
 
 </div>
 
 
-<!-- PUFF -->
+<!-- MILK -->
 
-<div
-class="product"
-data-category="bakery"
-data-name="veg puff">
+<div class="product"
+data-category="dairy"
+data-name="fresh milk milk">
 
 <div class="photo">
 
 <img
-src="https://images.unsplash.com/photo-1623334044303-241021148842?auto=format&fit=crop&w=700&q=85"
-alt="Veg Puff">
+src="https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=700&q=85"
+alt="Fresh Milk">
 
 </div>
 
 <div class="name">
-Veg Puff
+Fresh Milk 1 Litre
 </div>
 
-<span class="rating">
-4.4 ★
-</span>
+<span class="rating">4.7 ★</span>
 
 <div class="price">
-₹35
+₹80
+<span class="mrp">₹90</span>
+</div>
+
+<div class="discount">
+11% OFF
+</div>
+
+<div class="save">
+You Save ₹10
 </div>
 
 <button
 class="add"
-onclick="addToCart('Veg Puff',35)">
-
+onclick="addToCart('Fresh Milk 1 Litre',80)">
 Add to Cart
-
 </button>
 
 </div>
 
+
+<!-- BISLERI -->
+
+<div class="product"
+data-category="water"
+data-name="bisleri water bottle">
+
+<div class="photo">
+
+<img
+src="https://images.unsplash.com/photo-1564419320461-6870880221ad?auto=format&fit=crop&w=700&q=85"
+alt="Bisleri Water Bottle">
+
 </div>
 
+<div class="name">
+Bisleri Water Bottle
+</div>
+
+<span class="rating">4.5 ★</span>
+
+<div class="price">
+₹20
+<span class="mrp">₹20</span>
+</div>
+
+<div class="discount">
+Best Price
+</div>
+
+<div class="save">
+No extra charge
+</div>
+
+<button
+class="add"
+onclick="addToCart('Bisleri Water Bottle',20)">
+Add to Cart
+</button>
+
+</div>
+
+
+<!-- DAIRY MILK 10 -->
+
+<div class="product"
+data-category="chocolate"
+data-name="dairy milk 10 chocolate">
+
+<div class="photo">
+
+<img
+src="https://images.unsplash.com/photo-1606312619070-d48b4c652a52?auto=format&fit=crop&w=700&q=85"
+alt="Chocolate">
+
+</div>
+
+<div class="name">
+Dairy Milk ₹10
+</div>
+
+<span class="rating">4.7 ★</span>
+
+<div class="price">
+₹10
+<span class="mrp">₹12</span>
+</div>
+
+<div class="discount">
+17% OFF
+</div>
+
+<div class="save">
+You Save ₹2
+</div>
+
+<button
+class="add"
+onclick="addToCart('Dairy Milk ₹10',10)">
+Add to Cart
+</button>
+
+</div>
+
+
+<!-- DAIRY MILK 20 -->
+
+<div class="product"
+data-category="chocolate"
+data-name="dairy milk 20 chocolate">
+
+<div class="photo">
+
+<img
+src="https://images.unsplash.com/photo-1606313564290-e75d5e30476c?auto=format&fit=crop&w=700&q=85"
+alt="Chocolate">
+
+</div>
+
+<div class="name">
+Dairy Milk ₹20
+</div>
+
+<span class="rating">4.7 ★</span>
+
+<div class="price">
+₹20
+<span class="mrp">₹25</span>
+</div>
+
+<div class="discount">
+20% OFF
+</div>
+
+<div class="save">
+You Save ₹5
+</div>
+
+<button
+class="add"
+onclick="addToCart('Dairy Milk ₹20',20)">
+Add to Cart
+</button>
+
+</div>
+
+
+<!-- DAIRY MILK 50 -->
+
+<div class="product"
+data-category="chocolate"
+data-name="dairy milk 50 chocolate">
+
+<div class="photo">
+
+<img
+src="https://images.unsplash.com/photo-1575377222312-dd1a12a4b6e7?auto=format&fit=crop&w=700&q=85"
+alt="Chocolate">
+
+</div>
+
+<div class="name">
+Dairy Milk ₹50
+</div>
+
+<span class="rating">4.8 ★</span>
+
+<div class="price">
+₹50
+<span class="mrp">₹60</span>
+</div>
+
+<div class="discount">
+17% OFF
+</div>
+
+<div class="save">
+You Save ₹10
+</div>
+
+<button
+class="add"
+onclick="addToCart('Dairy Milk ₹50',50)">
+Add to Cart
+</button>
+
+</div>
+
+
+<!-- PERK 10 -->
+
+<div class="product"
+data-category="chocolate"
+data-name="perk 10 chocolate">
+
+<div class="photo">
+
+<img
+src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?auto=format&fit=crop&w=700&q=85"
+alt="Chocolate Bar">
+
+</div>
+
+<div class="name">
+Perk ₹10
+</div>
+
+<span class="rating">4.5 ★</span>
+
+<div class="price">
+₹10
+<span class="mrp">₹12</span>
+</div>
+
+<div class="discount">
+17% OFF
+</div>
+
+<div class="save">
+You Save ₹2
+</div>
+
+<button
+class="add"
+onclick="addToCart('Perk ₹10',10)">
+Add to Cart
+</button>
+
+</div>
+
+
+<!-- PERK 30 -->
+
+<div class="product"
+data-category="chocolate"
+data-name="perk 30 chocolate">
+
+<div class="photo">
+
+<img
+src="https://images.unsplash.com/photo-1575377222312-dd1a12a4b6e7?auto=format&fit=crop&w=700&q=85"
+alt="Chocolate Bar">
+
+</div>
+
+<div class="name">
+Perk ₹30
+</div>
+
+<span class="rating">4.6 ★</span>
+
+<div class="price">
+₹30
+<span class="mrp">₹35</span>
+</div>
+
+<div class="discount">
+14% OFF
+</div>
+
+<div class="save">
+You Save ₹5
+</div>
+
+<button
+class="add"
+onclick="addToCart('Perk ₹30',30)">
+Add to Cart
+</button>
+
+</div>
+
+
+</div>
 
 <div
 class="noresult"
 id="noResult">
-
 No product found.
-
 </div>
 
 </section>
@@ -971,26 +1218,17 @@ Shopping Cart
 <button
 class="close"
 onclick="closeCart()">
-
 ×
 </button>
 
 </div>
 
-
 <div id="cartItems">
 </div>
 
-
 <div class="total">
-
-Total:
-₹<span id="total">0</span>
-
+Total: ₹<span id="total">0</span>
 </div>
-
-
-<!-- CUSTOMER DETAILS -->
 
 <div class="checkout">
 
@@ -1009,16 +1247,11 @@ placeholder="Mobile Number">
 
 <textarea
 id="customerAddress"
-placeholder="Complete Delivery Address">
-</textarea>
-
+placeholder="Complete Delivery Address"></textarea>
 
 <h3>
 Payment Method
 </h3>
-
-
-<!-- COD -->
 
 <div
 class="payment"
@@ -1039,16 +1272,13 @@ checked>
 
 <p
 id="codMessage"
-style="font-size:12px;margin-top:7px;color:#555">
+style="font-size:12px;margin-top:7px">
 
 COD available from 6:00 AM to 8:00 PM.
-
 </p>
 
 </div>
 
-
-<!-- UPI -->
 
 <div class="payment">
 
@@ -1065,10 +1295,8 @@ id="upiRadio">
 </label>
 
 <p style="font-size:13px;margin-top:7px">
-
 UPI ID:
 <b>ay2279832@axl</b>
-
 </p>
 
 <button
@@ -1081,8 +1309,6 @@ onclick="payUPI()">
 
 </div>
 
-
-<!-- WHATSAPP -->
 
 <button
 class="order"
@@ -1113,7 +1339,7 @@ style="float:right;border:0;background:none;font-size:24px">
 </button>
 
 <h2>
-Login / Sign Up
+Login
 </h2>
 
 <input
@@ -1132,6 +1358,64 @@ Continue
 </div>
 
 </div>
+
+
+<!-- REVIEWS -->
+
+<section class="review-section">
+
+<h2>
+⭐ Customer Reviews
+</h2>
+
+<div class="review-form">
+
+<input
+id="reviewName"
+placeholder="Your Name">
+
+<div class="stars">
+
+<button class="star"
+onclick="setRating(1)"
+id="star1">★</button>
+
+<button class="star"
+onclick="setRating(2)"
+id="star2">★</button>
+
+<button class="star"
+onclick="setRating(3)"
+id="star3">★</button>
+
+<button class="star"
+onclick="setRating(4)"
+id="star4">★</button>
+
+<button class="star"
+onclick="setRating(5)"
+id="star5">★</button>
+
+</div>
+
+<textarea
+id="reviewText"
+placeholder="Write your review..."></textarea>
+
+<button
+class="submitReview"
+onclick="submitReview()">
+
+Submit Review
+
+</button>
+
+</div>
+
+<div id="reviewsList">
+</div>
+
+</section>
 
 
 <!-- SUPPORT -->
@@ -1161,17 +1445,15 @@ ay2279832@gmail.com
 </p>
 
 <p>
-💵 Cash on Delivery: 6:00 AM – 8:00 PM
+💵 COD: 6:00 AM – 8:00 PM
 </p>
 
 <p>
-💳 UPI Payment Available 24 Hours
+💳 UPI Available 24 Hours
 </p>
 
 </section>
 
-
-<!-- FOOTER -->
 
 <footer>
 
@@ -1180,7 +1462,7 @@ APNA BAKERY
 </h2>
 
 <p>
-Fresh Cakes • Bakery • Dairy • Home Delivery
+Fresh Cakes • Dairy • Chocolates
 </p>
 
 <p>
@@ -1193,29 +1475,25 @@ Fresh Cakes • Bakery • Dairy • Home Delivery
 <script>
 
 let cart=[];
+let selectedRating=0;
 
 
-/* ADD TO CART */
+/* CART */
 
 function addToCart(name,price){
 
-let item=
-cart.find(function(x){
-return x.name===name;
-});
+let item=cart.find(
+x=>x.name===name
+);
 
 if(item){
-
 item.qty++;
-
 }else{
-
 cart.push({
 name:name,
 price:price,
 qty:1
 });
-
 }
 
 renderCart();
@@ -1223,8 +1501,6 @@ openCart();
 
 }
 
-
-/* RENDER CART */
 
 function renderCart(){
 
@@ -1239,11 +1515,12 @@ box.innerHTML="";
 if(cart.length===0){
 
 box.innerHTML=
-"<p style='padding:20px 0'>Your cart is empty.</p>";
+"<p style='padding:20px'>Your cart is empty.</p>";
 
 }
 
-cart.forEach(function(item,index){
+cart.forEach(
+function(item,index){
 
 let subtotal=
 item.price*item.qty;
@@ -1257,28 +1534,21 @@ box.innerHTML+=`
 
 <div class="row">
 
-<b>
-${item.name}
-</b>
+<b>${item.name}</b>
 
 <button
 class="remove"
 onclick="removeItem(${index})">
-
 Remove
-
 </button>
 
 </div>
-
 
 <div class="qty">
 
 <button
 onclick="changeQty(${index},-1)">
-
 −
-
 </button>
 
 <span>
@@ -1287,18 +1557,13 @@ ${item.qty}
 
 <button
 onclick="changeQty(${index},1)">
-
 +
-
 </button>
 
 </div>
 
-
 <div class="subtotal">
-
 ₹${subtotal}
-
 </div>
 
 </div>
@@ -1308,41 +1573,31 @@ onclick="changeQty(${index},1)">
 });
 
 document.getElementById("count").innerText=count;
-
 document.getElementById("total").innerText=total;
 
 }
 
-
-/* QUANTITY */
 
 function changeQty(index,amount){
 
 cart[index].qty+=amount;
 
 if(cart[index].qty<=0){
-
 cart.splice(index,1);
-
 }
 
 renderCart();
 
 }
 
-
-/* REMOVE */
 
 function removeItem(index){
 
 cart.splice(index,1);
-
 renderCart();
 
 }
 
-
-/* OPEN CART */
 
 function openCart(){
 
@@ -1354,8 +1609,6 @@ renderCart();
 
 }
 
-
-/* CLOSE CART */
 
 function closeCart(){
 
@@ -1381,7 +1634,8 @@ let found=0;
 
 document
 .querySelectorAll(".product")
-.forEach(function(product){
+.forEach(
+function(product){
 
 let name=
 product.dataset.name.toLowerCase();
@@ -1389,7 +1643,6 @@ product.dataset.name.toLowerCase();
 if(name.includes(text)){
 
 product.style.display="block";
-
 found++;
 
 }else{
@@ -1402,9 +1655,7 @@ product.style.display="none";
 
 document.getElementById("noResult")
 .style.display=
-found===0
-?"block"
-:"none";
+found===0 ? "block":"none";
 
 }
 
@@ -1419,386 +1670,4 @@ let found=0;
 
 document
 .querySelectorAll(".product")
-.forEach(function(product){
-
-if(
-category==="all" ||
-product.dataset.category===category
-){
-
-product.style.display="block";
-
-found++;
-
-}else{
-
-product.style.display="none";
-
-}
-
-});
-
-document.getElementById("noResult")
-.style.display=
-found===0
-?"block"
-:"none";
-
-scrollProducts();
-
-}
-
-
-/* SCROLL */
-
-function scrollProducts(){
-
-document
-.getElementById("productsSection")
-.scrollIntoView({
-behavior:"smooth"
-});
-
-}
-
-
-/* LOGIN */
-
-function openLogin(){
-
-document
-.getElementById("loginOverlay")
-.classList.add("show");
-
-}
-
-
-function closeLogin(){
-
-document
-.getElementById("loginOverlay")
-.classList.remove("show");
-
-}
-
-
-function loginUser(){
-
-let name=
-document
-.getElementById("loginName")
-.value
-.trim();
-
-let phone=
-document
-.getElementById("loginPhone")
-.value
-.trim();
-
-if(!name || !phone){
-
-alert(
-"Please enter your name and mobile number."
-);
-
-return;
-
-}
-
-localStorage.setItem(
-"bakeryUser",
-name
-);
-
-document
-.getElementById("loginButton")
-.innerText=
-"👤 "+name;
-
-closeLogin();
-
-alert(
-"Welcome "+name+"!"
-);
-
-}
-
-
-/* SAVED LOGIN */
-
-let savedUser=
-localStorage.getItem("bakeryUser");
-
-if(savedUser){
-
-document
-.getElementById("loginButton")
-.innerText=
-"👤 "+savedUser;
-
-}
-
-
-/* COD TIME CHECK */
-
-function isCODAvailable(){
-
-let now=
-new Date();
-
-let hour=
-now.getHours();
-
-return hour>=6 && hour<20;
-
-}
-
-
-/* UPDATE COD */
-
-function updateCOD(){
-
-let codRadio=
-document.getElementById("codRadio");
-
-let codBox=
-document.getElementById("codBox");
-
-let message=
-document.getElementById("codMessage");
-
-if(isCODAvailable()){
-
-codRadio.disabled=false;
-
-codBox.classList.remove("disabled");
-
-message.innerText=
-"COD is available now (6:00 AM - 8:00 PM).";
-
-message.style.color=
-"#198754";
-
-}else{
-
-codRadio.disabled=true;
-
-codBox.classList.add("disabled");
-
-message.innerText=
-"COD is closed now. COD works from 6:00 AM to 8:00 PM.";
-
-message.style.color=
-"#d32f2f";
-
-/* Automatically select UPI */
-
-document.getElementById("upiRadio").checked=true;
-
-}
-
-}
-
-
-/* UPI PAYMENT */
-
-function payUPI(){
-
-if(cart.length===0){
-
-alert(
-"Please add products to your cart first."
-);
-
-return;
-
-}
-
-let amount=0;
-
-cart.forEach(function(item){
-
-amount+=
-item.price*item.qty;
-
-});
-
-let upiID=
-"ay2279832@axl";
-
-let upiURL=
-"upi://pay"+
-"?pa="+encodeURIComponent(upiID)+
-"&pn="+encodeURIComponent("Apna Bakery")+
-"&am="+encodeURIComponent(amount)+
-"&cu=INR";
-
-window.location.href=
-upiURL;
-
-}
-
-
-/* PLACE ORDER */
-
-function placeOrder(){
-
-if(cart.length===0){
-
-alert(
-"Your cart is empty."
-);
-
-return;
-
-}
-
-
-let name=
-document
-.getElementById("customerName")
-.value
-.trim();
-
-let phone=
-document
-.getElementById("customerPhone")
-.value
-.trim();
-
-let address=
-document
-.getElementById("customerAddress")
-.value
-.trim();
-
-
-if(
-!name ||
-!phone ||
-!address
-){
-
-alert(
-"Please enter your name, mobile number and complete address."
-);
-
-return;
-
-}
-
-
-let payment=
-document.querySelector(
-'input[name="payment"]:checked'
-).value;
-
-
-/* COD TIME SECURITY */
-
-if(payment==="COD" && !isCODAvailable()){
-
-alert(
-"Cash on Delivery is available only from 6:00 AM to 8:00 PM. Please select UPI."
-);
-
-document.getElementById("upiRadio").checked=true;
-
-return;
-
-}
-
-
-let total=
-document
-.getElementById("total")
-.innerText;
-
-
-let orderList="";
-
-
-cart.forEach(function(item){
-
-orderList+=
-"• "+
-item.name+
-" x "+
-item.qty+
-" = ₹"+
-(item.price*item.qty)+
-"\n";
-
-});
-
-
-let message=
-
-"*NEW ORDER - APNA BAKERY*"+
-"\n\n"+
-
-"Customer Name: "+
-name+
-"\n"+
-
-"Mobile: "+
-phone+
-"\n"+
-
-"Address: "+
-address+
-"\n\n"+
-
-"*ORDER ITEMS*"+
-"\n"+
-orderList+
-"\n"+
-
-"Total: ₹"+
-total+
-"\n"+
-
-"Payment: "+
-payment+
-"\n\n"+
-
-"Please confirm my order.";
-
-
-let whatsappNumber=
-"919301272240";
-
-
-let whatsappURL=
-"https://wa.me/"+
-whatsappNumber+
-"?text="+
-encodeURIComponent(message);
-
-
-window.open(
-whatsappURL,
-"_blank"
-);
-
-}
-
-
-/* START */
-
-updateCOD();
-
-renderCart();
-
-/* Check COD status every minute */
-
-setInterval(
-updateCOD,
-60000
-);
-
-</script>
-
-</body>
-  </html>
+.
