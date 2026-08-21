@@ -2,1489 +2,267 @@
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>APNA KIRANA STORE</title>
-
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>APNI BAKERY</title>
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-  font-family:Arial,sans-serif;
-}
-
-body{
-  background:#f5f5f5;
-  color:#222;
-}
-
-header{
-  background:#2874f0;
-  color:white;
-  padding:12px 4%;
-  display:flex;
-  align-items:center;
-  gap:15px;
-  position:sticky;
-  top:0;
-  z-index:1000;
-}
-
-.logo{
-  font-size:21px;
-  font-weight:bold;
-  white-space:nowrap;
-}
-
-.logo span{
-  color:#ffe500;
-}
-
-.search{
-  flex:1;
-  display:flex;
-}
-
-.search input{
-  width:100%;
-  padding:12px;
-  border:0;
-  outline:0;
-  font-size:15px;
-}
-
-.search button{
-  width:50px;
-  border:0;
-  background:#ffe500;
-  cursor:pointer;
-}
-
-.header-btn{
-  border:0;
-  background:white;
-  color:#2874f0;
-  padding:9px 13px;
-  border-radius:4px;
-  font-weight:bold;
-  cursor:pointer;
-  white-space:nowrap;
-}
-
-nav{
-  background:white;
-  padding:12px 4%;
-  display:flex;
-  gap:25px;
-  overflow:auto;
-  box-shadow:0 1px 4px #ddd;
-}
-
-nav button{
-  border:0;
-  background:none;
-  cursor:pointer;
-  font-weight:bold;
-  white-space:nowrap;
-}
-
-.hero{
-  margin:18px 4%;
-  padding:35px;
-  border-radius:12px;
-  background:linear-gradient(120deg,#e3f2fd,#fff);
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-.hero h1{
-  font-size:38px;
-  color:#173b75;
-  margin-bottom:10px;
-}
-
-.hero p{
-  font-size:18px;
-  margin-bottom:18px;
-}
-
-.hero button{
-  padding:12px 25px;
-  border:0;
-  background:#2874f0;
-  color:white;
-  border-radius:5px;
-  cursor:pointer;
-}
-
-.hero-icon{
-  font-size:95px;
-}
-
-.section{
-  background:white;
-  margin:18px 4%;
-  padding:22px;
-  border-radius:10px;
-}
-
-.section h2{
-  margin-bottom:18px;
-}
-
-.products{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:18px;
-}
-
-.product{
-  border:1px solid #ddd;
-  border-radius:10px;
-  padding:12px;
-  background:white;
-}
-
-.product:hover{
-  box-shadow:0 4px 15px #ccc;
-}
-
-.product-img{
-  height:190px;
-  background:#fff;
-  border-radius:8px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
-}
-
-.product-img img{
-  width:100%;
-  height:100%;
-  object-fit:contain;
-}
-
-.product-name{
-  font-size:17px;
-  font-weight:bold;
-  margin-top:12px;
-}
-
-.rating{
-  display:inline-block;
-  background:#198754;
-  color:white;
-  font-size:12px;
-  padding:4px 7px;
-  border-radius:4px;
-  margin-top:7px;
-}
-
-.price{
-  font-size:21px;
-  font-weight:bold;
-  margin-top:9px;
-}
-
-.mrp{
-  color:#777;
-  text-decoration:line-through;
-  font-size:13px;
-  margin-left:5px;
-}
-
-.discount{
-  color:#198754;
-  font-size:13px;
-  font-weight:bold;
-  margin-top:4px;
-}
-
-.save{
-  color:#e65100;
-  font-size:12px;
-  margin-top:3px;
-}
-
-.add{
-  width:100%;
-  padding:11px;
-  margin-top:10px;
-  border:1px solid #e0b000;
-  background:#ffd814;
-  border-radius:20px;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-.no-result{
-  display:none;
-  text-align:center;
-  padding:25px;
-  color:#777;
-}
-
-/* CART */
-
-.cart{
-  position:fixed;
-  right:-450px;
-  top:0;
-  width:430px;
-  max-width:95%;
-  height:100vh;
-  background:white;
-  z-index:3000;
-  padding:20px;
-  box-shadow:-5px 0 20px #555;
-  transition:.3s;
-  overflow:auto;
-}
-
-.cart.open{
-  right:0;
-}
-
-.cart-header{
-  display:flex;
-  justify-content:space-between;
-  border-bottom:1px solid #ddd;
-  padding-bottom:15px;
-}
-
-.close{
-  border:0;
-  background:none;
-  font-size:28px;
-  cursor:pointer;
-}
-
-.cart-item{
-  padding:14px 0;
-  border-bottom:1px solid #ddd;
-}
-
-.cart-row{
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
-}
-
-.remove{
-  border:0;
-  background:none;
-  color:red;
-  cursor:pointer;
-}
-
-.qty{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  margin-top:9px;
-}
-
-.qty button{
-  width:35px;
-  height:35px;
-  border:1px solid #aaa;
-  background:#eee;
-  font-size:20px;
-  cursor:pointer;
-  border-radius:5px;
-}
-
-.qty span{
-  min-width:25px;
-  text-align:center;
-  font-weight:bold;
-}
-
-.item-total{
-  margin-top:7px;
-  font-weight:bold;
-}
-
-.grand-total{
-  font-size:22px;
-  font-weight:bold;
-  border-top:2px solid #ddd;
-  padding:15px 0;
-}
-
-.checkout input,
-.checkout textarea{
-  width:100%;
-  padding:11px;
-  margin:5px 0;
-  border:1px solid #bbb;
-  border-radius:6px;
-}
-
-.checkout textarea{
-  height:75px;
-  resize:none;
-}
-
-.payment-box{
-  border:1px solid #ddd;
-  padding:12px;
-  margin-top:8px;
-  border-radius:7px;
-}
-
-.payment-box.disabled{
-  background:#eee;
-  color:#888;
-}
-
-.upi-button,
-.order-button{
-  width:100%;
-  padding:12px;
-  border:0;
-  border-radius:6px;
-  margin-top:10px;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-.upi-button{
-  background:#138808;
-  color:white;
-}
-
-.order-button{
-  background:#25D366;
-  color:white;
-}
-
-/* LOGIN */
-
-.login-bg{
-  position:fixed;
-  inset:0;
-  background:#0008;
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:4000;
-}
-
-.login-bg.show{
-  display:flex;
-}
-
-.login-box{
-  width:350px;
-  max-width:90%;
-  background:white;
-  padding:25px;
-  border-radius:10px;
-}
-
-.login-box input{
-  width:100%;
-  padding:11px;
-  margin:7px 0;
-}
-
-.login-box button{
-  width:100%;
-  padding:11px;
-  border:0;
-  background:#2874f0;
-  color:white;
-  border-radius:5px;
-  margin-top:8px;
-}
-
-/* REVIEWS */
-
-.reviews{
-  background:white;
-  margin:18px 4%;
-  padding:22px;
-  border-radius:10px;
-}
-
-.review-form{
-  background:#f7f9ff;
-  padding:17px;
-  border-radius:8px;
-}
-
-.review-form input,
-.review-form textarea{
-  width:100%;
-  padding:11px;
-  margin:6px 0;
-  border:1px solid #ccc;
-  border-radius:6px;
-}
-
-.review-form textarea{
-  height:80px;
-  resize:none;
-}
-
-.stars{
-  display:flex;
-  gap:3px;
-}
-
-.star{
-  border:0;
-  background:none;
-  font-size:30px;
-  color:#ccc;
-  cursor:pointer;
-}
-
-.star.active{
-  color:#ffb300;
-}
-
-.review-submit{
-  width:100%;
-  padding:12px;
-  border:0;
-  background:#2874f0;
-  color:white;
-  border-radius:6px;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-.review{
-  border-bottom:1px solid #ddd;
-  padding:15px 0;
-}
-
-.review-stars{
-  color:#ffb300;
-  font-size:18px;
-}
-
-.review-name{
-  font-weight:bold;
-  margin-top:5px;
-}
-
-.review-text{
-  margin-top:5px;
-}
-
-.support{
-  background:white;
-  margin:18px 4%;
-  padding:22px;
-  border-radius:10px;
-}
-
-.support h2{
-  margin-bottom:12px;
-}
-
-.support p{
-  margin:9px 0;
-}
-
-.support a{
-  color:#2874f0;
-  font-weight:bold;
-  text-decoration:none;
-}
-
-footer{
-  background:#172337;
-  color:white;
-  text-align:center;
-  padding:30px;
-  margin-top:25px;
-}
-
-@media(max-width:900px){
-  .products{
-    grid-template-columns:repeat(2,1fr);
-  }
-}
-
-@media(max-width:600px){
-
-  header{
-    flex-wrap:wrap;
-    padding:10px;
-  }
-
-  .logo{
-    width:100%;
-    text-align:center;
-  }
-
-  .search{
-    width:100%;
-  }
-
-  .hero{
-    margin:10px;
-    padding:25px;
-  }
-
-  .hero h1{
-    font-size:28px;
-  }
-
-  .hero-icon{
-    font-size:55px;
-  }
-
-  .section,
-  .reviews,
-  .support{
-    margin:10px 0;
-  }
-
-  .products{
-    gap:10px;
-  }
-
-  .product-img{
-    height:145px;
-  }
-
-  .product-name{
-    font-size:14px;
-  }
-}
+*{box-sizing:border-box}body{margin:0;background:#f7f7f7;font-family:Arial;color:#222}
+header{background:#ff6b35;color:white;padding:14px;text-align:center;position:sticky;top:0;z-index:5}
+header h1{margin:0}.search{margin-top:10px;padding:10px;width:90%;border:0;border-radius:20px}
+nav{background:white;padding:12px;text-align:center}
+nav button{margin:4px;padding:8px 14px;border:0;border-radius:18px;background:#ffe0d6}
+.hero{margin:12px;padding:25px;text-align:center;background:#fff0e9;border-radius:12px}
+.hero h2{color:#e65100}.shop{background:#ff6b35;color:white;border:0;padding:11px 22px;border-radius:6px}
+.products{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding:10px}
+.card{background:white;padding:10px;border-radius:10px;box-shadow:0 1px 5px #ddd}
+.card img{width:100%;height:150px;object-fit:contain;border-radius:8px}
+.card h3{font-size:16px}.price{font-size:19px;font-weight:bold}
+.old{text-decoration:line-through;color:#888;font-size:12px}
+.off{color:green;font-size:12px}
+.add{width:100%;padding:10px;border:0;background:#ffd814;border-radius:20px;font-weight:bold}
+.cart{position:fixed;right:-420px;top:0;width:390px;max-width:95%;height:100%;background:white;z-index:10;padding:18px;overflow:auto;transition:.3s;box-shadow:-4px 0 15px #777}
+.cart.show{right:0}.close{float:right;border:0;background:none;font-size:25px}
+.item{padding:12px 0;border-bottom:1px solid #ddd}
+.qty button{padding:5px 12px}.total{font-size:21px;font-weight:bold;margin:15px 0}
+input,textarea{width:100%;padding:10px;margin:5px 0;border:1px solid #ccc;border-radius:5px}
+.pay,.wa{width:100%;padding:12px;border:0;border-radius:6px;margin-top:8px;font-weight:bold}
+.pay{background:#198754;color:white}.wa{background:#25d366;color:white}
+.reviews{background:white;margin:12px;padding:18px;border-radius:10px}
+.star{font-size:25px;border:0;background:none;color:#ccc}.star.on{color:#ffb300}
+.review{border-top:1px solid #ddd;padding:12px 0}
+footer{background:#222;color:white;text-align:center;padding:25px;margin-top:15px}
+@media(min-width:700px){.products{grid-template-columns:repeat(4,1fr)}}
 </style>
 </head>
 
 <body>
 
 <header>
-
-<div class="logo">
-🛒 APNA <span>KIRANA STORE</span>
-</div>
-
-<div class="search">
-<input
-id="searchBox"
-placeholder="Search products..."
-oninput="searchProducts()">
-
-<button onclick="searchProducts()">🔍</button>
-</div>
-
-<button
-class="header-btn"
-id="loginBtn"
-onclick="openLogin()">
-👤 Login
-</button>
-
-<button
-class="header-btn"
-onclick="openCart()">
-🛒 Cart (<span id="cartCount">0</span>)
-</button>
-
+<h1>🍰 APNI BAKERY</h1>
+<input class="search" id="search" placeholder="Cake, Paneer, Chocolate..." oninput="search()">
 </header>
 
-
 <nav>
-<button onclick="filterProducts('all')">Home</button>
-<button onclick="filterProducts('cake')">Cakes</button>
-<button onclick="filterProducts('dairy')">Dairy</button>
-<button onclick="filterProducts('chocolate')">Chocolates</button>
-<button onclick="filterProducts('water')">Water</button>
+<button onclick="filter('all')">All</button>
+<button onclick="filter('cake')">Cakes</button>
+<button onclick="filter('choc')">Chocolates</button>
+<button onclick="openCart()">🛒 Cart (<span id="num">0</span>)</button>
 </nav>
 
-
-<section class="hero">
-
-<div>
-<h1>APNA KIRANA STORE</h1>
-<p>Fresh Products • Best Price • Home Delivery</p>
-
-<button onclick="goProducts()">
-Shop Now
-</button>
+<div class="hero">
+<h2>Fresh & Delicious</h2>
+<p>Best Price • Fresh Products • Home Delivery</p>
+<button class="shop" onclick="document.getElementById('products').scrollIntoView()">Shop Now</button>
 </div>
 
-<div class="hero-icon">🛒</div>
+<div class="products" id="products">
 
-</section>
-
-
-<section class="section" id="productsSection">
-
-<h2>🛍️ Our Products</h2>
-
-<div class="products">
-
-
-<!-- CAKE 250 -->
-
-<div class="product"
-data-category="cake"
-data-name="fresh cream cake">
-
-<div class="product-img">
-<img
-src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=90"
-alt="Fresh Cream Cake">
+<div class="card" data-type="cake" data-name="cake">
+<img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=500&q=80">
+<h3>Fresh Cream Cake</h3><div class="price">₹250 <span class="old">₹300</span></div><div class="off">17% OFF</div>
+<button class="add" onclick="add('Fresh Cream Cake',250)">Add to Cart</button>
 </div>
 
-<div class="product-name">
-Fresh Cream Cake
+<div class="card" data-type="cake" data-name="vanilla cake">
+<img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?auto=format&fit=crop&w=500&q=80">
+<h3>Vanilla Cake</h3><div class="price">₹300 <span class="old">₹350</span></div><div class="off">14% OFF</div>
+<button class="add" onclick="add('Vanilla Cake',300)">Add to Cart</button>
 </div>
 
-<span class="rating">4.5 ★</span>
-
-<div class="price">
-₹250 <span class="mrp">₹300</span>
+<div class="card" data-type="cake" data-name="chocolate cake">
+<img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=500&q=80">
+<h3>Chocolate Cake</h3><div class="price">₹400 <span class="old">₹500</span></div><div class="off">20% OFF</div>
+<button class="add" onclick="add('Chocolate Cake',400)">Add to Cart</button>
 </div>
 
-<div class="discount">17% OFF</div>
-<div class="save">You Save ₹50</div>
-
-<button class="add"
-onclick="addItem('Fresh Cream Cake',250)">
-Add to Cart
-</button>
-
+<div class="card" data-type="choc" data-name="dairy milk 10">
+<img src="https://images.unsplash.com/photo-1575377222312-dd1a12a4b6e7?auto=format&fit=crop&w=500&q=80">
+<h3>Dairy Milk ₹10</h3><div class="price">₹10</div>
+<button class="add" onclick="add('Dairy Milk ₹10',10)">Add to Cart</button>
 </div>
 
-
-<!-- CAKE 300 -->
-
-<div class="product"
-data-category="cake"
-data-name="vanilla cake">
-
-<div class="product-img">
-<img
-src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?auto=format&fit=crop&w=700&q=90"
-alt="Vanilla Cake">
+<div class="card" data-type="choc" data-name="dairy milk 20">
+<img src="https://images.unsplash.com/photo-1575377222312-dd1a12a4b6e7?auto=format&fit=crop&w=500&q=80">
+<h3>Dairy Milk ₹20</h3><div class="price">₹20</div>
+<button class="add" onclick="add('Dairy Milk ₹20',20)">Add to Cart</button>
 </div>
 
-<div class="product-name">
-Vanilla Cake
+<div class="card" data-type="choc" data-name="dairy milk 50">
+<img src="https://images.unsplash.com/photo-1575377222312-dd1a12a4b6e7?auto=format&fit=crop&w=500&q=80">
+<h3>Dairy Milk ₹50</h3><div class="price">₹50</div>
+<button class="add" onclick="add('Dairy Milk ₹50',50)">Add to Cart</button>
 </div>
 
-<span class="rating">4.6 ★</span>
-
-<div class="price">
-₹300 <span class="mrp">₹350</span>
+<div class="card" data-type="choc" data-name="kitkat 10">
+<img src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?auto=format&fit=crop&w=500&q=80">
+<h3>KitKat ₹10</h3><div class="price">₹10</div>
+<button class="add" onclick="add('KitKat ₹10',10)">Add to Cart</button>
 </div>
 
-<div class="discount">14% OFF</div>
-<div class="save">You Save ₹50</div>
-
-<button class="add"
-onclick="addItem('Vanilla Cake',300)">
-Add to Cart
-</button>
-
+<div class="card" data-type="choc" data-name="kitkat 20">
+<img src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?auto=format&fit=crop&w=500&q=80">
+<h3>KitKat ₹20</h3><div class="price">₹20</div>
+<button class="add" onclick="add('KitKat ₹20',20)">Add to Cart</button>
 </div>
 
-
-<!-- CHOCOLATE CAKE -->
-
-<div class="product"
-data-category="cake"
-data-name="chocolate cake">
-
-<div class="product-img">
-<img
-src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=700&q=90"
-alt="Chocolate Cake">
-</div>
-
-<div class="product-name">
-Chocolate Cake
-</div>
-
-<span class="rating">4.8 ★</span>
-
-<div class="price">
-₹400 <span class="mrp">₹500</span>
-</div>
-
-<div class="discount">20% OFF</div>
-<div class="save">You Save ₹100</div>
-
-<button class="add"
-onclick="addItem('Chocolate Cake',400)">
-Add to Cart
-</button>
-
-</div>
-
-
-<!-- BIRTHDAY CAKE -->
-
-<div class="product"
-data-category="cake"
-data-name="birthday cake">
-
-<div class="product-img">
-<img
-src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=700&q=90"
-alt="Birthday Cake">
-</div>
-
-<div class="product-name">
-Special Birthday Cake
-</div>
-
-<span class="rating">4.7 ★</span>
-
-<div class="price">
-₹400 <span class="mrp">₹480</span>
-</div>
-
-<div class="discount">17% OFF</div>
-<div class="save">You Save ₹80</div>
-
-<button class="add"
-onclick="addItem('Special Birthday Cake',400)">
-Add to Cart
-</button>
-
-</div>
-
-
-<!-- PLAIN PANEER -->
-
-<div class="product"
-data-category="dairy"
-data-name="paneer">
-
-<div class="product-img">
-
-<img
-src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=700&q=90"
-alt="Plain Fresh Paneer">
-
-</div>
-
-<div class="product-name">
-Fresh Paneer 1 Kg
-</div>
-
-<span class="rating">4.6 ★</span>
-
-<div class="price">
-₹300 <span class="mrp">₹340</span>
-</div>
-
-<div class="discount">12% OFF</div>
-<div class="save">You Save ₹40</div>
-
-<button class="add"
-onclick="addItem('Fresh Paneer 1 Kg',300)">
-Add to Cart
-</button>
-
-</div>
-
-
-<!-- MILK -->
-
-<div class="product"
-data-category="dairy"
-data-name="milk">
-
-<div class="product-img">
-
-<img
-src="https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=700&q=90"
-alt="Milk">
-
-</div>
-
-<div class="product-name">
-Fresh Milk 1 Litre
-</div>
-
-<span class="rating">4.7 ★</span>
-
-<div class="price">
-₹80 <span class="mrp">₹90</span>
-</div>
-
-<div class="discount">11% OFF</div>
-<div class="save">You Save ₹10</div>
-
-<button class="add"
-onclick="addItem('Fresh Milk 1 Litre',80)">
-Add to Cart
-</button>
-
-</div>
-
-
-<!-- BISLERI -->
-
-<div class="product"
-data-category="water"
-data-name="bisleri bottle water">
-
-<div class="product-img">
-
-<img
-src="https://images.unsplash.com/photo-1564419320461-6870880221ad?auto=format&fit=crop&w=700&q=90"
-alt="Bisleri Water Bottle">
-
-</div>
-
-<div class="product-name">
-Bisleri Water Bottle
-</div>
-
-<span class="rating">4.5 ★</span>
-
-<div class="price">
-₹20
-</div>
-
-<div class="discount">
-Best Price
-</div>
-
-<div class="save">
-₹20 Bottle
-</div>
-
-<button class="add"
-onclick="addItem('Bisleri Water Bottle',20)">
-Add to Cart
-</button>
-
-</div>
-
-
-<!-- DAIRY MILK 10 -->
-
-<div class="product"
-data-category="chocolate"
-data-name="dairy milk 10">
-
-<div class="product-img">
-
-<img
-src="https://images.unsplash.com/photo-1606312619070-d48b4c652a52?auto=format&fit=crop&w=700&q=90"
-alt="Dairy Milk">
-
-</div>
-
-<div class="product-name">
-Dairy Milk ₹10
-</div>
-
-<span class="rating">4.7 ★</span>
-
-<div class="price">
-₹10 <span class="mrp">₹12</span>
-</div>
-
-<div class="discount">17% OFF</div>
-<div class="save">You Save ₹2</div>
-
-<button class="add"
-onclick="addItem('Dairy Milk ₹10',10)">
-Add to Cart
-</button>
-
-</div>
-
-
-<!-- DAIRY MILK 20 -->
-
-<div class="product"
-data-category="chocolate"
-data-name="dairy milk 20">
-
-<div class="product-img">
-
-<img
-src="https://images.unsplash.com/photo-1575377222312-dd1a12a4b6e7?auto=format&fit=crop&w=700&q=90"
-alt="Dairy Milk">
-
-</div>
-
-<div class="product-name">
-Dairy Milk ₹20
-</div>
-
-<span class="rating">4.7 ★</span>
-
-<div class="price">
-₹20 <span class="mrp">₹25</span>
-</div>
-
-<div class="discount">20% OFF</div>
-<div class="save">You Save ₹5</div>
-
-<button class="add"
-onclick="addItem('Dairy Milk ₹20',20)">
-Add to Cart
-</button>
-
-</div>
-
-
-<!-- DAIRY MILK 50 -->
-
-<div class="product"
-data-category="chocolate"
-data-name="dairy milk 50">
-
-<div class="product-img">
-
-<img
-src="https://images.unsplash.com/photo-1575377222312-dd1a12a4b6e7?auto=format&fit=crop&w=700&q=90"
-alt="Dairy Milk">
-
-</div>
-
-<div class="product-name">
-Dairy Milk ₹50
-</div>
-
-<span class="rating">4.8 ★</span>
-
-<div class="price">
-₹50 <span class="mrp">₹60</span>
-</div>
-
-<div class="discount">17% OFF</div>
-<div class="save">You Save ₹10</div>
-
-<button class="add"
-onclick="addItem('Dairy Milk ₹50',50)">
-Add to Cart
-</button>
-
-</div>
-
-
-<!-- KITKAT 10 -->
-
-<div class="product"
-data-category="chocolate"
-data-name="kitkat 10 kit kat">
-
-<div class="product-img">
-
-<img
-src="https://images.unsplash.com/photo-1548907040-4d42f7aee8f5?auto=format&fit=crop&w=700&q=90"
-alt="KitKat">
-
-</div>
-
-<div class="product-name">
-KitKat ₹10
-</div>
-
-<span class="rating">4.7 ★</span>
-
-<div class="price">
-₹10 <span class="mrp">₹12</span>
-</div>
-
-<div class="discount">17% OFF</div>
-<div class="save">You Save ₹2</div>
-
-<button class="add"
-onclick="addItem('KitKat ₹10',10)">
-Add to Cart
-</button>
-
-</div>
-
-
-<!-- KITKAT 20 -->
-
-<div class="product"
-data-category="chocolate"
-data-name="kitkat 20 kit kat">
-
-<div class="product-img">
-
-<img
-src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?auto=format&fit=crop&w=700&q=90"
-alt="KitKat">
-
-</div>
-
-<div class="product-name">
-KitKat ₹20
-</div>
-
-<span class="rating">4.7 ★</span>
-
-<div class="price">
-₹20 <span class="mrp">₹25</span>
-</div>
-
-<div class="discount">20% OFF</div>
-<div class="save">You Save ₹5</div>
-
-<button class="add"
-onclick="addItem('KitKat ₹20',20)">
-Add to Cart
-</button>
-
-</div>
-
-
-<!-- KITKAT 30 -->
-
-<div class="product"
-data-category="chocolate"
-data-name="kitkat 30 kit kat">
-
-<div class="product-img">
-
-<img
-src="https://images.unsplash.com/photo-1575377222312-dd1a12a4b6e7?auto=format&fit=crop&w=700&q=90"
-alt="KitKat">
-
-</div>
-
-<div class="product-name">
-KitKat ₹30
-</div>
-
-<span class="rating">4.6 ★</span>
-
-<div class="price">
-₹30 <span class="mrp">₹35</span>
-</div>
-
-<div class="discount">14% OFF</div>
-<div class="save">You Save ₹5</div>
-
-<button class="add"
-onclick="addItem('KitKat ₹30',30)">
-Add to Cart
-</button>
-
+<div class="card" data-type="choc" data-name="kitkat 30">
+<img src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?auto=format&fit=crop&w=500&q=80">
+<h3>KitKat ₹30</h3><div class="price">₹30</div>
+<button class="add" onclick="add('KitKat ₹30',30)">Add to Cart</button>
 </div>
 
 </div>
-
-<div id="noResult" class="no-result">
-Product नहीं मिला।
-</div>
-
-</section>
-
 
 <!-- CART -->
-
 <div class="cart" id="cart">
-
-<div class="cart-header">
-
-<h2>🛒 Cart</h2>
-
 <button class="close" onclick="closeCart()">×</button>
+<h2>🛒 Your Cart</h2>
+<div id="items"></div>
+<div class="total">Total ₹<span id="total">0</span></div>
 
+<input id="name" placeholder="Customer Name">
+<input id="phone" placeholder="Mobile Number">
+<textarea id="address" placeholder="Delivery Address"></textarea>
+
+<p>💵 <b>Cash on Delivery: सुबह 6:00 बजे से शाम 8:00 बजे तक</b></p>
+
+<p>💳 <b>UPI 24 घंटे</b><br>UPI ID: ay2279832@axl</p>
+<button class="pay" onclick="upi()">Pay with UPI</button>
+<button class="wa" onclick="order()">📲 Order on WhatsApp</button>
 </div>
-
-<div id="cartItems"></div>
-
-<div class="grand-total">
-Total: ₹<span id="total">0</span>
-</div>
-
-<div class="checkout">
-
-<h3>🏠 Delivery Details</h3>
-
-<input
-id="customerName"
-placeholder="Customer Name">
-
-<input
-id="customerPhone"
-placeholder="Mobile Number">
-
-<textarea
-id="customerAddress"
-placeholder="Complete Delivery Address"></textarea>
-
-<h3>💳 Payment Method</h3>
-
-<div class="payment-box" id="codBox">
-
-<label>
-
-<input
-type="radio"
-name="payment"
-value="COD"
-id="codRadio"
-checked>
-
-💵 Cash on Delivery
-
-</label>
-
-<p
-id="codMessage"
-style="font-size:12px;margin-top:7px">
-COD: 6 AM से 8 PM तक
-</p>
-
-</div>
-
-
-<div class="payment-box">
-
-<label>
-
-<input
-type="radio"
-name="payment"
-value="UPI"
-id="upiRadio">
-
-💳 UPI Payment
-
-</label>
-
-<p style="font-size:13px;margin-top:7px">
-UPI ID:
-<b>ay2279832@axl</b>
-</p>
-
-<button
-class="upi-button"
-onclick="payUPI()">
-Pay with UPI
-</button>
-
-</div>
-
-
-<button
-class="order-button"
-onclick="placeOrder()">
-
-📲 Order on WhatsApp
-
-</button>
-
-</div>
-
-</div>
-
-
-<!-- LOGIN -->
-
-<div class="login-bg" id="loginBg">
-
-<div class="login-box">
-
-<h2>👤 Login</h2>
-
-<input
-id="loginName"
-placeholder="Your Name">
-
-<input
-id="loginPhone"
-placeholder="Mobile Number">
-
-<button onclick="loginUser()">
-Continue
-</button>
-
-<button
-onclick="closeLogin()"
-style="background:#777">
-Close
-</button>
-
-</div>
-
-</div>
-
 
 <!-- REVIEWS -->
-
 <section class="reviews">
-
 <h2>⭐ Customer Reviews</h2>
+<input id="rname" placeholder="Your Name">
 
-<div class="review-form">
-
-<input
-id="reviewName"
-placeholder="Your Name">
-
-<div class="stars">
-
-<button class="star"
-id="star1"
-onclick="setRating(1)">★</button>
-
-<button class="star"
-id="star2"
-onclick="setRating(2)">★</button>
-
-<button class="star"
-id="star3"
-onclick="setRating(3)">★</button>
-
-<button class="star"
-id="star4"
-onclick="setRating(4)">★</button>
-
-<button class="star"
-id="star5"
-onclick="setRating(5)">★</button>
-
+<div>
+<button class="star" onclick="rate(1)">★</button>
+<button class="star" onclick="rate(2)">★</button>
+<button class="star" onclick="rate(3)">★</button>
+<button class="star" onclick="rate(4)">★</button>
+<button class="star" onclick="rate(5)">★</button>
 </div>
 
-<textarea
-id="reviewText"
-placeholder="अपना review लिखें..."></textarea>
+<textarea id="rtext" placeholder="अपना Review लिखें"></textarea>
+<button class="shop" onclick="review()">Submit Review</button>
 
-<button
-class="review-submit"
-onclick="submitReview()">
-Submit Review
-</button>
-
-</div>
-
-<div id="reviewsList"></div>
-
+<div id="reviewList"></div>
 </section>
-
-
-<!-- SUPPORT -->
-
-<section class="support">
-
-<h2>📞 Customer Support</h2>
-
-<p>
-Phone:
-<a href="tel:9301272240">
-9301272240
-</a>
-</p>
-
-<p>
-Gmail:
-<a href="mailto:ay2279832@gmail.com">
-ay2279832@gmail.com
-</a>
-</p>
-
-<p>🏠 Home Delivery Available</p>
-
-<p>💵 COD: सुबह 6:00 बजे से शाम 8:00 बजे तक</p>
-
-<p>💳 UPI: 24 Hours</p>
-
-</section>
-
 
 <footer>
-
-<h2>APNA KIRANA STORE</h2>
-
-<p>Fresh Products • Best Price • Home Delivery</p>
-
-<p>© 2026 APNA KIRANA STORE</p>
-
+<h2>🍰 APNI BAKERY</h2>
+<p>Home Delivery • Best Price</p>
 </footer>
 
-
 <script>
+let cart=[],stars=0;
 
-let cart=[];
-let selectedRating=0;
-
-
-/* CART */
-
-function addItem(name,price){
-
-let found=cart.find(
-item=>item.name===name
-);
-
-if(found){
-found.qty++;
-}else{
-cart.push({
-name:name,
-price:price,
-qty:1
-});
+function add(n,p){
+let x=cart.find(a=>a.n==n);
+x?x.q++:cart.push({n:n,p:p,q:1});
+render();openCart();
 }
 
-renderCart();
-openCart();
-
-}
-
-
-function renderCart(){
-
-let box=
-document.getElementById("cartItems");
-
-let total=0;
-let count=0;
-
-box.innerHTML="";
-
-if(cart.length===0){
-
-box.innerHTML=
-"<p style='padding:20px'>Cart खाली है।</p>";
-
-}
-
-cart.forEach((item,index)=>{
-
-let itemTotal=
-item.price*item.qty;
-
-total+=itemTotal;
-count+=item.qty;
-
-box.innerHTML+=`
-
-<div class="cart-item">
-
-<div class="cart-row">
-
-<b>${item.name}</b>
-
-<button
-class="remove"
-onclick="removeItem(${index})">
-Remove
-</button>
-
-</div>
-
+function render(){
+let s="",t=0,c=0;
+cart.forEach((x,i)=>{
+t+=x.p*x.q;c+=x.q;
+s+=`<div class="item"><b>${x.n}</b><br>
 <div class="qty">
-
-<button
-onclick="changeQty(${index},-1)">
-−
-</button>
-
-<span>${item.qty}</span>
-
-<button
-onclick="changeQty(${index},1)">
-+
-</button>
-
-</div>
-
-<div class="item-total">
-₹${itemTotal}
-</div>
-
-</div>
-
-`;
-
+<button onclick="change(${i},-1)">−</button>
+${x.q}
+<button onclick="change(${i},1)">+</button>
+<button onclick="del(${i})">Remove</button>
+</div>₹${x.p*x.q}</div>`;
 });
-
-document.getElementById("cartCount").innerText=count;
-document.getElementById("total").innerText=total;
-
+document.getElementById("items").innerHTML=s||"Cart खाली है";
+document.getElementById("total").innerText=t;
+document.getElementById("num").innerText=c;
 }
 
-
-function changeQty(index,change){
-
-cart[index].qty+=change;
-
-if(cart[index].qty<=0){
-cart.splice(index,1);
+function change(i,n){
+cart[i].q+=n;
+if(cart[i].q<1)cart.splice(i,1);
+render();
 }
 
-renderCart();
+function del(i){cart.splice(i,1);render()}
+function openCart(){document.getElementById("cart").classList.add("show");render()}
+function closeCart(){document.getElementById("cart").classList.remove("show")}
 
+function search(){
+let q=document.getElementById("search").value.toLowerCase();
+document.querySelectorAll(".card").forEach(x=>{
+x.style.display=x.dataset.name.includes(q)?"block":"none";
+});
 }
 
-
-function removeItem(index){
-
-cart.splice(index,1);
-renderCart();
-
+function filter(t){
+document.querySelectorAll(".card").forEach(x=>{
+x.style.display=t=="all"||x.dataset.type==t?"block":"none";
+});
 }
 
-
-function openCart(){
-
-document
-.getElementById("cart")
-.classList.add("open");
-
-renderCart();
-
+function upi(){
+if(!cart.length)return alert("Cart खाली है");
+let t=cart.reduce((a,x)=>a+x.p*x.q,0);
+location.href=`upi://pay?pa=ay2279832@axl&pn=APNI%20BAKERY&am=${t}&cu=INR`;
 }
 
+function order(){
+if(!cart.length)return alert("Cart खाली है");
+let n=document.getElementById("name").value,
+p=document.getElementById("phone").value,
+a=document.getElementById("address").value;
+if(!n||!p||!a)return alert("Name, Mobile और Address भरें");
 
-function closeCart(){
+let t=cart.reduce((a,x)=>a+x.p*x.q,0);
+let list=cart.map(x=>`${x.n} x ${x.q}`).join("\n");
 
-document
-.getElementById("cart")
-.classList.remove("open");
+let msg=`*APNI BAKERY ORDER*
+Customer: ${n}
+Mobile: ${p}
+Address: ${a}
 
+Products:
+${list}
+
+Total: ₹${t}`;
+
+window.open("https://wa.me/919301272240?text="+encodeURIComponent(msg));
 }
 
-
-/* SEARCH */
-
-function searchProducts(){
-
-let text=
-document
-.getElementById("searchBox")
-.value
-.toLowerCase()
-.trim();
-
-let found=0;
-
-document
-.querySelectorAll(".product")
-.forEach(product=>{
-
-let name=
-product.dataset.name.toLowerCase();
-
-if(name.includes(text)){
-
-product.style.display="block";
-found++;
-
-}else{
-
-product.style.display="none";
-
+function rate(n){
+stars=n;
+document.querySelectorAll(".star").forEach((x,i)=>x.classList.toggle("on",i<n));
 }
 
-})
+function review(){
+let n=document.getElementById("rname").value,
+t=document.getElementById("rtext").value;
+if(!n||!t||!stars)return alert("Name, Rating और Review भरें");
+
+let r=JSON.parse(localStorage.getItem("reviews")||"[]");
+r.push({n:n,t:t,s:stars});
+localStorage.setItem("reviews",JSON.stringify(r));
+document.getElementById("rname").value="";
+document.getElementById("rtext").value="";
+stars=0;
+showReviews();
+alert("Review submit हो गया");
+}
+
+function showReviews(){
+let r=JSON.parse(localStorage.getItem("reviews")||"[]");
+document.getElementById("reviewList").innerHTML=r.map(x=>
+`<div class="review"><b>${x.n}</b><br>
+<span style="color:#ffb300">${"★".repeat(x.s)}</span>
+<p>${x.t}</p></div>`).join("");
+}
+
+showReviews();
+render();
+</script>
+
+</body>
+</html>
