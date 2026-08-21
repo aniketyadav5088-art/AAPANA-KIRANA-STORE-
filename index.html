@@ -6,183 +6,492 @@
 <title>Apna Bakery</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
-body{background:#f5f5f5;color:#222}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,sans-serif;
+}
 
+body{
+  background:#f5f5f5;
+  color:#222;
+}
+
+/* HEADER */
 header{
-  background:#3b160d;color:#fff;padding:12px 4%;
-  display:flex;align-items:center;gap:14px;
-  position:sticky;top:0;z-index:1000
+  background:#3b160d;
+  color:white;
+  padding:12px 4%;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  position:sticky;
+  top:0;
+  z-index:1000;
 }
-.logo{font-size:22px;font-weight:bold;white-space:nowrap}
-.logo span{color:#ffca7a}
-.search{flex:1;display:flex}
-.search input{width:100%;padding:12px;border:0;outline:0;font-size:15px}
-.search button{width:52px;border:0;background:#ffb74d;cursor:pointer;font-size:19px}
-.topbtn{background:none;border:0;color:#fff;font-weight:bold;cursor:pointer;white-space:nowrap}
 
+.logo{
+  font-size:22px;
+  font-weight:bold;
+  white-space:nowrap;
+}
+
+.logo span{
+  color:#ffca7a;
+}
+
+.search{
+  flex:1;
+  display:flex;
+}
+
+.search input{
+  width:100%;
+  padding:12px;
+  border:0;
+  outline:0;
+  font-size:15px;
+}
+
+.search button{
+  width:52px;
+  border:0;
+  background:#ffb74d;
+  cursor:pointer;
+  font-size:19px;
+}
+
+.topbtn{
+  background:none;
+  border:0;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+  white-space:nowrap;
+}
+
+/* NAV */
 nav{
-  background:#5a2114;padding:12px 4%;display:flex;
-  gap:24px;overflow:auto
+  background:#5a2114;
+  padding:12px 4%;
+  display:flex;
+  gap:24px;
+  overflow:auto;
 }
+
 nav button{
-  background:none;border:0;color:#fff;cursor:pointer;white-space:nowrap
+  background:none;
+  border:0;
+  color:white;
+  cursor:pointer;
+  white-space:nowrap;
 }
 
+/* HERO */
 .hero{
-  margin:16px 4%;padding:40px;min-height:260px;
-  border-radius:14px;background:linear-gradient(120deg,#ffe0b2,#fff8f1);
-  display:flex;justify-content:space-between;align-items:center
+  margin:16px 4%;
+  padding:40px;
+  min-height:260px;
+  border-radius:14px;
+  background:linear-gradient(120deg,#ffe0b2,#fff8f1);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
-.hero h1{font-size:40px;color:#42170e;margin-bottom:10px}
-.hero p{font-size:18px;margin-bottom:20px}
-.shop{
-  background:#d84315;color:#fff;border:0;padding:13px 28px;
-  border-radius:6px;cursor:pointer
-}
-.heroImg{font-size:110px}
 
-.section{
-  background:#fff;margin:16px 4%;padding:20px;border-radius:12px
+.hero h1{
+  font-size:40px;
+  color:#42170e;
+  margin-bottom:10px;
 }
-.section h2{margin-bottom:18px}
+
+.hero p{
+  font-size:18px;
+  margin-bottom:20px;
+}
+
+.shop{
+  background:#d84315;
+  color:white;
+  border:0;
+  padding:13px 28px;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+.heroImg{
+  font-size:110px;
+}
+
+/* PRODUCTS */
+.section{
+  background:white;
+  margin:16px 4%;
+  padding:20px;
+  border-radius:12px;
+}
+
+.section h2{
+  margin-bottom:18px;
+}
 
 .products{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:18px
+  gap:18px;
 }
+
 .product{
-  border:1px solid #ddd;border-radius:12px;padding:12px;background:#fff
+  border:1px solid #ddd;
+  border-radius:12px;
+  padding:12px;
+  background:white;
 }
-.product:hover{box-shadow:0 4px 15px #ccc}
+
+.product:hover{
+  box-shadow:0 4px 15px #ccc;
+}
 
 .photo{
-  height:190px;background:#fff8f1;border-radius:9px;
-  display:flex;align-items:center;justify-content:center;overflow:hidden
+  height:190px;
+  background:#fff8f1;
+  border-radius:9px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
 }
-.photo img{width:100%;height:100%;object-fit:contain}
 
-.name{font-size:17px;font-weight:bold;margin:12px 0 7px}
-.rating{
-  display:inline-block;background:#198754;color:#fff;
-  padding:4px 7px;border-radius:4px;font-size:12px
+.photo img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
 }
-.price{font-size:21px;font-weight:bold;margin:10px 0}
+
+.name{
+  font-size:17px;
+  font-weight:bold;
+  margin:12px 0 7px;
+}
+
+.rating{
+  display:inline-block;
+  background:#198754;
+  color:white;
+  padding:4px 7px;
+  border-radius:4px;
+  font-size:12px;
+}
+
+.price{
+  font-size:21px;
+  font-weight:bold;
+  margin:10px 0;
+}
+
 .add{
-  width:100%;padding:11px;border:1px solid #e5b900;
-  background:#ffd814;border-radius:20px;font-weight:bold;cursor:pointer
+  width:100%;
+  padding:11px;
+  border:1px solid #e5b900;
+  background:#ffd814;
+  border-radius:20px;
+  font-weight:bold;
+  cursor:pointer;
 }
 
 .noresult{
-  display:none;text-align:center;padding:30px;color:#777;font-size:18px
+  display:none;
+  text-align:center;
+  padding:30px;
+  color:#777;
+  font-size:18px;
 }
 
 /* CART */
 .cart{
-  position:fixed;right:-460px;top:0;width:440px;max-width:95%;
-  height:100vh;background:#fff;z-index:3000;padding:20px;
-  box-shadow:-5px 0 20px #555;transition:.3s;overflow:auto
+  position:fixed;
+  right:-460px;
+  top:0;
+  width:440px;
+  max-width:95%;
+  height:100vh;
+  background:white;
+  z-index:3000;
+  padding:20px;
+  box-shadow:-5px 0 20px #555;
+  transition:.3s;
+  overflow:auto;
 }
-.cart.open{right:0}
+
+.cart.open{
+  right:0;
+}
 
 .carthead{
-  display:flex;justify-content:space-between;
-  border-bottom:1px solid #ddd;padding-bottom:15px
+  display:flex;
+  justify-content:space-between;
+  border-bottom:1px solid #ddd;
+  padding-bottom:15px;
 }
-.close{border:0;background:none;font-size:28px;cursor:pointer}
 
-.cartitem{padding:14px 0;border-bottom:1px solid #ddd}
-.row{display:flex;justify-content:space-between;gap:10px}
-.remove{border:0;background:none;color:#d32f2f;cursor:pointer}
+.close{
+  border:0;
+  background:none;
+  font-size:28px;
+  cursor:pointer;
+}
+
+.cartitem{
+  padding:14px 0;
+  border-bottom:1px solid #ddd;
+}
+
+.row{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.remove{
+  border:0;
+  background:none;
+  color:#d32f2f;
+  cursor:pointer;
+}
 
 .qty{
-  display:flex;align-items:center;gap:10px;margin-top:10px
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-top:10px;
 }
+
 .qty button{
-  width:34px;height:34px;border:1px solid #aaa;
-  background:#eee;font-size:20px;border-radius:4px;cursor:pointer
+  width:34px;
+  height:34px;
+  border:1px solid #aaa;
+  background:#eee;
+  font-size:20px;
+  border-radius:4px;
+  cursor:pointer;
 }
-.qty span{min-width:25px;text-align:center;font-weight:bold}
-.subtotal{margin-top:7px;font-weight:bold}
+
+.qty span{
+  min-width:25px;
+  text-align:center;
+  font-weight:bold;
+}
+
+.subtotal{
+  margin-top:7px;
+  font-weight:bold;
+}
 
 .total{
-  font-size:21px;font-weight:bold;
-  border-top:2px solid #ddd;padding:15px 0
+  font-size:21px;
+  font-weight:bold;
+  border-top:2px solid #ddd;
+  padding:15px 0;
 }
 
-.checkout h3{margin:12px 0 7px}
-.checkout input,.checkout textarea{
-  width:100%;padding:11px;margin:5px 0;
-  border:1px solid #bbb;border-radius:5px
+/* CHECKOUT */
+.checkout h3{
+  margin:12px 0 7px;
 }
-.checkout textarea{height:75px;resize:none}
+
+.checkout input,
+.checkout textarea{
+  width:100%;
+  padding:11px;
+  margin:5px 0;
+  border:1px solid #bbb;
+  border-radius:5px;
+}
+
+.checkout textarea{
+  height:75px;
+  resize:none;
+}
 
 .payment{
-  border:1px solid #ddd;padding:11px;
-  margin:6px 0;border-radius:5px
+  border:1px solid #ddd;
+  padding:12px;
+  margin:7px 0;
+  border-radius:6px;
 }
+
+.payment.disabled{
+  background:#eee;
+  color:#888;
+}
+
+.payment button{
+  width:100%;
+  margin-top:10px;
+  padding:12px;
+  border:0;
+  border-radius:6px;
+  background:#138808;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.payment button:disabled{
+  background:#aaa;
+  cursor:not-allowed;
+}
+
 .order{
-  width:100%;padding:13px;margin-top:10px;
-  background:#25D366;color:#fff;border:0;
-  border-radius:6px;font-weight:bold;cursor:pointer
+  width:100%;
+  padding:13px;
+  margin-top:10px;
+  background:#25D366;
+  color:white;
+  border:0;
+  border-radius:6px;
+  font-weight:bold;
+  cursor:pointer;
 }
 
 /* LOGIN */
 .loginOverlay{
-  position:fixed;inset:0;background:#0008;
-  display:none;align-items:center;justify-content:center;z-index:4000
+  position:fixed;
+  inset:0;
+  background:#0008;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:4000;
 }
-.loginOverlay.show{display:flex}
+
+.loginOverlay.show{
+  display:flex;
+}
+
 .loginbox{
-  background:#fff;width:350px;max-width:90%;
-  padding:25px;border-radius:10px
+  background:white;
+  width:350px;
+  max-width:90%;
+  padding:25px;
+  border-radius:10px;
 }
+
 .loginbox input{
-  width:100%;padding:11px;margin:6px 0
+  width:100%;
+  padding:11px;
+  margin:6px 0;
 }
+
 .loginbox button{
-  padding:11px;width:100%;background:#d84315;
-  color:#fff;border:0;border-radius:5px;margin-top:8px
+  padding:11px;
+  width:100%;
+  background:#d84315;
+  color:white;
+  border:0;
+  border-radius:5px;
+  margin-top:8px;
 }
 
 /* SUPPORT */
 .support{
-  margin:16px 4%;background:#fff;
-  padding:25px;border-radius:12px
+  margin:16px 4%;
+  background:white;
+  padding:25px;
+  border-radius:12px;
 }
-.support h2{margin-bottom:12px;color:#42170e}
-.support p{margin:9px 0}
+
+.support h2{
+  margin-bottom:12px;
+  color:#42170e;
+}
+
+.support p{
+  margin:9px 0;
+}
+
 .support a{
-  color:#6d2c1a;font-weight:bold;text-decoration:none
+  color:#6d2c1a;
+  font-weight:bold;
+  text-decoration:none;
 }
 
+/* FOOTER */
 footer{
-  background:#2b1009;color:#fff;
-  text-align:center;padding:32px;margin-top:25px
+  background:#2b1009;
+  color:white;
+  text-align:center;
+  padding:32px;
+  margin-top:25px;
 }
-footer p{margin:8px 0}
 
+footer p{
+  margin:8px 0;
+}
+
+/* MOBILE */
 @media(max-width:900px){
-  .products{grid-template-columns:repeat(2,1fr)}
+
+  .products{
+    grid-template-columns:repeat(2,1fr);
+  }
+
 }
 
 @media(max-width:600px){
-  header{flex-wrap:wrap;padding:10px}
-  .logo{width:100%;text-align:center}
-  .search{width:100%}
-  .hero{margin:10px;padding:25px}
-  .hero h1{font-size:28px}
-  .heroImg{font-size:60px}
-  .section,.support{margin:10px 0}
-  .products{gap:10px}
-  .photo{height:145px}
-  .name{font-size:14px}
+
+  header{
+    flex-wrap:wrap;
+    padding:10px;
+  }
+
+  .logo{
+    width:100%;
+    text-align:center;
+  }
+
+  .search{
+    width:100%;
+  }
+
+  .hero{
+    margin:10px;
+    padding:25px;
+  }
+
+  .hero h1{
+    font-size:28px;
+  }
+
+  .heroImg{
+    font-size:60px;
+  }
+
+  .section,
+  .support{
+    margin:10px 0;
+  }
+
+  .products{
+    gap:10px;
+  }
+
+  .photo{
+    height:145px;
+  }
+
+  .name{
+    font-size:14px;
+  }
+
 }
 </style>
 </head>
 
 <body>
+
+<!-- HEADER -->
 
 <header>
 
@@ -191,284 +500,457 @@ APNA <span>BAKERY</span>
 </div>
 
 <div class="search">
+
 <input
 id="search"
 placeholder="Search cakes, paneer, milk, bread..."
-oninput="searchProducts()"
->
+oninput="searchProducts()">
+
 <button onclick="searchProducts()">🔍</button>
+
 </div>
 
-<button class="topbtn" id="loginButton" onclick="openLogin()">
+<button
+class="topbtn"
+id="loginButton"
+onclick="openLogin()">
+
 👤 Login
+
 </button>
 
-<button class="topbtn" onclick="openCart()">
+<button
+class="topbtn"
+onclick="openCart()">
+
 🛒 Cart (<span id="count">0</span>)
+
 </button>
 
 </header>
 
+
+<!-- NAV -->
+
 <nav>
-<button onclick="filterProducts('all')">Home</button>
-<button onclick="filterProducts('cake')">Cakes</button>
-<button onclick="filterProducts('bakery')">Bakery</button>
-<button onclick="filterProducts('dairy')">Dairy</button>
-<button onclick="filterProducts('snacks')">Snacks</button>
+
+<button onclick="filterProducts('all')">
+Home
+</button>
+
+<button onclick="filterProducts('cake')">
+Cakes
+</button>
+
+<button onclick="filterProducts('bakery')">
+Bakery
+</button>
+
+<button onclick="filterProducts('dairy')">
+Dairy
+</button>
+
+<button onclick="filterProducts('snacks')">
+Snacks
+</button>
+
 </nav>
+
+
+<!-- HERO -->
 
 <section class="hero">
 
 <div>
-<h1>Fresh Bakery, Delivered Home</h1>
+
+<h1>
+Fresh Bakery, Delivered Home
+</h1>
 
 <p>
-Fresh cakes, dairy and bakery products at Apna Bakery.
+Fresh cakes, milk, paneer and bakery products.
 </p>
 
-<button class="shop" onclick="scrollProducts()">
+<button
+class="shop"
+onclick="scrollProducts()">
+
 Shop Now
+
 </button>
+
 </div>
 
-<div class="heroImg">🎂</div>
+<div class="heroImg">
+🎂
+</div>
 
 </section>
 
-<section class="section" id="productsSection">
 
-<h2>Popular Products</h2>
+<!-- PRODUCTS -->
+
+<section
+class="section"
+id="productsSection">
+
+<h2>
+Popular Products
+</h2>
 
 <div class="products">
 
+
 <!-- CAKE 250 -->
-<div class="product"
+
+<div
+class="product"
 data-category="cake"
 data-name="fresh cream cake">
 
 <div class="photo">
+
 <img
 src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=85"
 alt="Fresh Cream Cake">
+
 </div>
 
-<div class="name">Fresh Cream Cake</div>
+<div class="name">
+Fresh Cream Cake
+</div>
 
-<span class="rating">4.5 ★</span>
+<span class="rating">
+4.5 ★
+</span>
 
-<div class="price">₹250</div>
+<div class="price">
+₹250
+</div>
 
-<button class="add"
+<button
+class="add"
 onclick="addToCart('Fresh Cream Cake',250)">
+
 Add to Cart
+
 </button>
 
 </div>
 
 
 <!-- CAKE 300 -->
-<div class="product"
+
+<div
+class="product"
 data-category="cake"
 data-name="vanilla cake">
 
 <div class="photo">
+
 <img
 src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?auto=format&fit=crop&w=700&q=85"
 alt="Vanilla Cake">
+
 </div>
 
-<div class="name">Premium Vanilla Cake</div>
+<div class="name">
+Premium Vanilla Cake
+</div>
 
-<span class="rating">4.6 ★</span>
+<span class="rating">
+4.6 ★
+</span>
 
-<div class="price">₹300</div>
+<div class="price">
+₹300
+</div>
 
-<button class="add"
+<button
+class="add"
 onclick="addToCart('Premium Vanilla Cake',300)">
+
 Add to Cart
+
 </button>
 
 </div>
 
 
 <!-- CHOCOLATE 400 -->
-<div class="product"
+
+<div
+class="product"
 data-category="cake"
 data-name="chocolate cake">
 
 <div class="photo">
+
 <img
 src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=700&q=85"
 alt="Chocolate Cake">
+
 </div>
 
-<div class="name">Chocolate Cake</div>
+<div class="name">
+Chocolate Cake
+</div>
 
-<span class="rating">4.8 ★</span>
+<span class="rating">
+4.8 ★
+</span>
 
-<div class="price">₹400</div>
+<div class="price">
+₹400
+</div>
 
-<button class="add"
+<button
+class="add"
 onclick="addToCart('Chocolate Cake',400)">
+
 Add to Cart
+
 </button>
 
 </div>
 
 
-<!-- BIRTHDAY 400 -->
-<div class="product"
+<!-- BIRTHDAY CAKE -->
+
+<div
+class="product"
 data-category="cake"
 data-name="birthday cake special cake">
 
 <div class="photo">
+
 <img
 src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=700&q=85"
 alt="Birthday Cake">
+
 </div>
 
-<div class="name">Special Birthday Cake</div>
+<div class="name">
+Special Birthday Cake
+</div>
 
-<span class="rating">4.7 ★</span>
+<span class="rating">
+4.7 ★
+</span>
 
-<div class="price">₹400</div>
+<div class="price">
+₹400
+</div>
 
-<button class="add"
+<button
+class="add"
 onclick="addToCart('Special Birthday Cake',400)">
+
 Add to Cart
+
 </button>
 
 </div>
 
 
 <!-- BREAD -->
-<div class="product"
+
+<div
+class="product"
 data-category="bakery"
 data-name="fresh bread bread">
 
 <div class="photo">
+
 <img
 src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=700&q=85"
 alt="Fresh Bread">
+
 </div>
 
-<div class="name">Fresh Bread</div>
+<div class="name">
+Fresh Bread
+</div>
 
-<span class="rating">4.4 ★</span>
+<span class="rating">
+4.4 ★
+</span>
 
-<div class="price">₹45</div>
+<div class="price">
+₹45
+</div>
 
-<button class="add"
+<button
+class="add"
 onclick="addToCart('Fresh Bread',45)">
+
 Add to Cart
+
 </button>
 
 </div>
 
 
 <!-- COOKIES -->
-<div class="product"
+
+<div
+class="product"
 data-category="snacks"
 data-name="cookies biscuit biscuits">
 
 <div class="photo">
+
 <img
 src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=700&q=85"
 alt="Cookies">
+
 </div>
 
-<div class="name">Fresh Cookies</div>
+<div class="name">
+Fresh Cookies
+</div>
 
-<span class="rating">4.5 ★</span>
+<span class="rating">
+4.5 ★
+</span>
 
-<div class="price">₹60</div>
+<div class="price">
+₹60
+</div>
 
-<button class="add"
+<button
+class="add"
 onclick="addToCart('Fresh Cookies',60)">
+
 Add to Cart
+
 </button>
 
 </div>
 
 
-<!-- MILK -->
-<div class="product"
+<!-- MILK 80 -->
+
+<div
+class="product"
 data-category="dairy"
 data-name="milk fresh milk">
 
 <div class="photo">
+
 <img
 src="https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=700&q=85"
-alt="Milk">
+alt="Fresh Milk">
+
 </div>
 
-<div class="name">Fresh Milk 1 Litre</div>
+<div class="name">
+Fresh Milk 1 Litre
+</div>
 
-<span class="rating">4.7 ★</span>
+<span class="rating">
+4.7 ★
+</span>
 
-<div class="price">₹80</div>
+<div class="price">
+₹80
+</div>
 
-<button class="add"
+<button
+class="add"
 onclick="addToCart('Fresh Milk 1 Litre',80)">
+
 Add to Cart
+
 </button>
 
 </div>
 
 
-<!-- PANEER -->
-<div class="product"
+<!-- PANEER 300 -->
+
+<div
+class="product"
 data-category="dairy"
 data-name="paneer fresh paneer cheese">
 
 <div class="photo">
+
 <img
 src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=700&q=85"
 alt="Fresh Paneer">
+
 </div>
 
-<div class="name">Fresh Paneer 1 Kg</div>
+<div class="name">
+Fresh Paneer 1 Kg
+</div>
 
-<span class="rating">4.6 ★</span>
+<span class="rating">
+4.6 ★
+</span>
 
-<div class="price">₹300</div>
+<div class="price">
+₹300
+</div>
 
-<button class="add"
+<button
+class="add"
 onclick="addToCart('Fresh Paneer 1 Kg',300)">
+
 Add to Cart
+
 </button>
 
 </div>
 
 
-<!-- VEG PUFF -->
-<div class="product"
+<!-- PUFF -->
+
+<div
+class="product"
 data-category="bakery"
 data-name="veg puff">
 
 <div class="photo">
+
 <img
 src="https://images.unsplash.com/photo-1623334044303-241021148842?auto=format&fit=crop&w=700&q=85"
 alt="Veg Puff">
+
 </div>
 
-<div class="name">Veg Puff</div>
+<div class="name">
+Veg Puff
+</div>
 
-<span class="rating">4.4 ★</span>
+<span class="rating">
+4.4 ★
+</span>
 
-<div class="price">₹35</div>
+<div class="price">
+₹35
+</div>
 
-<button class="add"
+<button
+class="add"
 onclick="addToCart('Veg Puff',35)">
+
 Add to Cart
+
 </button>
 
 </div>
 
 </div>
 
-<div class="noresult" id="noResult">
+
+<div
+class="noresult"
+id="noResult">
+
 No product found.
+
 </div>
 
 </section>
@@ -476,25 +958,45 @@ No product found.
 
 <!-- CART -->
 
-<div class="cart" id="cart">
+<div
+class="cart"
+id="cart">
 
 <div class="carthead">
 
-<h2>Shopping Cart</h2>
+<h2>
+Shopping Cart
+</h2>
 
-<button class="close" onclick="closeCart()">×</button>
+<button
+class="close"
+onclick="closeCart()">
+
+×
+</button>
 
 </div>
 
-<div id="cartItems"></div>
+
+<div id="cartItems">
+</div>
+
 
 <div class="total">
-Total: ₹<span id="total">0</span>
+
+Total:
+₹<span id="total">0</span>
+
 </div>
+
+
+<!-- CUSTOMER DETAILS -->
 
 <div class="checkout">
 
-<h3>Home Delivery Details</h3>
+<h3>
+Home Delivery Details
+</h3>
 
 <input
 id="customerName"
@@ -507,33 +1009,87 @@ placeholder="Mobile Number">
 
 <textarea
 id="customerAddress"
-placeholder="Complete Delivery Address"></textarea>
+placeholder="Complete Delivery Address">
+</textarea>
 
-<h3>Payment</h3>
 
-<div class="payment">
+<h3>
+Payment Method
+</h3>
+
+
+<!-- COD -->
+
+<div
+class="payment"
+id="codBox">
+
 <label>
+
 <input
 type="radio"
 name="payment"
 value="COD"
+id="codRadio"
 checked>
+
 💵 Cash on Delivery
+
 </label>
+
+<p
+id="codMessage"
+style="font-size:12px;margin-top:7px;color:#555">
+
+COD available from 6:00 AM to 8:00 PM.
+
+</p>
+
 </div>
 
+
+<!-- UPI -->
+
 <div class="payment">
+
 <label>
+
 <input
 type="radio"
 name="payment"
-value="UPI">
+value="UPI"
+id="upiRadio">
+
 💳 UPI Payment
+
 </label>
+
+<p style="font-size:13px;margin-top:7px">
+
+UPI ID:
+<b>ay2279832@axl</b>
+
+</p>
+
+<button
+type="button"
+onclick="payUPI()">
+
+💳 Pay Now with UPI
+
+</button>
+
 </div>
 
-<button class="order" onclick="placeOrder()">
+
+<!-- WHATSAPP -->
+
+<button
+class="order"
+onclick="placeOrder()">
+
 📲 Place Order on WhatsApp
+
 </button>
 
 </div>
@@ -543,17 +1099,22 @@ value="UPI">
 
 <!-- LOGIN -->
 
-<div class="loginOverlay" id="loginOverlay">
+<div
+class="loginOverlay"
+id="loginOverlay">
 
 <div class="loginbox">
 
 <button
 onclick="closeLogin()"
 style="float:right;border:0;background:none;font-size:24px">
+
 ×
 </button>
 
-<h2>Login / Sign Up</h2>
+<h2>
+Login / Sign Up
+</h2>
 
 <input
 id="loginName"
@@ -577,7 +1138,9 @@ Continue
 
 <section class="support">
 
-<h2>Customer Support</h2>
+<h2>
+Customer Support
+</h2>
 
 <p>
 📞 Phone:
@@ -593,22 +1156,36 @@ ay2279832@gmail.com
 </a>
 </p>
 
-<p>🏠 Home Delivery Support Available</p>
+<p>
+🏠 Home Delivery Available
+</p>
 
-<p>💵 Cash on Delivery Available</p>
+<p>
+💵 Cash on Delivery: 6:00 AM – 8:00 PM
+</p>
+
+<p>
+💳 UPI Payment Available 24 Hours
+</p>
 
 </section>
 
 
+<!-- FOOTER -->
+
 <footer>
 
-<h2>APNA BAKERY</h2>
+<h2>
+APNA BAKERY
+</h2>
 
 <p>
 Fresh Cakes • Bakery • Dairy • Home Delivery
 </p>
 
-<p>© 2026 Apna Bakery</p>
+<p>
+© 2026 Apna Bakery
+</p>
 
 </footer>
 
@@ -622,9 +1199,10 @@ let cart=[];
 
 function addToCart(name,price){
 
-let item=cart.find(
-x=>x.name===name
-);
+let item=
+cart.find(function(x){
+return x.name===name;
+});
 
 if(item){
 
@@ -646,7 +1224,7 @@ openCart();
 }
 
 
-/* CART */
+/* RENDER CART */
 
 function renderCart(){
 
@@ -679,21 +1257,28 @@ box.innerHTML+=`
 
 <div class="row">
 
-<b>${item.name}</b>
+<b>
+${item.name}
+</b>
 
 <button
 class="remove"
 onclick="removeItem(${index})">
+
 Remove
+
 </button>
 
 </div>
+
 
 <div class="qty">
 
 <button
 onclick="changeQty(${index},-1)">
+
 −
+
 </button>
 
 <span>
@@ -702,13 +1287,18 @@ ${item.qty}
 
 <button
 onclick="changeQty(${index},1)">
+
 +
+
 </button>
 
 </div>
 
+
 <div class="subtotal">
+
 ₹${subtotal}
+
 </div>
 
 </div>
@@ -752,7 +1342,7 @@ renderCart();
 }
 
 
-/* CART OPEN */
+/* OPEN CART */
 
 function openCart(){
 
@@ -765,7 +1355,7 @@ renderCart();
 }
 
 
-/* CART CLOSE */
+/* CLOSE CART */
 
 function closeCart(){
 
@@ -882,6 +1472,7 @@ document
 
 }
 
+
 function closeLogin(){
 
 document
@@ -889,6 +1480,7 @@ document
 .classList.remove("show");
 
 }
+
 
 function loginUser(){
 
@@ -921,7 +1513,8 @@ name
 
 document
 .getElementById("loginButton")
-.innerText="👤 "+name;
+.innerText=
+"👤 "+name;
 
 closeLogin();
 
@@ -947,7 +1540,107 @@ document
 }
 
 
-/* ORDER */
+/* COD TIME CHECK */
+
+function isCODAvailable(){
+
+let now=
+new Date();
+
+let hour=
+now.getHours();
+
+return hour>=6 && hour<20;
+
+}
+
+
+/* UPDATE COD */
+
+function updateCOD(){
+
+let codRadio=
+document.getElementById("codRadio");
+
+let codBox=
+document.getElementById("codBox");
+
+let message=
+document.getElementById("codMessage");
+
+if(isCODAvailable()){
+
+codRadio.disabled=false;
+
+codBox.classList.remove("disabled");
+
+message.innerText=
+"COD is available now (6:00 AM - 8:00 PM).";
+
+message.style.color=
+"#198754";
+
+}else{
+
+codRadio.disabled=true;
+
+codBox.classList.add("disabled");
+
+message.innerText=
+"COD is closed now. COD works from 6:00 AM to 8:00 PM.";
+
+message.style.color=
+"#d32f2f";
+
+/* Automatically select UPI */
+
+document.getElementById("upiRadio").checked=true;
+
+}
+
+}
+
+
+/* UPI PAYMENT */
+
+function payUPI(){
+
+if(cart.length===0){
+
+alert(
+"Please add products to your cart first."
+);
+
+return;
+
+}
+
+let amount=0;
+
+cart.forEach(function(item){
+
+amount+=
+item.price*item.qty;
+
+});
+
+let upiID=
+"ay2279832@axl";
+
+let upiURL=
+"upi://pay"+
+"?pa="+encodeURIComponent(upiID)+
+"&pn="+encodeURIComponent("Apna Bakery")+
+"&am="+encodeURIComponent(amount)+
+"&cu=INR";
+
+window.location.href=
+upiURL;
+
+}
+
+
+/* PLACE ORDER */
 
 function placeOrder(){
 
@@ -960,6 +1653,7 @@ alert(
 return;
 
 }
+
 
 let name=
 document
@@ -979,6 +1673,7 @@ document
 .value
 .trim();
 
+
 if(
 !name ||
 !phone ||
@@ -986,63 +1681,101 @@ if(
 ){
 
 alert(
-"Please enter name, mobile number and delivery address."
+"Please enter your name, mobile number and complete address."
 );
 
 return;
 
 }
 
+
 let payment=
 document.querySelector(
 'input[name="payment"]:checked'
 ).value;
+
+
+/* COD TIME SECURITY */
+
+if(payment==="COD" && !isCODAvailable()){
+
+alert(
+"Cash on Delivery is available only from 6:00 AM to 8:00 PM. Please select UPI."
+);
+
+document.getElementById("upiRadio").checked=true;
+
+return;
+
+}
+
 
 let total=
 document
 .getElementById("total")
 .innerText;
 
+
 let orderList="";
+
 
 cart.forEach(function(item){
 
 orderList+=
-"• "+item.name+
-" x "+item.qty+
-" = ₹"+(item.price*item.qty)+
+"• "+
+item.name+
+" x "+
+item.qty+
+" = ₹"+
+(item.price*item.qty)+
 "\n";
 
 });
 
+
 let message=
 
-"*NEW ORDER - APNA BAKERY*\n\n"+
+"*NEW ORDER - APNA BAKERY*"+
+"\n\n"+
 
-"Customer Name: "+name+"\n"+
+"Customer Name: "+
+name+
+"\n"+
 
-"Mobile: "+phone+"\n"+
+"Mobile: "+
+phone+
+"\n"+
 
-"Address: "+address+"\n\n"+
+"Address: "+
+address+
+"\n\n"+
 
-"*ORDER ITEMS*\n"+
-
+"*ORDER ITEMS*"+
+"\n"+
 orderList+
+"\n"+
 
-"\nTotal: ₹"+total+"\n"+
+"Total: ₹"+
+total+
+"\n"+
 
-"Payment: "+payment+"\n\n"+
+"Payment: "+
+payment+
+"\n\n"+
 
 "Please confirm my order.";
 
+
 let whatsappNumber=
 "919301272240";
+
 
 let whatsappURL=
 "https://wa.me/"+
 whatsappNumber+
 "?text="+
 encodeURIComponent(message);
+
 
 window.open(
 whatsappURL,
@@ -1054,7 +1787,16 @@ whatsappURL,
 
 /* START */
 
+updateCOD();
+
 renderCart();
+
+/* Check COD status every minute */
+
+setInterval(
+updateCOD,
+60000
+);
 
 </script>
 
